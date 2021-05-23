@@ -1,0 +1,23 @@
+# Formato de entrada dos dados
+# – as informa¸c˜oes s˜ao separadas por ponto-e-v´ırgula
+# – brancos no in´ıcio e no fim de cada campo devem ser retirados antes da aplica¸c˜ao da opera¸c˜ao
+# – I indica inser¸c˜ao, e as informa¸c˜oes que se seguem s˜ao nome do produto, quantidade em estoque, pre¸co unit´ario e localiza¸c˜ao
+# – A indica altera¸c˜ao, e as informa¸c˜oes que se seguem s˜ao quantidade em estoque, pre¸co unit´ario e localiza¸c˜ao. N˜ao ´e poss´ıvel alterar o nome de um produto. Quando alguma informa¸c˜ao ´e omitida, significa que o respectivo campo n˜ao deve ser alterado.
+# – R indica remo¸c˜ao, e a informa¸c˜ao que se segue ´e o c´odigo do produto a ser removido
+# – no caso da opera¸c˜ao de inser¸c˜ao, caso seja informado um c´odigo j´a existente no cadastro, a opera¸c˜ao de inser¸c˜ao deve ser ignorada.
+# – no caso das opera¸c˜oes de altera¸c˜ao e remo¸c˜ao, caso seja informado um c´odigo inexistente no
+
+I;20;parafuso 3mm;500;2,00;prateleira 5A
+I;7;bucha 2p;100;1,20;prateleira 1B
+I;11;alicate fino;20;30,00;prateleira 3C
+I;5;chave inglesa;80;8,00;prateleira 5C
+I;13;chave de fenda 1p;30;15,00;prateleira 7A
+R;7
+I;120;lixa 2mm;300;1,50;prateleira 3A
+I;80;parafuso 5mm;250;3,00;prateleira 5B
+A;7;200;1,30;prateleira 1C
+R;55
+A;30;;25,00;prateleira 2B
+I;70;broca 8p;140;5,00;prateleira 5C
+R;13
+A;5;;;prateleira 2B
