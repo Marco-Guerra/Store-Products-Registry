@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../structs/list.h"
+#include "../structs/queue.h"
 #include "../models/product.h"
 
 #ifdef __gnu_linux__

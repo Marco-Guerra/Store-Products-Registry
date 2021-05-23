@@ -6,7 +6,7 @@
  * @date 03/05/2021
  */
 
-#include "list.h"
+#include "queue.h"
 
 int emptyQueue(Queue *queue) {
     return (queue->head == NULL);

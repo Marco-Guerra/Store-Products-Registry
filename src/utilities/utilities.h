@@ -24,12 +24,12 @@
  * @brief Indica qual tecla quando pressionada move a opção selecionada
  * uma para cima
  */
-#define CIMA 'w'
+#define UP 'w'
 
 /**
  * @brief Indica qual tecla quando pressionada move a opção selecionada
  * uma para baixo
  */
-#define BAIXO 's'
+#define DOWN 's'
 
 char getChar();
