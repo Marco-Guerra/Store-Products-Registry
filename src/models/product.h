@@ -28,11 +28,11 @@
  */
 typedef struct {
     int code;               /// código do produto
-    char name[MAX_NOME];    /// nome do produto
+    char name[MAX_NAME];    /// nome do produto
     int number;             /// quantidade de produtos em estoque
     float value;            /// preço do produto
     char local[MAX_LOCAL];  /// local em que o produto está no estoque
-}Produto;
+}Product;
 
 /**
  * @brief Aloca um produto
@@ -59,7 +59,7 @@ void readCodeProduct(int *code);
  * @pre Nenhuma
  * @post Informação lida do teclado
  */
-void readNameProduto(char *name);
+void readNameProduct(char *name);
 
 /**
  * @brief Lê do teclado o
@@ -96,6 +96,6 @@ void readLocalProduct(char *local);
  * @pre O produto p deve ter sido alocado
  * @post Produto p desalocado
  */
-void freeProduct(Produto *product);
+void freeProduct(Product *product);
 
 #endif

@@ -6,9 +6,9 @@
  * @date 03/05/2021
  */
  
-#include "produto.h"
+#include "product.h"
 
-Produto* allocProduct() {
+Product* allocProduct() {
     return (Product *)malloc(sizeof(Product));
 }
 

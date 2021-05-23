@@ -7,155 +7,156 @@
  * @date 03/05/2021
  */
 
-#include "../headers/menu.h"
+#include "main_menu.h"
 
-void printCabecalho(const char *mensagem) {
+void printHead(const char *message) {
     system(CLEAR);
-    printLinha();
-    printAlinhadoCentro(mensagem);
-    printLinha();
+    printLine();
+    printAlignedCenter(message);
+    printLine();
 }
 
-void printAlinhadoDireita(const char *mensagem) {
-    printf("|%s", mensagem);
+void printAlignedRight(const char *message) {
+    printf("|%s", message);
     // -2 por causa dos |
-    printExtedido(' ', TAM_LINHA - strlen(mensagem) - 2);
+    printExtended(' ', SIZE_LINE - strlen(message) - 2);
     printf("|\n");
 }
 
-void printAlinhadoCentro(const char *mensagem) {
-    int tam_escrito = (strlen(mensagem) + 2);
-    int espaco = (TAM_LINHA - tam_escrito) / 2;
+void printAlignedCenter(const char *message) {
+    int sizeRead = (strlen(message) + 2);
+    int space = (SIZE_LINE - sizeRead) / 2;
     printf("|");
-    printExtedido(' ', espaco);
-    printf("%s", mensagem);
-    printExtedido(' ', espaco);
-    if (!(tam_escrito % 2)) {
+    printExtended(' ', space);
+    printf("%s", message);
+    printExtended(' ', space);
+    if (!(sizeRead % 2)) {
         printf(" ");
     }
     printf("|\n");
 }
 
-void printAlinhadoEsquerda(const char *mensagem) {
+void printAlignedLeft(const char *message) {
     printf("|");
-    printExtedido(' ', (TAM_LINHA - (strlen(mensagem) + 2)));
-    printf("%s|\n", mensagem);
+    printExtended(' ', (SIZE_LINE - (strlen(message) + 2)));
+    printf("%s|\n", message);
 }
 
-void printOpcao(const char* mensagem, int selecionado) {
+void printOption(const char* message, int selected) {
     printf("| [");
-    if(selecionado) {
+    if(selected) {
         printf("x");
     }else {
         printf(" ");
     }
-    printf("] %s", mensagem);
+    printf("] %s", message);
     // 6 caracteres antes da mensagem e 1 depois
-    printExtedido(' ', TAM_LINHA - (strlen(mensagem) + 7));
+    printExtended(' ', SIZE_LINE - (strlen(message) + 7));
     printf("|\n");
 }
 
-void printLinha() {
+void printLine() {
     printf("|");
-    printExtedido('-', TAM_LINHA - 2);
+    printExtended('-', SIZE_LINE - 2);
     printf("|\n");
 }
 
-void printExtedido(char c, int qnt) {
-    for(int i = 0; i < qnt; i++) {
+void printExtended(char c, int number) {
+    for(int i = 0; i < number; i++) {
         printf("%c", c);
     }
 }
 
-void printMenuEspera() {
-    printLinha();
+void printWaitMenu() {
+    printLine();
     // imprime uma linha em branco
-    printf("|%*s|\n", TAM_LINHA - 2, "");
-    printf("|%*s|\n", TAM_LINHA - 2, "");
-    printAlinhadoCentro("Pressione [Enter] para continuar");
-    printf("|%*s|\n", TAM_LINHA - 2, "");
-    printf("|%*s|\n", TAM_LINHA - 2, "");
-    printLinha();
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printAlignedCenter("Pressione [Enter] para continuar");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printLine();
     getchar();
 }
 
-void printMensagemFinal() {
+void printEndMessage() {
     system(CLEAR);
-    printLinha();
-    printf("|%*s|\n", TAM_LINHA - 2, "");
-    printf("|%*s|\n", TAM_LINHA - 2, "");
-    printAlinhadoCentro("Programa finalizado com sucesso");
-    printf("|%*s|\n", TAM_LINHA - 2, "");
-    printf("|%*s|\n", TAM_LINHA - 2, "");
-    printLinha();
+    printLine();
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printAlignedCenter("Programa finalizado com sucesso");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printLine();
 }
 
-void printMenuPrincipal(int escolhido) {
-    printCabecalho("Controle de Estoque (Nome Legal)");
-    printOpcao("Inserir", escolhido == 0);
-    printOpcao("Remover", escolhido == 1);
-    printOpcao("Alterar quantidade em estoque", escolhido == 2);
-    printOpcao("Alterar preco", escolhido == 3);
-    printOpcao("Alterar local do produto", escolhido == 4);
-    printOpcao("Carregar estoque", escolhido == 5);
-    printOpcao("Buscar produto", escolhido == 6);
-    printOpcao("Listar produtos", escolhido == 7);
-    printOpcao("Mostar arvore", escolhido == 8);
-    printOpcao("Mostrar posicoes livres", escolhido == 9);
-    printOpcao("Finalizar programa", escolhido == 10);
-    printLinha();
+void printMainMenu(int selected) {
+    printHead("Controle de Estoque (Nome Legal)");
+    printOption("Inserir", selected == 0);
+    printOption("Remover", selected == 1);
+    printOption("Alterar quantidade em estoque", selected == 2);
+    printOption("Alterar preco", selected == 3);
+    printOption("Alterar local do produto", selected == 4);
+    printOption("Carregar estoque", selected == 5);
+    printOption("Buscar produto", selected == 6);
+    printOption("Listar produtos", selected == 7);
+    printOption("Mostar arvore", selected == 8);
+    printOption("Mostrar posicoes livres", selected == 9);
+    printOption("Finalizar programa", selected == 10);
+    printLine();
 }
 
-void printFila(Fila *f) {
-    printLinha();
-    printAlinhadoDireita("Conteudo da Fila");
-    printLinha();
-    if (vaziaFila(f)) {
-        printAlinhadoDireita("[vazia]");
+void printQueue(Queue *queue) {
+    printLine();
+    printAlignedRight("Conteudo da Fila");
+    printLine();
+    if (emptyQueue(queue)) {
+        printAlignedRight("[vazia]");
     }else {
         printf("|");
-        printFilaCauda(f->cabeca, f->cauda);
+        printQueueTail(queue->head, queue->tail);
         printf("|\n");
     }
-    printLinha();
+    printLine();
 }
 
-void printFilaCauda(No *inicio, No *fim) {
-    if (inicio == fim) {
-        printf("|%d", inicio->info);
+void printQueueTail(Node *start, Node *end) {
+    if (start == end) {
+        printf("|%d", start->data);
     }else {
-        printf("|%d ", inicio->info);
-        printFilaCauda(inicio->prox, fim);
+        printf("|%d ", start->data);
+        printQueueTail(start->prox, end);
     }
 }
 
-void printProduto(Produto p) {
-    int tam = 11;
+void printProduct(Product product) {
+    int size = 11;
     char buffer[50];
-    printLinha();
 
-    sprintf(buffer, "%d", p.cod);
+    printLine();
+
+    sprintf(buffer, "%d", product.code);
     printf("|Codigo    : %s", buffer);
-    printExtedido(' ', TAM_LINHA - (tam + strlen(buffer) + 3));
+    printExtended(' ', SIZE_LINE - (size + strlen(buffer) + 3));
     printf("|\n");
 
-    printf("|Nome      : %s", p.nome);
-    printExtedido(' ', TAM_LINHA - (tam + strlen(p.nome) + 3));
+    printf("|Nome      : %s", product.name);
+    printExtended(' ', SIZE_LINE - (size + strlen(product.name) + 3));
     printf("|\n");
 
-    sprintf(buffer, "%d", p.qnt);
+    sprintf(buffer, "%d", product.number);
     printf("|Quantidade: %s", buffer);
-    printExtedido(' ', TAM_LINHA - (tam + strlen(buffer) + 3));
+    printExtended(' ', SIZE_LINE - (size + strlen(buffer) + 3));
     printf("|\n");
 
-    sprintf(buffer, "%.2f R$", p.preco);
+    sprintf(buffer, "%.2f R$", product.value);
     printf("|Preco     : %s", buffer);
-    printExtedido(' ', TAM_LINHA - (tam + strlen(buffer) + 3));
+    printExtended(' ', SIZE_LINE - (size + strlen(buffer) + 3));
     printf("|\n");
 
-    printf("|Local     : %s", p.local);
-    printExtedido(' ', TAM_LINHA - (tam + strlen(p.local) + 3));
+    printf("|Local     : %s", product.local);
+    printExtended(' ', SIZE_LINE - (size + strlen(product.local) + 3));
     printf("|\n");
 
-    printLinha();
+    printLine();
 }

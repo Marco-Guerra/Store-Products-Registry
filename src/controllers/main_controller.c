@@ -7,104 +7,102 @@
  * @date 04/05/2021
  */
 
-#include "../headers/controle_principal.h"
+#include "main_controller.h"
+#include "../utilities/utilities.h"
+#include "../views/main_menu.h"
 
-int confirmacao() {
+int confirm() {
     printf("Opa chefia quer fazer isso msm? [S/n]\n");
     return getChar() != 'n';
 }
 
-void controleMenuPrincipal(char **caminho) {
-    int opcao = 0;
+void controlMainMenu(char **caminho) {
+    int option = 0;
     char c;
-    for(printMenuPrincipal(opcao); 1; printMenuPrincipal(opcao)) {
+    for(printMainMenu(option); 1; printMainMenu(option)) {
         c = getChar();
         if (c == CIMA) {
-            if (opcao > 0) {
-                opcao--;
+            if (option > 0) {
+                option--;
             }
         }else if (c == BAIXO) {
-            if (opcao < ULTIMA_OPCAO_MENU_PRICIPAL) {
-                opcao++;
+            if (option < ULTIMA_OPCAO_MENU_PRICIPAL) {
+                option++;
             }
         }else if (c == ENTER) {
-            if (opcao == 0) {
-                controleMenuInserir();
-            }else if (opcao == 1) {
+            if (option == 0) {
+                controlInsertMenu();
+            }else if (option == 1) {
                 printLine();
-                printAlinhadoDireita("Escolhi o 1");
+                printAlignedRight("Escolhi o 1");
                 printLine();
-                printMenuEspera();
-            }else if (opcao == 2) {
+                printWaitMenu();
+            }else if (option == 2) {
                 printLine();
-                printAlinhadoDireita("Escolhi o 2");
+                printAlignedRight("Escolhi o 2");
                 printLine();
-                printMenuEspera();
-            }else if (opcao == 3) {
+                printWaitMenu();
+            }else if (option == 3) {
                 printLine();
-                printAlinhadoDireita("Escolhi o 3");
+                printAlignedRight("Escolhi o 3");
                 printLine();
-                printMenuEspera();
-            }else if (opcao == 4) {
+                printWaitMenu();
+            }else if (option == 4) {
                 printLine();
-                printAlinhadoDireita("Escolhi o 4");
+                printAlignedRight("Escolhi o 4");
                 printLine();
-                printMenuEspera();
-            }else if (opcao == 5) {
+                printWaitMenu();
+            }else if (option == 5) {
                 printLine();
-                printAlinhadoDireita("Escolhi o 5");
+                printAlignedRight("Escolhi o 5");
                 printLine();
-                printMenuEspera();
-            }else if (opcao == 6) {
+                printWaitMenu();
+            }else if (option == 6) {
                 printLine();
-                printAlinhadoDireita("Escolhi o 6");
+                printAlignedRight("Escolhi o 6");
                 printLine();
-                printMenuEspera();
-            }else if (opcao == 7) {
+                printWaitMenu();
+            }else if (option == 7) {
                 printLine();
-                printAlinhadoDireita("Escolhi o 7");
+                printAlignedRight("Escolhi o 7");
                 printLine();
-                printMenuEspera();
-            }else if (opcao == 8) {
+                printWaitMenu();
+            }else if (option == 8) {
                 printLine();
-                printAlinhadoDireita("Escolhi o 8");
+                printAlignedRight("Escolhi o 8");
                 printLine();
-                printMenuEspera();
-            }else if (opcao == 9) {
+                printWaitMenu();
+            }else if (option == 9) {
                 printLine();
-                printAlinhadoDireita("Escolhi o 9");
+                printAlignedRight("Escolhi o 9");
                 printLine();
-                printMenuEspera();
+                printWaitMenu();
             }else {
                 return;
             }
         }else {
             system(CLEAR);
             printLine();
-            printAlinhadoDireita("Entrada do teclado incorreta");
+            printAlignedRight("Entrada do teclado incorreta");
             printLine();
-            printMenuEspera();
+            printWaitMenu();
         }
     }
 }
 
-// =================================================
-
-#include "../headers/controle_operacao.h"
-
-void controleMenuInserir() {
+void controlInsertMenu() {
     printHead("Inserindo novo produto");
     Product *product = allocProduct();
     printf("\n\n   Insira o codigo do produto: ");
-    readCodeProduct(&p->cod);
+    readCodeProduct(&product->code);
     printf("   Insira o nome do produto: ");
-    readNameProduct(p->nome);
+    readNameProduct(product->name);
     printf("   Insira a quantidade produto(s): ");
-    readNumberProduct(&p->qnt);
+    readNumberProduct(&product->number);
     printf("   Insira o preco do produto: ");
-    readValueProduct(&p->preco);
+    readValueProduct(&product->value);
     printf("   Insira o local do produto: ");
-    readLocalProduct(p->local);
+    readLocalProduct(product->local);
 
     printf("\n\n");
     printProduct(*product);
@@ -113,5 +111,5 @@ void controleMenuInserir() {
         printHead("Operacao bem suces");
     }
 
-    printMenuEspera();
+    printWaitMenu();
 }

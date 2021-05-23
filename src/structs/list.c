@@ -6,7 +6,7 @@
  * @date 03/05/2021
  */
 
-#include "../headers/fila.h"
+#include "list.h"
 
 int emptyQueue(Queue *queue) {
     return (queue->head == NULL);
@@ -22,7 +22,7 @@ Queue* createQueue() {
     return newQueue;
 }
 
-No* allocNode() {
+Node* allocNode() {
     return (Node *)malloc(sizeof(Node));
 }
 
@@ -31,7 +31,7 @@ int sizeQueue(Queue *queue) {
 }
 
 int removeQueue(Queue * queue) {
-    Node *heada = queue->head;
+    Node *head = queue->head;
     int data = head->data;
 
     if (head == queue->tail) {
@@ -45,11 +45,11 @@ int removeQueue(Queue * queue) {
 }
 
 void insertQueue(Queue *queue, int data) {
-    No *newTail = allocNode();
+    Node *newTail = allocNode();
     newTail->data = data;
     newTail->prox = NULL;
 
-    if (emptyQueue(f)) {
+    if (emptyQueue(queue)) {
         queue->head = newTail;
     }else {
         queue->tail->prox = newTail;

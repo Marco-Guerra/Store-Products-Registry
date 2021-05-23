@@ -11,31 +11,8 @@
  */
 
 #include "menu.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-
-#ifdef __gnu_linux__
-#include <termios.h>
-#include <limits.h>
-#include <unistd.h>
-#else
-#include <conio.h>
-#include <wchar.h>
-#include <windows.h>
-#endif
-
-/**
- * @brief Indica qual tecla quando pressionada move a opção selecionada
- * uma para cima
- */
-#define CIMA 'w'
-
-/**
- * @brief Indica qual tecla quando pressionada move a opção selecionada
- * uma para baixo
- */
-#define BAIXO 's'
+#include "../utilities/utilities.h"
+#include "../views/main_menu.h"
 
 /**
  * @brief Indica qual a última opção que o menu principal possui
@@ -52,7 +29,7 @@
  * @pre stdin limpo
  * @post Nenhuma
  */
-int confirmacao();
+int confirm();
 
 /**
  * @brief Responsável por controlar o menu principal
@@ -60,7 +37,7 @@ int confirmacao();
  * @pre Nenhuma
  * @post Nenhuma
  */
-void controleMenuPrincipal(char **caminho);
+void controlMainMenu(char **caminho);
 
 #endif
 
@@ -78,8 +55,9 @@ void controleMenuPrincipal(char **caminho);
  *
  */
 
-#include "produto.h"
+#include "../models/product.h"
 #include "menu.h"
-void controleMenuInserir();
+
+void controlInsertMenu();
 
 #endif

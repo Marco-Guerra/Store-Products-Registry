@@ -14,8 +14,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "fila.h"
-#include "produto.h"
+#include "../structs/list.h"
+#include "../models/product.h"
 
 #ifdef __gnu_linux__
 /**
@@ -42,16 +42,16 @@
 /**
  * @brief Define o tamanho de uma linha do menu
  */
-#define TAM_LINHA 101
+#define SIZE_LINE 101
 
 /**
  * @brief Imprime o cabeçalho do menu
  *
- * @param mensagem Título do cabeçalho
+ * @param message Título do cabeçalho
  * @pre Nenhuma
  * @post Cabeçalho do menu impresso
  */
-void printCabecalho(const char *mensagem);
+void printHead(const char *message);
 
 /**
  * @brief Imprime uma linha com um mensagem alinhada à direita
@@ -60,25 +60,25 @@ void printCabecalho(const char *mensagem);
  * @pre Nenhuma
  * @post Linha impressa na tela
  */
-void printAlinhadoDireita(const char *mensagem);
+void printAlignedRight(const char *message);
 
 /**
  * @brief Imprime uma linha com um mensagem alinhada no centro
  *
- * @param mensagem mensagem a ser impressa
+ * @param message mensagem a ser impressa
  * @pre Nenhuma
  * @post Linha impressa na tela
  */
-void printAlinhadoCentro(const char *mensagem);
+void printAlignedCenter(const char *message);
 
 /**
  * @brief Imprime uma linha com um mensagem alinhada à esquerda
  *
- * @param mensagem mensagem a ser impressa
+ * @param message mensagem a ser impressa
  * @pre Nenhuma
  * @post Linha impressa na tela
  */
-void printAlinhadoEsquerda(const char *mensagem);
+void printAlignedLeft(const char *message);
 
 /**
  * @brief Imprime uma linha do menu, contendo uma opção
@@ -86,12 +86,12 @@ void printAlinhadoEsquerda(const char *mensagem);
  * Sendo a opção podendo estar selecionada ou não a partir do
  * parâmetro "selecionado"
  *
- * @param mensagem
+ * @param message
  * @param selecionado
  * @pre Nenhuma
  * @post Nenhuma
  */
-void printOpcao(const char* mensagem, int selecionado);
+void printOption(const char* message, int selected);
 
 /**
  * @brief Imprime uma linha separadora, preenchida com '-'
@@ -99,17 +99,17 @@ void printOpcao(const char* mensagem, int selecionado);
  * @pre Nenhuma
  * @post Uma única linha separadora impressa no menu
  */
-void printLinha();
+void printLine();
 
 /**
  * @brief Imprime um caractere (qnt) vezes
  *
  * @param c caractere a ser impresso no Menu
- * @param qnt quantidade de vezes que o caractere deve ser impresso
+ * @param number quantidade de vezes que o caractere deve ser impresso
  * @pre Nenhuma
  * @post Caractere impresso (qnt) vezes na tela
  */
-void printExtedido(char c, int qnt);
+void printExtended(char c, int number);
 
 /**
  * @brief Imprime um menu para pausar o programa, semelhante
@@ -118,7 +118,7 @@ void printExtedido(char c, int qnt);
  * @pre buffer stdout limpo
  * @post Nenhuma
  */
-void printMenuEspera();
+void printWaitMenu();
 
 /**
  * @brief Imprime a mensagem que indica o encerramento do programa
@@ -126,47 +126,47 @@ void printMenuEspera();
  * @pre Nenhuma
  * @post Nenhuma
  */
-void printMensagemFinal();
+void printEndMessage();
 
 /**
  * @brief Imprime na tela o menu principal
  *
- * @param escolhido inteiro correspondente a qual
+ * @param selected inteiro correspondente a qual
  * opção está selecionada
  * @pre Nenhuma
  * @post Menu principal impresso na tela
  */
-void printMenuPrincipal(int escolhido);
+void printMainMenu(int selected);
 
 /**
  * @brief Interface para imprimir todos os elementos da fila
  *
- * @param f Uma fila
+ * @param Queue Uma fila
  *
  * @pre Nenhuma
  * @post Nenhuma
  */
-void printFila(Fila *f);
+void printQueue(Queue *queue);
 
 /**
  * @brief Imprime recursivamente todos os elementos da fila
  *
- * @param inicio Primeiro elemento da fila, ou
+ * @param start Primeiro elemento da fila, ou
  * em chamadas posteriores o elemento atual da impressão
- * @param fim Ultimo elemento da fila
+ * @param end Ultimo elemento da fila
  *
  * @pre Nenhuma
  * @post Nenhuma
  */
-void printFilaCauda(No *inicio, No *fim);
+void printQueueTail(Node *start, Node *end);
 
 /**
  * @brief Imprime um produto na tela
  *
- * @param p Um produto
+ * @param product Um produto
  * @pre O Produto deve ter todos os campos inicializados
  * @post Produto impresso na tela
  */
-void printProduto(Produto p);
+void printProduct(Product product);
 
 #endif

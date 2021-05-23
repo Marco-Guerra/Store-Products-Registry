@@ -1,3 +1,4 @@
+#include "utilities.h"
 
 #ifdef __gnu_linux__
 
@@ -32,6 +33,7 @@ char getChar() {
 
     return character;
 }
+
 #else
 
 /**
@@ -57,4 +59,5 @@ char getChar() {
     SetConsoleMode( h, mode );
     return c;
 }
+
 #endif
