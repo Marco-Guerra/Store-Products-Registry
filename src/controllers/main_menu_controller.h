@@ -1,5 +1,5 @@
-#ifndef CONTROLE
-#define CONTROLE
+#ifndef MAIN_MENU_CONTROLLER
+#define MAIN_MENU_CONTROLLER
 
 /**
  * @file controle_principal.h
@@ -9,40 +9,6 @@
  * @version 0.1
  * @date 04/05/2021
  */
-
-#include "../utilities/utilities.h"
-#include "../views/main_menu.h"
-#include "menu_controller.h"
-
-/**
- * @brief Indica qual a última opção que o menu principal possui
- *
- * Dessa forma também informa a quantidade total de opções no menu
- */
-#define LAST_OPTION 10
-
-/**
- * @brief Lê uma confirmação do usuário
- *
- * @return int boolenano, 1 quando o usuário confirmou
- * 0 quando negou a operação
- * @pre stdin limpo
- * @post Nenhuma
- */
-int confirm();
-
-/**
- * @brief Responsável por controlar o menu principal
- *
- * @pre Nenhuma
- * @post Nenhuma
- */
-void controlMainMenu(char **caminho);
-
-#endif
-
-#ifndef CONTROLE_OPERACAO
-#define CONTROLE_OPERACAO
 
 /**
  * @file controle_operacao.h
@@ -55,11 +21,12 @@ void controlMainMenu(char **caminho);
  *
  */
 
-#include "../models/product.h" 
+#include "../utilities/menu.h"
+#include "../utilities/utilities.h"
+#include "search_menu_controller.h"
+#include "change_menu_controller.h"
 
-void controlInsertMenu();
-
-void mainMenuController();
+int mainMenuController();
 
 int actionInsert();
 int actionSearch();

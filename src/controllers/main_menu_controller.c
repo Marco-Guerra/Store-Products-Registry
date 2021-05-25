@@ -8,12 +8,21 @@
 
 #include "main_menu_controller.h"
 
-int confirm() {
-    printf("Opa chefia quer fazer isso msm? [S/n]\n");
-    return getChar() != 'n';
+int mainMenuController(char **filePath) {
+    Menu *mainMenu = createMenu();
+    
+    addEntryToMenu(mainMenu, "Insert", actionInsert);
+    addEntryToMenu(mainMenu, "Search", actionSearch);
+    addEntryToMenu(mainMenu, "Change", actionChange);
+    addEntryToMenu(mainMenu, "Load", actionLoad);
+    addEntryToMenu(mainMenu, "Remove", actionRemove);
+    addEntryToMenu(mainMenu, "Close", actionClose);
+    
+    controlMenu(mainMenu);
+    return 1;
 }
 
-void controlInsertMenu() {
+int actionInsert() {
     printHead("Inserindo novo produto");
     Product *product = allocProduct();
     printf("\n\n   Insira o codigo do produto: ");
@@ -35,134 +44,39 @@ void controlInsertMenu() {
     }
 
     printWaitMenu();
-}
-
-/*void mainMenuController(char **filePath) {
-    int option = 0;
-    char c;
-    
-    printMainMenu(option);
-
-    while(1) {
-        c = getChar();
-        
-        if (c == UP && option > 0) {
-            option--;    
-        }else if (c == DOWN && option < LAST_OPTION) {
-            option++;
-        }
-
-        if (c == ENTER) {
-            switch(option)
-            {
-                case 0:
-                    controlInsertMenu(); 
-                    break;
-                case 1:
-                    printLine();
-                    printAlignedRight("Escolhi o 1");
-                    printLine();
-                    printWaitMenu();
-                    break;
-                case 2:
-                    printLine();
-                    printAlignedRight("Escolhi o 2");
-                    printLine();
-                    printWaitMenu();
-                    break;
-                case 3:
-                    printLine();
-                    printAlignedRight("Escolhi o 2");
-                    printLine();
-                    printWaitMenu();
-                    break;
-                case 4:
-                    printLine();
-                    printAlignedRight("Escolhi o 2");
-                    printLine();
-                    printWaitMenu();
-                    break;
-                case 5:
-                    printLine();
-                    printAlignedRight("Escolhi o 2");
-                    printLine();
-                    printWaitMenu();
-                    break;
-                case 6:
-                    printLine();
-                    printAlignedRight("Escolhi o 2");
-                    printLine();
-                    printWaitMenu();
-                    break;
-                case 7:
-                    printLine();
-                    printAlignedRight("Escolhi o 2");
-                    printLine();
-                    printWaitMenu();
-                    break;
-                case 8:
-                    printLine();
-                    printAlignedRight("Escolhi o 2");
-                    printLine();
-                    printWaitMenu();
-                    break;
-                case 9:
-                    printLine();
-                    printAlignedRight("Escolhi o 2");
-                    printLine();
-                    printWaitMenu();
-                    break;
-                default:
-                    return;
-            }
-        }else {
-            system(CLEAR);
-            printLine();
-            printAlignedRight("Entrada do teclado incorreta");
-            printLine();
-            printWaitMenu();
-        }
-
-        printMainMenu(option);
-    }
-}*/
-
-void mainMenuController(char **filePath) {
-
-    printf("==============================================");
-
-    Menu *mainMenu = createMenu();
-    
-    addEntryToMenu(mainMenu, "1", actionInsert);
-    addEntryToMenu(mainMenu, "2", actionSearch);
-    addEntryToMenu(mainMenu, "3", actionChange);
-    addEntryToMenu(mainMenu, "4", actionLoad);
-    addEntryToMenu(mainMenu, "5", actionRemove);
-    addEntryToMenu(mainMenu, "6", actionClose);
-    
-    controlMenu(mainMenu);
-}
-
-int actionInsert() {
-
+    return 1;
 }
 
 int actionSearch() {
-
+    searchMenuController();
+    return 1;
 }
 
 int actionChange() {
-
+    changeMenuController();
+    return 1;
 }
 
 int actionLoad() {
-
+    printLine();
+    printAlignedRight("Load");
+    printLine();
+    printWaitMenu();
+    return 1;
 }
 
 int actionRemove() {
-
+    printLine();
+    printAlignedRight("Remove");
+    printLine();
+    printWaitMenu();
+    return 1;
 }
 
 int actionClose() {
-
+    printLine();
+    printAlignedRight("Close");
+    printLine();
+    printWaitMenu();
+    return 0;
 }

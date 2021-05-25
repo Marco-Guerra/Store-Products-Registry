@@ -58,3 +58,26 @@ void insertQueue(Queue *queue, int data) {
     queue->size++;
     queue->tail = newTail;
 }
+
+void printQueue(Queue *queue) {
+    printLine();
+    printAlignedRight("Conteudo da Fila");
+    printLine();
+    if (emptyQueue(queue)) {
+        printAlignedRight("[vazia]");
+    }else {
+        printf("|");
+        printQueueTail(queue->head, queue->tail);
+        printf("|\n");
+    }
+    printLine();
+}
+
+void printQueueTail(Node *start, Node *end) {
+    if (start == end) {
+        printf("|%d", start->data);
+    }else {
+        printf("|%d ", start->data);
+        printQueueTail(start->prox, end);
+    }
+}

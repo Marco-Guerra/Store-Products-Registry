@@ -1,5 +1,5 @@
-#ifndef ARVORE
-#define ARVORE
+#ifndef TREE
+#define TREE
 
 /**
  * @file arvore.h
@@ -12,7 +12,7 @@
  *
  */
 
-#include "fila.h"
+#include "queue.h"
 
 typedef struct {
 

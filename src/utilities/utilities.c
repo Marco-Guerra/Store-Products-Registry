@@ -61,3 +61,53 @@ char getChar() {
 }
 
 #endif
+
+int confirm() {
+    printf("Opa chefia quer fazer isso msm? [S/n]\n");
+    return getChar() != 'n';
+}
+
+void printHead(const char *message) {
+    system(CLEAR);
+    printLine();
+    printAlignedCenter(message);
+    printLine();
+}
+
+void printAlignedRight(const char *message) {
+    printf("|%s", message);
+    // -2 por causa dos |
+    printExtended(' ', SIZE_LINE - strlen(message) - 2);
+    printf("|\n");
+}
+
+void printAlignedCenter(const char *message) {
+    int sizeRead = (strlen(message) + 2);
+    int space = (SIZE_LINE - sizeRead) / 2;
+    printf("|");
+    printExtended(' ', space);
+    printf("%s", message);
+    printExtended(' ', space);
+    if (!(sizeRead % 2)) {
+        printf(" ");
+    }
+    printf("|\n");
+}
+
+void printAlignedLeft(const char *message) {
+    printf("|");
+    printExtended(' ', (SIZE_LINE - (strlen(message) + 2)));
+    printf("%s|\n", message);
+}
+
+void printLine() {
+    printf("|");
+    printExtended('-', SIZE_LINE - 2);
+    printf("|\n");
+}
+
+void printExtended(char c, int number) {
+    for(int i = 0; i < number; i++) {
+        printf("%c", c);
+    }
+}

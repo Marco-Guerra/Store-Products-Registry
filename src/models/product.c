@@ -35,3 +35,35 @@ void readLocalProduct(char *local) {
 void freeProduct(Product *product) {
     free(product);
 }
+
+void printProduct(Product product) {
+    int size = 11;
+    char buffer[50];
+
+    printLine();
+
+    sprintf(buffer, "%d", product.code);
+    printf("|Codigo    : %s", buffer);
+    printExtended(' ', SIZE_LINE - (size + strlen(buffer) + 3));
+    printf("|\n");
+
+    printf("|Nome      : %s", product.name);
+    printExtended(' ', SIZE_LINE - (size + strlen(product.name) + 3));
+    printf("|\n");
+
+    sprintf(buffer, "%d", product.number);
+    printf("|Quantidade: %s", buffer);
+    printExtended(' ', SIZE_LINE - (size + strlen(buffer) + 3));
+    printf("|\n");
+
+    sprintf(buffer, "%.2f R$", product.value);
+    printf("|Preco     : %s", buffer);
+    printExtended(' ', SIZE_LINE - (size + strlen(buffer) + 3));
+    printf("|\n");
+
+    printf("|Local     : %s", product.local);
+    printExtended(' ', SIZE_LINE - (size + strlen(product.local) + 3));
+    printf("|\n");
+
+    printLine();
+}

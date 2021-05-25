@@ -1,4 +1,4 @@
-#include "menu_controller.h"
+#include "menu.h"
 
 EntryQueue* createEntryQueue() {
     EntryQueue *newQueue = (EntryQueue *)malloc(sizeof(EntryQueue));
@@ -50,13 +50,6 @@ void insertEntryQueue(EntryQueue *queue, char *message, TypeFunct *funct) {
     queue->tail = newTail;
 }
 
-void printEntryQueueTail(EntryNode *start, EntryNode *end) {
-    printf("|%s", start->entryMessage);
-    if (start != end) {
-        printEntryQueueTail(start->prox, end);
-    }
-}
-
 Menu *createMenu() {
     Menu* menu = (Menu *)malloc(sizeof(Menu));
     menu->options = 0;
@@ -70,37 +63,68 @@ void addEntryToMenu(Menu *menu, char *message, TypeFunct *funct) {
     insertEntryQueue(menu->queue, message, funct);
 }
 
-void controlMenu(Menu *menu) {
+int executeEntry(EntryQueue *queue, int option) {
+    int i, ret;
+    EntryNode *node = queue->head;
+    for(i = 0; i < option; i++)
+        node = node->prox;
+    return (*(node->funct))();
+}
+
+int controlMenu(Menu *menu) {
     char c;
 
     while(1) {
+        system(CLEAR);
+
         printMenu(menu);
 
         c = getChar();
         
         if (c == UP && menu->thisOption > 0) {
             menu->thisOption--;    
-        }else if (c == DOWN && menu->thisOption < menu->options) {
+        }else if (c == DOWN && menu->thisOption < menu->options - 1) {
             menu->thisOption++;
         }else if(c == ENTER) {
-
+            if(executeEntry(menu->queue, menu->thisOption) == 0)
+                return 1;
         }else{
-
+            printLine();
+            printAlignedRight("Entrada do teclado incorreta");
+            printLine();
+            printWaitMenu();
         }
-
     }
 }
 
 void printMenu(Menu *menu) {
     printLine();
-    printAlignedRight("Conteudo da Fila");
+    printAlignedRight(" Menu Principal");
     printLine();
     if (emptyEntryQueue(menu->queue)) {
         printAlignedRight("[vazia]");
     }else {
-        printf("|");
-        printEntryQueueTail(menu->queue->head, menu->queue->tail);
-        printf("|\n");
+        printEntryQueueTail(menu->queue->head, menu->queue->tail, menu->thisOption);
     }
     printLine();
+}
+
+void printOption(const char* message, int selected) {
+    printf("| [");
+    if(selected) {
+        printf("x");
+    }else {
+        printf(" ");
+    }
+    printf("] %s", message);
+    // 6 caracteres antes da mensagem e 1 depois
+    printExtended(' ', SIZE_LINE - (strlen(message) + 7));
+    printf("|\n");
+}
+
+void printEntryQueueTail(EntryNode *start, EntryNode *end, int i) {
+    printOption(start->entryMessage, 0 == i);
+    if (start != end) {
+        printEntryQueueTail(start->prox, end, --i);
+    }
 }

@@ -1,5 +1,5 @@
-#ifndef FILA_H
-#define FILA_H
+#ifndef QUEUE
+#define QUEUE
 
 /**
  * @file fila.h
@@ -12,8 +12,7 @@
  * @date 03/05/2021
  */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "../utilities/utilities.h"
 
 /**
  * @brief Estrutura que representa um único elemento da fila
@@ -87,5 +86,27 @@ int removeQueue(Queue * queue);
  * @param data o valor a ser inserido
  */
 void insertQueue(Queue *queue, int data);
+
+/**
+ * @brief Interface para imprimir todos os elementos da fila
+ *
+ * @param Queue Uma fila
+ *
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
+void printQueue(Queue *queue);
+
+/**
+ * @brief Imprime recursivamente todos os elementos da fila
+ *
+ * @param start Primeiro elemento da fila, ou
+ * em chamadas posteriores o elemento atual da impressão
+ * @param end Ultimo elemento da fila
+ *
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
+void printQueueTail(Node *start, Node *end);
 
 #endif

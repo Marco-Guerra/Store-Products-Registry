@@ -1,5 +1,5 @@
-#ifndef PRODUTO
-#define PRODUTO
+#ifndef PRODUCT
+#define PRODUCT
 
 /**
  * @file produto.h
@@ -9,9 +9,7 @@
  * @date 21/05/2021
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "../utilities/utilities.h"
 
 /**
  * @brief Indica a quantidade máxima de caracteres possíveis de se guardar em um nome
@@ -97,5 +95,14 @@ void readLocalProduct(char *local);
  * @post Produto p desalocado
  */
 void freeProduct(Product *product);
+
+/**
+ * @brief Imprime um produto na tela
+ *
+ * @param product Um produto
+ * @pre O Produto deve ter todos os campos inicializados
+ * @post Produto impresso na tela
+ */
+void printProduct(Product product);
 
 #endif

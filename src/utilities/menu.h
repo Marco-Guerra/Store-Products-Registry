@@ -1,16 +1,13 @@
-#ifndef MENU_CONTROLLER
-#define MENU_CONTROLLER
-
-#include "../utilities/utilities.h"
+#ifndef MENU
+#define MENU
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "../views/main_menu.h"
-#include "menu_controller.h"
-
-#define MESSAGE_SIZE 101
+#include "utilities.h"
+#include "../controllers/menu_messages.h"
+#include "../models/product.h"
 
 typedef int TypeFunct();
 
@@ -43,7 +40,23 @@ void insertEntryQueue(EntryQueue *queue, char *message, TypeFunct *funct);
 
 Menu *createMenu();
 void addEntryToMenu(Menu *menu, char *message, TypeFunct *funct);
-void controlMenu(Menu *menu);
+int executeEntry(EntryQueue *queue, int option);
+int controlMenu(Menu *menu);
 void printMenu(Menu *menu);
+
+/**
+ * @brief Imprime uma linha do menu, contendo uma opção
+ *
+ * Sendo a opção podendo estar selecionada ou não a partir do
+ * parâmetro "selecionado"
+ *
+ * @param message
+ * @param selecionado
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
+void printOption(const char* message, int selected);
+
+void printEntryQueueTail(EntryNode *start, EntryNode *end, int i);
 
 #endif
