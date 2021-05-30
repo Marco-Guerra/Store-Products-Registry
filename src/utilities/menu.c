@@ -58,8 +58,18 @@ Menu *createMenu() {
     return menu;
 }
 
+/**
+ * @brief Adiciona mais uma opção ao menu passado por parâmetro
+ * 
+ * @param menu ponteiro para uma estrutura que contém as 
+ * informações de um menu
+ * @param message informação impressa no menu, resume o que a função faz
+ * @param funct função a ser executada ao selecionar o item
+ * @pre Menu carregado
+ * @post Mais uma função ao menu
+ */
 void addEntryToMenu(Menu *menu, char *message, TypeFunct *funct) {
-    menu->options++;;
+    menu->options++;
     insertEntryQueue(menu->queue, message, funct);
 }
 
@@ -71,6 +81,17 @@ int executeEntry(EntryQueue *queue, int option, FILE *dataFile) {
     return (*(node->funct))(dataFile);
 }
 
+/**
+ * @brief Realiza o controle de um menu previamente criado
+ * 
+ * @param menu ponteiro para uma estrutura que contém as 
+ * informações de um menu
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
+ * @return int (ver se não é void)
+ * @pre todas as informações do menu previamente carregadas e 
+ * ponteiro para arquivo aberto
+ * @post o menu chamado será executado, bem como a função selecionada
+ */
 int controlMenu(Menu *menu, FILE *dataFile) {
     char c;
 
