@@ -61,6 +61,10 @@ void writeHead(Head *head, FILE *dataFile);
 
 Head *readHead(FILE *dataFile);
 
+void writeRegRoot(int regRoot, FILE *dataFile);
+
+int readRegRoot(FILE *dataFile);
+
 FILE *makeDataFile(char *filePath);
 
 void writeNode(FILE *dataFile, Node *node, int position);

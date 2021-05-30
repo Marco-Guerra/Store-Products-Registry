@@ -42,8 +42,21 @@ Head *readHead(FILE *dataFile) {
     return head;
 }
 
+void writeRegRoot(int regRoot, FILE *dataFile) {
+    fseek(dataFile, 0, SEEK_SET);
+    fwrite(&regRoot, sizeof(int), 1, dataFile);
+}
+
+int readRegRoot(FILE *dataFile) {
+    int regRoot;
+    fseek(dataFile, 0, SEEK_SET);
+    fread(&regRoot, sizeof(int), 1, dataFile);
+    return regRoot;
+}
+
 FILE *makeDataFile(char *filePath) {
-    FILE *dataFile = fopen(filePath, "wb");
+    FILE *dataFile = fopen(filePath, "w+b");
+    setbuf(dataFile, NULL);
     Head head;
     head.regRoot = -1;
     head.regLast = 0;
@@ -59,7 +72,7 @@ void writeNode(FILE *dataFile, Node *node, int position) {
 
 Node *makeNode(Product *product, int rChild, int lChild) {
     Node *node = (Node*)malloc(sizeof(Node));
-    memcpy(product, &(node->product), sizeof(Product));
+    node->product = (*product);
     node->rChild = rChild;
     node->lChild = lChild;
     return node;
@@ -76,8 +89,7 @@ int insertNode(FILE *dataFile, Node *node) {
     Head *head = readHead(dataFile);
     int position;
     if(head->regFree == -1) {
-        position = head->regLast;
-        head->regLast++;
+        position = head->regLast++;
     }else{
         position = head->regFree;
         Node *fileNode = readNode(dataFile, position);
@@ -133,17 +145,13 @@ int minimum(FILE *dataFile){
 }
 
 int insertProduct(FILE *dataFile, Product *product) {
-    Head *head = readHead(dataFile);
-    int regRoot;
-    if(head->regRoot == -1) {
+    int regRoot = readRegRoot(dataFile);
+    if(regRoot == -1) {
         Node *node = makeNode(product, -1, -1);
-        regRoot = head->regRoot = insertNode(dataFile, node);  
-        writeHead(head, dataFile);
-        free(head);
+        regRoot = insertNode(dataFile, node);
+        writeRegRoot(regRoot, dataFile);
         free(node);
     }else{
-        regRoot = head->regRoot;
-        free(head);
         regRoot = insertProductRec(dataFile, regRoot, product);
     }
     return regRoot;
