@@ -1,4 +1,4 @@
-#include "product_tree.h"
+#include "input_file.h"
 
 void loadInputFile(char *inputPath, FILE *dataFile) {
     FILE *inputFile = fopen(inputPath, "r");
@@ -8,12 +8,14 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
         //fscanf();
 
         switch(c) {
-            case 'I':
+            case 'I': insertFornFile(line);
                 break;
-            case 'A':
+            case 'A': modifyFornFile(line);
                 break;
-            case 'R':
+            case 'R': removeFromFile(line);
                 break;
+            default:
+                
         }
     }
     fclose(inputFile);

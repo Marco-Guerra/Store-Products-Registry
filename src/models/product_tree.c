@@ -1,118 +1,4 @@
-/**
- * @file produto.c
- * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
- * @brief Arquivo responsável por implementar as operações sobre um único produto do estoque
- * @version 0.1
- * @date 03/05/2021
- */
- 
 #include "product_tree.h"
-
-Product *allocProduct() {
-    Product *product = (Product *)malloc(sizeof(Product));
-    product->code = 0;
-    reset(product->name, MAX_NAME);
-    product->number = 0;
-    product->value = 0;
-    reset(product->local, MAX_LOCAL);
-    return product;
-}
-
-Node *allocNode() {
-    Node *node = (Node *)malloc(sizeof(Node));
-    node->product.code = 0;
-    reset(node->product.name, MAX_NAME);
-    node->product.number = 0;
-    node->product.value = 0;
-    reset(node->product.local, MAX_LOCAL);
-    node->rChild = -1;
-    node->lChild = -1;
-    return node;
-}
-
-void writeHead(Head *head, FILE *dataFile) {
-    fseek(dataFile, 0, SEEK_SET);
-    fwrite(head, sizeof(Head), 1, dataFile);
-}
-
-Head *readHead(FILE *dataFile) {
-    Head *head = (Head*) malloc(sizeof(Head));
-    fseek(dataFile, 0, SEEK_SET);
-    fread(head, sizeof(Head), 1, dataFile);
-    return head;
-}
-
-void writeRegRoot(int regRoot, FILE *dataFile) {
-    fseek(dataFile, 0, SEEK_SET);
-    fwrite(&regRoot, sizeof(int), 1, dataFile);
-}
-
-int readRegRoot(FILE *dataFile) {
-    int regRoot;
-    fseek(dataFile, 0, SEEK_SET);
-    fread(&regRoot, sizeof(int), 1, dataFile);
-    return regRoot;
-}
-
-FILE *makeDataFile(char *filePath) {
-    FILE *dataFile = fopen(filePath, "w+b");
-    setbuf(dataFile, NULL);
-    Head head;
-    head.regRoot = -1;
-    head.regLast = 0;
-    head.regFree = -1;
-    writeHead(&head, dataFile);
-    return dataFile;
-}
-
-void writeNode(FILE *dataFile, Node *node, int position) {
-    fseek(dataFile, sizeof(Head) + position * sizeof(Node), SEEK_SET);
-    fwrite(node, sizeof(Node), 1, dataFile);
-}
-
-Node *makeNode(Product *product, int rChild, int lChild) {
-    Node *node = (Node*)malloc(sizeof(Node));
-    node->product = (*product);
-    node->rChild = rChild;
-    node->lChild = lChild;
-    return node;
-}
-
-Node *readNode(FILE *dataFile, int position) {
-    Node *node = (Node*)malloc(sizeof(Node));
-    fseek(dataFile, sizeof(Head) + position * sizeof(Node), SEEK_SET);
-    fread(node, sizeof(Node), 1, dataFile);
-    return node;
-}
-
-int insertNode(FILE *dataFile, Node *node) {
-    Head *head = readHead(dataFile);
-    int position;
-    if(head->regFree == -1) {
-        position = head->regLast++;
-    }else{
-        position = head->regFree;
-        Node *fileNode = readNode(dataFile, position);
-        head->regFree = fileNode->rChild;
-        free(fileNode);
-    }
-    writeNode(dataFile, node, position);
-    writeHead(head, dataFile);
-    free(head);
-    return position;
-}
-
-int removeNode(FILE *dataFile, int position) {
-    Node *node = allocNode();
-    Head *head = readHead(dataFile);
-    node->rChild = head->regFree;
-    head->regFree = position;
-    writeHead(head, dataFile);
-    writeNode(dataFile, node, position);
-    free(node);
-    free(head);
-    return 0;
-}
 
 int maximum(FILE *dataFile){
     Head *head = readHead(dataFile);
@@ -145,11 +31,11 @@ int minimum(FILE *dataFile){
 }
 
 int insertProduct(FILE *dataFile, Product *product) {
-    int regRoot = readRegRoot(dataFile);
+    int regRoot = readHeadField(OFFSET_REG_ROOT, dataFile);
     if(regRoot == -1) {
         Node *node = makeNode(product, -1, -1);
         regRoot = insertNode(dataFile, node);
-        writeRegRoot(regRoot, dataFile);
+        writeHeadField(regRoot, OFFSET_REG_ROOT, dataFile);
         free(node);
     }else{
         regRoot = insertProductRec(dataFile, regRoot, product);
@@ -237,27 +123,4 @@ int searchProductByNameRec(FILE *dataFile, int this, char *name) {
     if(strcmp(name, node->product.name) == 0)
         return this;
     return searchProductByNameRec(dataFile, lChild, name) + searchProductByNameRec(dataFile, rChild, name) + 1;
-}
-
-void printProduct(Product *product) {
-    printf("\nNome: %s.\n", product->name);
-    printf("Code: %d.\n", product->code);
-    printf("Number: %d.\n", product->number);
-    printf("Value: %f.\n", product->value);
-    printf("Local: %s.\n\n", product->local);
-}
-
-Product* scanProduct() {
-    Product* product = (Product *)malloc(sizeof(Product));
-    printf("\nNome: ");
-    scanf("%[^\n]%*c", product->name);
-    printf("Code: ");
-    scanf("%d", &product->code);
-    printf("Number: ");
-    scanf("%d", &product->number);
-    printf("Value: ");
-    scanf("%f%*c", &product->value);
-    printf("Local: ");
-    scanf("%[^\n]%*c", product->local);
-    return product;
 }

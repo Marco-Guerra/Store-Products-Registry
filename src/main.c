@@ -1,6 +1,6 @@
 #include "./controllers/main_menu_controller.h"
-#include "./models/product_tree.h"
 #include "./models/input_file.h"
+#include "./models/product_tree.h"
 
 int main(int argc, char *argv[]) {
     char filePath[] = "./data.bin";
@@ -18,7 +18,6 @@ int main(int argc, char *argv[]) {
     }
 
     mainMenuController(dataFile);
-
     fclose(dataFile);
 
     return 0;
