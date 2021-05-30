@@ -75,7 +75,7 @@ int removeNode(FILE *dataFile, int position);
 
 int maximum(FILE *dataFile);
 
-int manimum(FILE *dataFile);
+int minimum(FILE *dataFile);
 
 int insertProduct(FILE *dataFile, Product *product);
 

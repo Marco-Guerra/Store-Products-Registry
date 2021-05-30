@@ -27,6 +27,7 @@ Node *allocNode() {
     reset(node->product.local, MAX_LOCAL);
     node->rChild = -1;
     node->lChild = -1;
+    return node;
 }
 
 void writeHead(Head *head, FILE *dataFile) {
@@ -42,7 +43,7 @@ Head *readHead(FILE *dataFile) {
 }
 
 FILE *makeDataFile(char *filePath) {
-    FILE *dataFile = fopen(filePath, "wbx");
+    FILE *dataFile = fopen(filePath, "wb");
     Head head;
     head.regRoot = -1;
     head.regLast = 0;
@@ -73,18 +74,20 @@ Node *readNode(FILE *dataFile, int position) {
 
 int insertNode(FILE *dataFile, Node *node) {
     Head *head = readHead(dataFile);
+    int position;
     if(head->regFree == -1) {
-        writeNode(dataFile, node, head->regLast);
-        return head->regLast++;
+        position = head->regLast;
+        head->regLast++;
     }else{
-        int position = head->regFree;
+        position = head->regFree;
         Node *fileNode = readNode(dataFile, position);
-        head->regFree = node->rChild;
+        head->regFree = fileNode->rChild;
         free(fileNode);
-        writeNode(dataFile, node, position);
-        return position;
     }
+    writeNode(dataFile, node, position);
+    writeHead(head, dataFile);
     free(head);
+    return position;
 }
 
 int removeNode(FILE *dataFile, int position) {
@@ -114,7 +117,7 @@ int maximum(FILE *dataFile){
     return position;
 }
 
-int manimum(FILE *dataFile){
+int minimum(FILE *dataFile){
     Head *head = readHead(dataFile);
     int position = head->regRoot;
     free(head);
@@ -136,14 +139,14 @@ int insertProduct(FILE *dataFile, Product *product) {
         Node *node = makeNode(product, -1, -1);
         regRoot = head->regRoot = insertNode(dataFile, node);  
         writeHead(head, dataFile);
-        free(node);
         free(head);
-        return regRoot;
+        free(node);
     }else{
         regRoot = head->regRoot;
         free(head);
-        return insertProductRec(dataFile, regRoot, product);
+        regRoot = insertProductRec(dataFile, regRoot, product);
     }
+    return regRoot;
 }
 
 int insertProductRec(FILE *dataFile, int this, Product *product) {
@@ -167,7 +170,7 @@ int insertProductRec(FILE *dataFile, int this, Product *product) {
             free(node);
             return new;
         }
-        this = node->lChild;
+        this = node->rChild;
     }
     free(node);
     return insertProductRec(dataFile, this, product);
@@ -220,20 +223,19 @@ int searchProductByNameRec(FILE *dataFile, int this, char *name) {
     if(this == -1)
         return -1;
     Node *node = readNode(dataFile, this);
-    int thisCode = node->product.code;
     int rChild = node->rChild;
     int lChild = node->lChild;
     free(node);
     if(strcmp(name, node->product.name) == 0)
         return this;
-    return searchProductByNameRec(dataFile, node->lChild, name) + searchProductByNameRec(dataFile, node->rChild, name) + 1;
+    return searchProductByNameRec(dataFile, lChild, name) + searchProductByNameRec(dataFile, rChild, name) + 1;
 }
 
 void printProduct(Product *product) {
     printf("\nNome: %s.\n", product->name);
     printf("Code: %d.\n", product->code);
     printf("Number: %d.\n", product->number);
-    printf("Value: %d.\n", product->value);
+    printf("Value: %f.\n", product->value);
     printf("Local: %s.\n\n", product->local);
 }
 
@@ -242,13 +244,12 @@ Product* scanProduct() {
     printf("\nNome: ");
     scanf("%[^\n]%*c", product->name);
     printf("Code: ");
-    scanf("%d", &(product->code));
+    scanf("%d", &product->code);
     printf("Number: ");
-    scanf("%d", &(product->number));
+    scanf("%d", &product->number);
     printf("Value: ");
-    scanf("%f%*c", &(product->value));
+    scanf("%f%*c", &product->value);
     printf("Local: ");
     scanf("%[^\n]%*c", product->local);
-    printf("fsdfsdfsdf");
     return product;
 }
