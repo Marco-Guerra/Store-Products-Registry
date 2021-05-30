@@ -240,14 +240,15 @@ void printProduct(Product *product) {
 Product* scanProduct() {
     Product* product = (Product *)malloc(sizeof(Product));
     printf("\nNome: ");
-    scanf("%s", product->name);
+    scanf("%[^\n]%*c", product->name);
     printf("Code: ");
     scanf("%d", &(product->code));
     printf("Number: ");
     scanf("%d", &(product->number));
     printf("Value: ");
-    scanf("%d", &(product->value));
+    scanf("%f%*c", &(product->value));
     printf("Local: ");
-    scanf("%s", product->local);
+    scanf("%[^\n]%*c", product->local);
+    printf("fsdfsdfsdf");
     return product;
 }

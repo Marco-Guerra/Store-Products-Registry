@@ -17,7 +17,7 @@ int searchMenuController(FILE *dataFile) {
 int actionSearchProductByName(FILE *dataFile) {
     char name[MAX_NAME];
     printf("Insira o nome do produto: ");
-    scanf("%s", name);
+    scanf("%[^\n]%*c", name);
     searchProductByName(dataFile, name);
     printWaitMenu();
     return 1;
