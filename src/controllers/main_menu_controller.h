@@ -23,16 +23,17 @@
 
 #include "../utilities/menu.h"
 #include "../utilities/utilities.h"
+#include "../models/product_tree.h"
 #include "search_menu_controller.h"
 #include "change_menu_controller.h"
 
-int mainMenuController();
+int mainMenuController(FILE *dataFile);
 
-int actionInsert();
-int actionSearch();
-int actionChange();
-int actionLoad();
-int actionRemove();
-int actionClose();
+int actionInsert(FILE *dataFile);
+int actionSearch(FILE *dataFile);
+int actionChange(FILE *dataFile);
+int actionLoad(FILE *dataFile);
+int actionRemove(FILE *dataFile);
+int actionClose(FILE *dataFile);
 
 #endif

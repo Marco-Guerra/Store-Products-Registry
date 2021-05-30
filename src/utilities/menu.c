@@ -63,15 +63,15 @@ void addEntryToMenu(Menu *menu, char *message, TypeFunct *funct) {
     insertEntryQueue(menu->queue, message, funct);
 }
 
-int executeEntry(EntryQueue *queue, int option) {
+int executeEntry(EntryQueue *queue, int option, FILE *dataFile) {
     int i, ret;
     EntryNode *node = queue->head;
     for(i = 0; i < option; i++)
         node = node->prox;
-    return (*(node->funct))();
+    return (*(node->funct))(dataFile);
 }
 
-int controlMenu(Menu *menu) {
+int controlMenu(Menu *menu, FILE *dataFile) {
     char c;
 
     while(1) {
@@ -81,12 +81,18 @@ int controlMenu(Menu *menu) {
 
         c = getChar();
         
-        if (c == UP && menu->thisOption > 0) {
-            menu->thisOption--;    
-        }else if (c == DOWN && menu->thisOption < menu->options - 1) {
-            menu->thisOption++;
+        if (c == UP) {
+            if(menu->thisOption > 0)
+                menu->thisOption--;    
+            else
+                menu->thisOption = menu->options - 1;
+        }else if (c == DOWN) {
+            if(menu->thisOption < menu->options - 1)
+                menu->thisOption++;    
+            else
+                menu->thisOption = 0;
         }else if(c == ENTER) {
-            if(executeEntry(menu->queue, menu->thisOption) == 0)
+            if(executeEntry(menu->queue, menu->thisOption, dataFile) == 0)
                 return 1;
         }else{
             printLine();
@@ -127,4 +133,27 @@ void printEntryQueueTail(EntryNode *start, EntryNode *end, int i) {
     if (start != end) {
         printEntryQueueTail(start->prox, end, --i);
     }
+}
+
+void printWaitMenu() {
+    printLine();
+    // imprime uma linha em branco
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printAlignedCenter("Pressione [Enter] para continuar");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printLine();
+    getchar();
+}
+
+void printEndMessage() {
+    system(CLEAR);
+    printLine();
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printAlignedCenter("Programa finalizado com sucesso");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printf("|%*s|\n", SIZE_LINE - 2, "");
+    printLine();
 }

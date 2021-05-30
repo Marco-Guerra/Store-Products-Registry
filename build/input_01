@@ -6,7 +6,6 @@
 # – R indica remo¸c˜ao, e a informa¸c˜ao que se segue ´e o c´odigo do produto a ser removido
 # – no caso da opera¸c˜ao de inser¸c˜ao, caso seja informado um c´odigo j´a existente no cadastro, a opera¸c˜ao de inser¸c˜ao deve ser ignorada.
 # – no caso das opera¸c˜oes de altera¸c˜ao e remo¸c˜ao, caso seja informado um c´odigo inexistente no
-
 I;20;parafuso 3mm;500;2,00;prateleira 5A
 I;7;bucha 2p;100;1,20;prateleira 1B
 I;11;alicate fino;20;30,00;prateleira 3C

@@ -1,42 +1,29 @@
 #include "change_menu_controller.h"
 
-int changeMenuController() {
+int changeMenuController(FILE *dataFile) {
     Menu *changeMenu = createMenu();
     
     addEntryToMenu(changeMenu, "Alterar estoque.", actionChangeNumber);
     addEntryToMenu(changeMenu, "Alterar preco.", actionChangeValue);
     addEntryToMenu(changeMenu, "Alterar localizacao.", actionChangeLocal);
-    addEntryToMenu(changeMenu, "voltar.", actionChangeReturn);
+    addEntryToMenu(changeMenu, "Voltar.", actionChangeReturn);
     
-    controlMenu(changeMenu);
+    controlMenu(changeMenu, dataFile);
     return 1;
 }
 
-int actionChangeNumber() {
-    printLine();
-    printAlignedRight("");
-    printLine();
+int actionChangeNumber(FILE *dataFile) {
     printWaitMenu();
 }
 
-int actionChangeValue() {
-    printLine();
-    printAlignedRight("");
-    printLine();
+int actionChangeValue(FILE *dataFile) {
     printWaitMenu();
 }
 
-int actionChangeLocal() {
-    printLine();
-    printAlignedRight("");
-    printLine();
+int actionChangeLocal(FILE *dataFile) {
     printWaitMenu();
 }
 
-int actionChangeReturn() {
-    printLine();
-    printAlignedRight("");
-    printLine();
-    printWaitMenu();
+int actionChangeReturn(FILE *dataFile) {
     return 0;
 }

@@ -8,75 +8,49 @@
 
 #include "main_menu_controller.h"
 
-int mainMenuController(char **filePath) {
+int mainMenuController(FILE *dataFile) {
     Menu *mainMenu = createMenu();
     
-    addEntryToMenu(mainMenu, "Insert", actionInsert);
-    addEntryToMenu(mainMenu, "Search", actionSearch);
-    addEntryToMenu(mainMenu, "Change", actionChange);
-    addEntryToMenu(mainMenu, "Load", actionLoad);
-    addEntryToMenu(mainMenu, "Remove", actionRemove);
-    addEntryToMenu(mainMenu, "Close", actionClose);
+    addEntryToMenu(mainMenu, "Inserir produto.", actionInsert);
+    addEntryToMenu(mainMenu, "Buscar produto.", actionSearch);
+    addEntryToMenu(mainMenu, "Cambiar informacao de produto..", actionChange);
+    addEntryToMenu(mainMenu, "Carregar lista de produtos.", actionLoad);
+    addEntryToMenu(mainMenu, "Remover produto.", actionRemove);
+    addEntryToMenu(mainMenu, "Fechar programa.", actionClose);
     
-    controlMenu(mainMenu);
+    controlMenu(mainMenu, dataFile);
     return 1;
 }
 
-int actionInsert() {
-    printHead("Inserindo novo produto");
-    Product *product = allocProduct();
-    printf("\n\n   Insira o codigo do produto: ");
-    readCodeProduct(&product->code);
-    printf("   Insira o nome do produto: ");
-    readNameProduct(product->name);
-    printf("   Insira a quantidade produto(s): ");
-    readNumberProduct(&product->number);
-    printf("   Insira o preco do produto: ");
-    readValueProduct(&product->value);
-    printf("   Insira o local do produto: ");
-    readLocalProduct(product->local);
-
-    printf("\n\n");
-    printProduct(*product);
-
-    if (confirm()) {
-        printHead("Operacao bem suces");
-    }
-
+int actionInsert(FILE *dataFile) {
+    Product *product = scanProduct();
+    insertProduct(dataFile, product);
+    free(product);
     printWaitMenu();
     return 1;
 }
 
-int actionSearch() {
-    searchMenuController();
+int actionSearch(FILE *dataFile) {
+    searchMenuController(dataFile);
     return 1;
 }
 
-int actionChange() {
-    changeMenuController();
+int actionChange(FILE *dataFile) {
+    changeMenuController(dataFile);
     return 1;
 }
 
-int actionLoad() {
-    printLine();
-    printAlignedRight("Load");
-    printLine();
+int actionLoad(FILE *dataFile) {
     printWaitMenu();
     return 1;
 }
 
-int actionRemove() {
-    printLine();
-    printAlignedRight("Remove");
-    printLine();
+int actionRemove(FILE *dataFile) {
     printWaitMenu();
     return 1;
 }
 
-int actionClose() {
-    printLine();
-    printAlignedRight("Close");
-    printLine();
-    printWaitMenu();
+int actionClose(FILE *dataFile) {
+    printEndMessage();
     return 0;
 }

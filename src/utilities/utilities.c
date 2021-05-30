@@ -62,6 +62,12 @@ char getChar() {
 
 #endif
 
+void reset(char *str, int size) {
+    int i;
+    for(i = 0; i < size; i++)
+        str[i] = '\0';
+}
+
 int confirm() {
     printf("Opa chefia quer fazer isso msm? [S/n]\n");
     return getChar() != 'n';

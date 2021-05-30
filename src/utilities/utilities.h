@@ -19,6 +19,7 @@
 #include <termios.h>
 #include <limits.h>
 #include <unistd.h>
+#include <string.h>
 
 /**
  * @brief Indica qual o valor ascii da tecla enter no sistema operacional Linux
@@ -68,6 +69,8 @@
 #define SIZE_LINE 101
 
 char getChar();
+
+void reset(char *str, int size);
 
 /**
  * @brief Lê uma confirmação do usuário

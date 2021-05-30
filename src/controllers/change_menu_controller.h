@@ -3,12 +3,13 @@
 
 #include "../utilities/menu.h"
 #include "../utilities/utilities.h"
+#include "../models/product_tree.h"
 
-int changeMenuController();
+int changeMenuController(FILE *dataFile);
 
-int actionChangeNumber();
-int actionChangeValue();
-int actionChangeLocal();
-int actionChangeReturn();
+int actionChangeNumber(FILE *dataFile);
+int actionChangeValue(FILE *dataFile);
+int actionChangeLocal(FILE *dataFile);
+int actionChangeReturn(FILE *dataFile);
 
 #endif

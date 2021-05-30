@@ -1,54 +1,53 @@
 #include "search_menu_controller.h"
 
-int searchMenuController() {
+int searchMenuController(FILE *dataFile) {
     Menu *searchMenu = createMenu();
     
-    addEntryToMenu(searchMenu, ".", actionProductInfo);
-    addEntryToMenu(searchMenu, ".", actionListProducts);
-    addEntryToMenu(searchMenu, ".", actionPrintTree);
-    addEntryToMenu(searchMenu, ".", actionPrintFreeSpaces);
-    addEntryToMenu(searchMenu, "voltar.", actionSearchReturn);
+    addEntryToMenu(searchMenu, "Buscar produto por nome.", actionSearchProductByName);
+    addEntryToMenu(searchMenu, "Buscar produto por codigo.", actionSearchProductByCode);
+    addEntryToMenu(searchMenu, "Listar produtos.", actionListProducts);
+    addEntryToMenu(searchMenu, "Mostrar arvore.", actionPrintTree);
+    addEntryToMenu(searchMenu, "Mostrar espacos livres.", actionPrintFreeSpaces);
+    addEntryToMenu(searchMenu, "Voltar.", actionSearchReturn);
     
-    controlMenu(searchMenu);
+    controlMenu(searchMenu, dataFile);
     return 1;
 }
 
-int actionProductInfo() {
-    printLine();
-    printAlignedRight("");
-    printLine();
+int actionSearchProductByName(FILE *dataFile) {
+    char name[MAX_NAME];
+    printf("Insira o nome do produto: ");
+    scanf("%s", name);
+    searchProductByName(dataFile, name);
     printWaitMenu();
     return 1;
 }
 
-int actionListProducts() {
-    printLine();
-    printAlignedRight("");
-    printLine();
+int actionSearchProductByCode(FILE *dataFile) {
+    int code;
+    printf("Insira o codigo do produto: ");
+    scanf("%d", code);
+    searchProductByCode(dataFile, code);
     printWaitMenu();
     return 1;
 }
 
-int actionPrintTree() {
-    printLine();
-    printAlignedRight("");
-    printLine();
+int actionListProducts(FILE *dataFile) {
+    
     printWaitMenu();
     return 1;
 }
 
-int actionPrintFreeSpaces() {
-    printLine();
-    printAlignedRight("");
-    printLine();
+int actionPrintTree(FILE *dataFile) {
     printWaitMenu();
     return 1;
 }
 
-int actionSearchReturn() {
-    printLine();
-    printAlignedRight("");
-    printLine();
+int actionPrintFreeSpaces(FILE *dataFile) {
     printWaitMenu();
+    return 1;
+}
+
+int actionSearchReturn(FILE *dataFile) {
     return 0;
 }

@@ -3,13 +3,15 @@
 
 #include "../utilities/menu.h"
 #include "../utilities/utilities.h"
+#include "../models/product_tree.h"
 
-int searchMenuController();
+int searchMenuController(FILE *dataFile);
 
-int actionProductInfo();
-int actionListProducts();
-int actionPrintTree();
-int actionPrintFreeSpaces();
-int actionSearchReturn();
+int actionSearchProductByName(FILE *dataFile);
+int actionSearchProductByCode(FILE *dataFile);
+int actionListProducts(FILE *dataFile);
+int actionPrintTree(FILE *dataFile);
+int actionPrintFreeSpaces(FILE *dataFile);
+int actionSearchReturn(FILE *dataFile);
 
 #endif

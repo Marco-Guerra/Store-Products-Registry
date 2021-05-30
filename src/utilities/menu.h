@@ -6,10 +6,8 @@
 #include <string.h>
 
 #include "utilities.h"
-#include "../controllers/menu_messages.h"
-#include "../models/product.h"
 
-typedef int TypeFunct();
+typedef int TypeFunct(FILE *dataFile);
 
 typedef struct entryNode {
 	char entryMessage[MESSAGE_SIZE];
@@ -40,8 +38,8 @@ void insertEntryQueue(EntryQueue *queue, char *message, TypeFunct *funct);
 
 Menu *createMenu();
 void addEntryToMenu(Menu *menu, char *message, TypeFunct *funct);
-int executeEntry(EntryQueue *queue, int option);
-int controlMenu(Menu *menu);
+int executeEntry(EntryQueue *queue, int option, FILE *dataFile);
+int controlMenu(Menu *menu, FILE *dataFile);
 void printMenu(Menu *menu);
 
 /**
@@ -58,5 +56,22 @@ void printMenu(Menu *menu);
 void printOption(const char* message, int selected);
 
 void printEntryQueueTail(EntryNode *start, EntryNode *end, int i);
+
+/**
+ * @brief Imprime um menu para pausar o programa, semelhante
+ * ao system(PAUSE)
+ *
+ * @pre buffer stdout limpo
+ * @post Nenhuma
+ */
+void printWaitMenu();
+
+/**
+ * @brief Imprime a mensagem que indica o encerramento do programa
+ *
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
+void printEndMessage();
 
 #endif
