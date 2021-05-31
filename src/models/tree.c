@@ -311,23 +311,23 @@ void printByLevel(FILE *dataFile) {
     insertQueue(queue, next, 1);
     int previous_height = 0;
     int current_height;
-    Product *product;
     int read;
     while(!emptyQueue(queue)) {
         current_height = queue->head->tabs;
         next = removeQueue(queue);
         if(previous_height < current_height) {
             previous_height = current_height;
-            printf("\n");
+            printf("\n\tNivel %d: ", current_height);
         }
-        product = readNodeProduct(dataFile, next);
-        printBasicProduct(product);
-        free(product);
-        if((read = readNodeField(OFFSET_NODE_LEFT, next, dataFile)) != -1)
-            insertQueue(queue, read, ++current_height);
-        if((read = readNodeField(OFFSET_NODE_RIGHT, next, dataFile)) != -1)
-            insertQueue(queue, read, ++current_height);
+        printf("  %d", readNodeField(OFFSET_NODE_CODE, next, dataFile));
+        if((read = readNodeField(OFFSET_NODE_LEFT, next, dataFile)) != -1) {
+            insertQueue(queue, read, current_height + 1);
+        }
+        if((read = readNodeField(OFFSET_NODE_RIGHT, next, dataFile)) != -1) {
+            insertQueue(queue, read, current_height + 1);
+        }
     }
+    printf("\n\n");
 }
 
 /**
@@ -337,25 +337,16 @@ void printByLevel(FILE *dataFile) {
  * @pre Nenhuma
  * @post Nenhuma
  */
-void printFreeSpaces(FILE *dataFile) {
-    int firstFreeNode;
-    if (isEmpty(dataFile)) {
-        printAlignedCenter("Arvore vazia.\n");
-        return;
-    }
-    if((firstFreeNode = readHeadField(OFFSET_REG_FREE, dataFile)) == -1) {
-        printAlignedCenter("Nao existe posicoes livres no arquivo");
-        return;
-    }
-    printFreeSpacesRec(dataFile, firstFreeNode);
+void printFree(FILE *dataFile) {
+    printFreeRec(dataFile, readHeadField(OFFSET_REG_FREE, dataFile));
 }
 
-void printFreeSpacesRec(FILE *dataFile, int this) {
+void printFreeRec(FILE *dataFile, int this) {
     if (this == -1)
         return ;
-    char buffer[21];
+    char *buffer = malloc(sizeof(char) * 21); // maior inteiro de 8 bytes
     sprintf(buffer, "%d", this);
     printAlignedLeft(buffer);
-    printFreeSpacesRec(dataFile,
-                       readNodeField(OFFSET_NODE_RIGHT, this, dataFile));
+    free(buffer);
+    printFreeRec(dataFile, readNodeField(OFFSET_NODE_RIGHT, this, dataFile));
 }
