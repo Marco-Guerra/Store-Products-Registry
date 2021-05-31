@@ -23,37 +23,32 @@ int insertProduct(FILE *dataFile, Product *product) {
         regRoot = insertNode(dataFile, node);
         writeHeadField(regRoot, OFFSET_REG_ROOT, dataFile);
         free(node);
+        return regRoot;
     }else{
-        regRoot = insertProductRec(dataFile, regRoot, product);
+        return insertProductRec(dataFile, regRoot, product);
     }
-    return regRoot;
 }
 
 int insertProductRec(FILE *dataFile, int this, Product *product) {
-    Node *node = readNode(dataFile, this);
-    if(product->code < node->product.code) {
-        if(node->lChild == -1) {
+    int position;
+    if(product->code < readNodeField(OFFSET_NODE_CODE, this, dataFile)) {
+        if((position = readNodeField(OFFSET_NODE_LEFT, this, dataFile)) == -1) {
             Node *newNode = makeNode(product, -1, -1);
-            int new = node->lChild = insertNode(dataFile, newNode);
-            writeNode(dataFile, node, this);
+            position = insertNode(dataFile, newNode);
+            writeNodeField(position, OFFSET_NODE_LEFT, this, dataFile);
             free(newNode);
-            free(node);
-            return new;
+            return position;
         }
-        this = node->lChild;
     }else{
-        if(node->rChild == -1) {
+        if((position = readNodeField(OFFSET_NODE_RIGHT, this, dataFile)) == -1) {
             Node *newNode = makeNode(product, -1, -1);
-            int new = node->rChild = insertNode(dataFile, newNode);
-            writeNode(dataFile, node, this);
+            position = insertNode(dataFile, newNode);
+            writeNodeField(position, OFFSET_NODE_RIGHT, this, dataFile);
             free(newNode);
-            free(node);
-            return new;
+            return position;
         }
-        this = node->rChild;
     }
-    free(node);
-    return insertProductRec(dataFile, this, product);
+    return insertProductRec(dataFile, position, product);
 }
 
 int updateProduct(FILE *dataFile, int position, Product *product) {
@@ -63,30 +58,28 @@ int updateProduct(FILE *dataFile, int position, Product *product) {
 }
 
 int removeProduct(FILE *dataFile, int code) {
-    if (isEmpty(dataFile))
-        return -1;
     return removeProductRec(dataFile,
                             readHeadField(OFFSET_REG_ROOT, dataFile),
                             code);
 }
 
 int removeProductRec(FILE *dataFile, int this, int code) {
-    if (this == -1) return -1;
+    if(this == -1) return -1;
     int thisCode = readNodeField(OFFSET_NODE_CODE, this, dataFile);
     int leftChild = readNodeField(OFFSET_NODE_LEFT, this, dataFile);
     int rightChild = readNodeField(OFFSET_NODE_RIGHT, this, dataFile);
-    if (code < thisCode) {
+    if(code < thisCode) {
         leftChild = removeProductRec(dataFile, leftChild, code);
-    } else if (code > thisCode) {
+    }else if (code > thisCode) {
         rightChild = removeProductRec(dataFile, rightChild,  code);
-    } else {
-        if (leftChild == -1 && rightChild == -1) {
+    }else{
+        if(leftChild == -1 && rightChild == -1) {
             removeNode(dataFile, this);
             this = leftChild = rightChild = -1;
-        } else if (leftChild == -1) {
+        }else if(leftChild == -1) {
             thisCode = minimum(dataFile, rightChild);
             rightChild = removeProductRec(dataFile, rightChild, thisCode);
-        } else {
+        }else{
             thisCode = maximum(dataFile, leftChild);
             leftChild = removeProductRec(dataFile, leftChild, thisCode);
         }
@@ -99,22 +92,29 @@ int removeProductRec(FILE *dataFile, int this, int code) {
 }
 
 int searchProductByCode(FILE *dataFile, int code) {
-    return searchProductByCodeRec(dataFile, readHeadField(OFFSET_REG_ROOT, dataFile), code);
+    return searchProductByCodeRec(dataFile,
+                                  readHeadField(OFFSET_REG_ROOT, dataFile),
+                                  code);
 }
 
 int searchProductByCodeRec(FILE *dataFile, int this, int code) {
     if (this == -1) return -1;
     int thisCode = readNodeField(OFFSET_NODE_CODE, this, dataFile);
-    if (thisCode > code) return searchProductByCodeRec(dataFile, readNodeField(OFFSET_NODE_LEFT, this, dataFile), code);
-    if (thisCode < code) return searchProductByCodeRec(dataFile, readNodeField(OFFSET_NODE_RIGHT, this, dataFile), code);
+    if (thisCode > code)
+        return searchProductByCodeRec(dataFile,
+                                      readNodeField(OFFSET_NODE_LEFT, this, dataFile),
+                                      code);
+    if (thisCode < code)
+        return searchProductByCodeRec(dataFile,
+                                      readNodeField(OFFSET_NODE_RIGHT, this, dataFile),
+                                      code);
     return this;
 }
 
 int searchProductByName(FILE *dataFile, char *name) {
-    Head *head = readHead(dataFile);
-    int regRoot = head->regRoot;
-    free(head);
-    return searchProductByNameRec(dataFile, regRoot, name);
+    return searchProductByNameRec(dataFile, 
+                                  readHeadField(OFFSET_REG_ROOT, dataFile),
+                                  name);
 }
 
 int searchProductByNameRec(FILE *dataFile, int this, char *name) {

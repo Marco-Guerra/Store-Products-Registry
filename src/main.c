@@ -2,6 +2,15 @@
 #include "./models/product_tree.h"
 #include "./models/input_file.h"
 
+/**
+ * @brief 
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int main(int argc, char *argv[]) {
     char filePath[] = "./data.bin";
     FILE *dataFile = fopen(filePath, "r+b");
