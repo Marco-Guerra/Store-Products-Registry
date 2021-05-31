@@ -12,12 +12,12 @@
 #include "search_menu_controller.h"
 
 /**
- * @brief
+ * @brief Insere operações de busca no menu
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Menu com funções de busca
  */
 int searchMenuController(FILE *dataFile) {
     Menu *searchMenu = createMenu();
@@ -36,7 +36,7 @@ int searchMenuController(FILE *dataFile) {
 /**
  * @brief 
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
  * @post Nenhuma
@@ -51,12 +51,12 @@ int actionSearchProductByName(FILE *dataFile) {
  */
 
 /**
- * @brief 
+ * @brief Busca produto pelo código
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post produto encontrado pelo código
  */
 int actionSearchProductByCode(FILE *dataFile) {
     int code, position;
@@ -72,12 +72,12 @@ int actionSearchProductByCode(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Imprime arvore binaria de produtos
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Lista de produtos no console
  */
 int actionListProducts(FILE *dataFile) {
     printHead("Imprimindo a Arvore em ordem crescente");
@@ -87,12 +87,12 @@ int actionListProducts(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Imprime arvore binaria em niveis
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Arvore em niveis no console
  */
 int actionPrintTree(FILE *dataFile) {
     printHead("Imprimindo a Arvore em niveis");
@@ -102,12 +102,12 @@ int actionPrintTree(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Imprime espaços em branco
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Espaços no console
  */
 int actionPrintFreeSpaces(FILE *dataFile) {
     printHead("Espacos livres");

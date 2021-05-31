@@ -11,12 +11,12 @@
 #include "change_menu_controller.h"
 
 /**
- * @brief 
+ * @brief Insere atualizações no menu
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Menu alterado
  */
 int changeMenuController(FILE *dataFile) {
     Menu *changeMenu = createMenu();
@@ -31,12 +31,12 @@ int changeMenuController(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Atualiza a quantidade de um produto
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post produto atualizado
  */
 int actionChangeNumber(FILE *dataFile) {
     int code, position;
@@ -58,12 +58,12 @@ int actionChangeNumber(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Atualza o preço do produto
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post preço atualizado
  */
 int actionChangeValue(FILE *dataFile) {
     int code, position;
@@ -85,12 +85,12 @@ int actionChangeValue(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Atualiza o lugar do estoque do produto
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post local alterado
  */
 int actionChangeLocal(FILE *dataFile) {
     int code, position;
@@ -114,10 +114,10 @@ int actionChangeLocal(FILE *dataFile) {
 /**
  * @brief 
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post 
  */
 int actionChangeReturn(FILE *dataFile) {
     return 0;

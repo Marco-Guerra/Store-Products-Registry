@@ -12,12 +12,11 @@
 #include "main_menu_controller.h"
 
 /**
- * @brief 
- * 
- * @param dataFile 
+ * @brief Insere no menu principal cada função necessaria
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Menu com as funções inseridas
  */
 int mainMenuController(FILE *dataFile) {
     Menu *mainMenu = createMenu();
@@ -34,12 +33,12 @@ int mainMenuController(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Insere produto no arquivo
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post produto inserido na arvore
  */
 int actionInsert(FILE *dataFile) {
     Product *product = scanProduct();
@@ -50,12 +49,12 @@ int actionInsert(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief chama funçao responsavel em realizar a busca pelo produto
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post produto encontrado
  */
 int actionSearch(FILE *dataFile) {
     searchMenuController(dataFile);
@@ -63,12 +62,13 @@ int actionSearch(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief chama funçao responsavel em realizar a atualizaçao dos componentes
+ * do produto
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post produto alterado
  */
 int actionChange(FILE *dataFile) {
     changeMenuController(dataFile);
@@ -76,12 +76,12 @@ int actionChange(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Roda arquivo
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post arquivo rodado
  */
 int actionLoad(FILE *dataFile) {
     char inputPath[FILE_PATH_NAME];
@@ -93,12 +93,12 @@ int actionLoad(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Remove produto
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Produto removido
  */
 int actionRemove(FILE *dataFile) {
     int code;
@@ -114,12 +114,13 @@ int actionRemove(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief chama função responsavel por imprimir a mensagem que indica o
+ * encerramento do programa
  * 
- * @param dataFile 
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Mensagem no console
  */
 int actionClose(FILE *dataFile) {
     printEndMessage();
