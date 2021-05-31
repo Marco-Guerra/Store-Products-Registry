@@ -24,7 +24,7 @@ int mainMenuController(FILE *dataFile) {
     
     addEntryToMenu(mainMenu, "Inserir produto.", actionInsert);
     addEntryToMenu(mainMenu, "Buscar produto.", actionSearch);
-    addEntryToMenu(mainMenu, "Cambiar informacao de produto..", actionChange);
+    addEntryToMenu(mainMenu, "Cambiar informacao de produto.", actionChange);
     addEntryToMenu(mainMenu, "Carregar lista de produtos.", actionLoad);
     addEntryToMenu(mainMenu, "Remover produto.", actionRemove);
     addEntryToMenu(mainMenu, "Fechar programa.", actionClose);

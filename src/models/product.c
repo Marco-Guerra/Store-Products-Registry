@@ -33,11 +33,16 @@ Product *allocProduct() {
  * @post Nenhuma
  */
 void printProduct(Product *product) {
-    printf("\nNome: %s.\n", product->name);
-    printf("Code: %d.\n", product->code);
-    printf("Number: %d.\n", product->number);
-    printf("Value: %f.\n", product->value);
-    printf("Local: %s.\n\n", product->local);
+    printLine();
+    printf("\n\tNome: ");
+    printString(product->name);
+    printf("\n\tCode: %d.\n", product->code);
+    printf("\tNumber: %d.\n", product->number);
+    printf("\tValue: %.2f.\n", product->value);
+    printf("\tLocal: ");
+    printString(product->local);
+    printf("\n\n");
+    printLine();
 }
 
 /**

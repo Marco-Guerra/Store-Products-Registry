@@ -102,6 +102,15 @@ int confirm();
 void printHead(const char *message);
 
 /**
+ * @brief 
+ * 
+ * @param message 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
+void printString(const char* message);
+
+/**
  * @brief Imprime uma linha com um mensagem alinhada à direita
  *
  * @param mensagem mensagem a ser impressa

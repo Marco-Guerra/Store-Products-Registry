@@ -41,6 +41,13 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
     fclose(inputFile);
 }
 
+/**
+ * @brief 
+ * 
+ * @param line 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void formatLine(char *line) {
     for(; *line; line++) {
         if(*line == ',') {
@@ -57,9 +64,8 @@ void formatLine(char *line) {
  * @pre Nenhuma
  * @post Nenhuma
  */
-void insertFornLine(char *line, FILE *dataFile) { //////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ <- volta aqui, e faz certo 
+void insertFornLine(char *line, FILE *dataFile) {
     Product *product = (Product*)malloc(sizeof(Product));
-    printf("%s\n", line);
     sscanf(line, "%*c;%d;%[^;];%d;%f;%[^\n]",
         &(product->code),
         product->name,
@@ -67,8 +73,6 @@ void insertFornLine(char *line, FILE *dataFile) { //////////////\\\\\\\\\\\\\\\\
         &(product->value),
         product->local
     );
-    printProduct(product);
-    printWaitMenu();
     if(searchProductByCode(dataFile, product->code) == -1)
         insertProduct(dataFile, product);
     free(product);

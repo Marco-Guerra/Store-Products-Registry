@@ -93,6 +93,13 @@ void printHead(const char *message) {
     printLine();
 }
 
+void printString(const char* message) {
+    if(message == NULL || message[0] == '\0')
+        printf("vazio");
+    else
+        printf("%s", message);
+}
+
 /**
  * @brief 
  * 

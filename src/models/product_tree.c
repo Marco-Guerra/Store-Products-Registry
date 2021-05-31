@@ -125,9 +125,11 @@ int updateProduct(FILE *dataFile, int position, Product *product) {
  * @post Nenhuma
  */
 int removeProduct(FILE *dataFile, int code) {
-    return removeProductRec(dataFile,
-                            readHeadField(OFFSET_REG_ROOT, dataFile),
-                            code);
+    return removeProductRec(
+                dataFile,
+                readHeadField(OFFSET_REG_ROOT, dataFile),
+                code
+            );
 }
 
 /**
@@ -141,29 +143,65 @@ int removeProduct(FILE *dataFile, int code) {
  * @post Nenhuma
  */
 int removeProductRec(FILE *dataFile, int this, int code) {
+    printf("%d\t%d\n", this, code);
+    printWaitMenu();
     if(this == -1) return -1;
     int thisCode = readNodeField(OFFSET_NODE_CODE, this, dataFile);
     int leftChild = readNodeField(OFFSET_NODE_LEFT, this, dataFile);
     int rightChild = readNodeField(OFFSET_NODE_RIGHT, this, dataFile);
     if(code < thisCode) {
-        leftChild = removeProductRec(dataFile, leftChild, code);
+        writeNodeField(
+            removeProductRec(dataFile, leftChild, code),
+            OFFSET_NODE_LEFT,
+            this,
+            dataFile
+        );
     }else if (code > thisCode) {
-        rightChild = removeProductRec(dataFile, rightChild,  code);
+        writeNodeField(
+            removeProductRec(dataFile, rightChild, code),
+            OFFSET_NODE_RIGHT,
+            this,
+            dataFile
+        );
     }else{
         if(leftChild == -1 && rightChild == -1) {
             removeNode(dataFile, this);
-            this = leftChild = rightChild = -1;
+            this = -1;
         }else if(leftChild == -1) {
-            thisCode = minimum(dataFile, rightChild);
-            rightChild = removeProductRec(dataFile, rightChild, thisCode);
+            Product *product;
+            updateProduct(
+                dataFile,
+                this,
+                (product = readNodeProduct(
+                    dataFile,
+                    minimum(dataFile, rightChild)
+                ))
+            );
+            free(product);
+            writeNodeField(
+                removeProductRec(dataFile, rightChild, thisCode),
+                OFFSET_NODE_RIGHT,
+                this,
+                dataFile
+            );
         }else{
-            thisCode = maximum(dataFile, leftChild);
-            leftChild = removeProductRec(dataFile, leftChild, thisCode);
+            Product *product;
+            updateProduct(
+                dataFile,
+                this,
+                (product = readNodeProduct(
+                    dataFile,
+                    maximum(dataFile, leftChild)
+                ))
+            );
+            free(product);
+            writeNodeField(
+                removeProductRec(dataFile, leftChild, thisCode),
+                OFFSET_NODE_LEFT,
+                this,
+                dataFile
+            );
         }
-    }
-    if (this != -1) {
-        writeNodeField(rightChild, OFFSET_NODE_RIGHT, this, dataFile);
-        writeNodeField(leftChild, OFFSET_NODE_LEFT, this, dataFile);
     }
     return this;
 }
@@ -209,6 +247,11 @@ int searchProductByCodeRec(FILE *dataFile, int this, int code) {
 
 /**
  * @brief 
+ * 
+ * deixamos esta funcao em espera
+ * ate o dia em que a gente
+ * aprenda uma forma eficiente 
+ * de buscar uma string entera
  * 
  * @param dataFile 
  * @param name 
