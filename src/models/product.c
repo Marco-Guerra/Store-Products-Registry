@@ -9,11 +9,11 @@
 #include "product.h"
 
 /**
- * @brief 
+ * @brief Aloca estrutura Produto
  * 
  * @return Product* 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Espaço para um produto alocado
  */
 Product *allocProduct() {
     Product *product = (Product *)malloc(sizeof(Product));
@@ -26,11 +26,11 @@ Product *allocProduct() {
 }
 
 /**
- * @brief 
+ * @brief Imprime a descrição do produto
  * 
- * @param product 
+ * @param product ponteiro para uma estrutura com os dados do produto
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Produto descrito no console
  */
 void printProduct(Product *product) {
     printLine();
@@ -60,11 +60,11 @@ void printBasicProduct(Product *product) {
 }
 
 /**
- * @brief 
+ * @brief Lê o produto do teclado
  * 
  * @return Product* 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Produto lido do teclado
  */
 Product* scanProduct() {
     Product* product = (Product *)malloc(sizeof(Product));

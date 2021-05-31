@@ -43,10 +43,31 @@ typedef struct {
  */
 Product* allocProduct();
 
+/**
+ * @brief Imprime a descrição do produto
+ * 
+ * @param product ponteiro para uma estrutura com os dados do produto
+ * @pre Nenhuma
+ * @post Produto descrito no console
+ */
 void printProduct(Product *product);
 
+/**
+ * @brief 
+ * 
+ * @param product 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printBasicProduct(Product *product);
 
+/**
+ * @brief Lê o produto do teclado
+ * 
+ * @return Product* 
+ * @pre Nenhuma
+ * @post Produto lido do teclado
+ */
 Product* scanProduct();
 
 #endif

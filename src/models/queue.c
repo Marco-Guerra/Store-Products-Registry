@@ -12,9 +12,9 @@
 #include "queue.h"
 
 /**
- * @brief 
+ * @brief Verifica se a fila é vazia
  * 
- * @param queue 
+ * @param queue ponteiro para uma estrutura com os dados da fila
  * @return int 
  * @pre Nenhuma
  * @post Nenhuma
@@ -39,36 +39,36 @@ Queue* createQueue() {
 }
 
 /**
- * @brief 
+ * @brief Aloca nó da fila
  * 
  * @return QueueNode* 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post espaço alocado
  */
 QueueNode* allocQueueNode() {
     return (QueueNode *)malloc(sizeof(QueueNode));
 }
 
 /**
- * @brief 
+ * @brief Tamanho da fila
  * 
- * @param queue 
+ * @param queue ponteiro para uma estrutura com os dados da fila
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Retorna o tamanho da fila
  */
 int sizeQueue(Queue *queue) {
     return queue->size;
 }
 
 /**
- * @brief 
+ * @brief Insere um novo elemento na fila
  * 
- * @param queue 
- * @param position 
+ * @param queue ponteiro para uma estrutura com os dados da fila
+ * @param position inteiro com a nova posição
  * @param tabs 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Elemento inserido
  */
 void insertQueue(Queue *queue, int position, int tabs) {
     QueueNode *newTail = allocQueueNode();
@@ -85,12 +85,12 @@ void insertQueue(Queue *queue, int position, int tabs) {
 }
 
 /**
- * @brief 
+ * @brief Remove elemento da fila
  * 
- * @param queue 
+ * @param queue ponteiro para uma estrutura com os dados da fila
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Elemento removido
  */
 int removeQueue(Queue * queue) {
     QueueNode *head = queue->head;
@@ -105,11 +105,11 @@ int removeQueue(Queue * queue) {
 }
 
 /**
- * @brief 
+ * @brief Imprime fila
  * 
- * @param queue 
+ * @param queue ponteiro para uma estrutura com os dados da fila
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Fila imprimida no console
  */
 void printQueue(Queue *queue) {
     printLine();
@@ -126,12 +126,12 @@ void printQueue(Queue *queue) {
 }
 
 /**
- * @brief 
+ * @brief Imprime toda a fila de dados
  * 
- * @param start 
- * @param end 
+ * @param start ponteiro para uma estrutura com os dados da fila
+ * @param end ponteiro para uma estrutura com os dados da fila
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Fila no console
  */
 void printQueueTail(QueueNode *start, QueueNode *end) {
     if (start == end) {
