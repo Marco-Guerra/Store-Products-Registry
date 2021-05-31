@@ -95,7 +95,7 @@ int actionChangeValue(FILE *dataFile) {
 int actionChangeLocal(FILE *dataFile) {
     int code, position;
     printf("Indique o codigo do produto: ");
-    scanf("%d", &code);
+    scanf("%d%*c", &code);
     if((position = searchProductByCode(dataFile, code)) != -1) {
         Product *product = readNodeProduct(dataFile, position);
         printf("Indique o novo local do produto: ");

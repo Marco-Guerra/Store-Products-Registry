@@ -10,34 +10,22 @@
  * @post stdin limpo
  */
 char getChar() {
-
     char character = 0;
     struct termios old = {0};
-
-    if(tcgetattr(0, &old)<0) {
+    if(tcgetattr(0, &old)<0)
         perror("tcsetattr()");
-    }
-
     old.c_lflag&=~ICANON;
     old.c_lflag&=~ECHO;
     old.c_cc[VMIN]=1;
     old.c_cc[VTIME]=0;
-
-    if(tcsetattr(0, TCSANOW, &old)<0) {
+    if(tcsetattr(0, TCSANOW, &old)<0)
         perror("tcsetattr ICANON");
-    }
-
-    if(read(0,&character,1)<0) {
+    if(read(0,&character,1)<0)
         perror("read()");
-    }
-
     old.c_lflag|=ICANON;
     old.c_lflag|=ECHO;
-
-    if(tcsetattr(0, TCSADRAIN, &old)<0) {
+    if(tcsetattr(0, TCSADRAIN, &old)<0)
         perror ("tcsetattr ~ICANON");
-    }
-
     return character;
 }
 
@@ -51,14 +39,10 @@ char getChar() {
  * @post stdin limpo
  */
 char getChar() {
-
     DWORD mode, cc;
     HANDLE h = GetStdHandle( STD_INPUT_HANDLE );
-
-    if (h == NULL) {
+    if (h == NULL)
         return 0; // console not found
-    }
-
     GetConsoleMode( h, &mode );
     SetConsoleMode( h, mode & ~(ENABLE_LINE_INPUT | ENABLE_ECHO_INPUT) );
     TCHAR c = 0;
@@ -118,8 +102,7 @@ void printHead(const char *message) {
  */
 void printAlignedLeft(const char *message) {
     printf("|%s", message);
-    // -2 por causa dos |
-    printExtended(' ', SIZE_LINE - strlen(message) - 2);
+    printExtended(' ', SIZE_LINE - strlen(message) - 2); // -2 por causa dos |
     printf("|\n");
 }
 
@@ -177,7 +160,6 @@ void printLine() {
  * @post Nenhuma
  */
 void printExtended(char c, int number) {
-    for(int i = 0; i < number; i++) {
+    for(int i = 0; i < number; i++)
         printf("%c", c);
-    }
 }
