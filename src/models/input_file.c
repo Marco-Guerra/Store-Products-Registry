@@ -95,7 +95,12 @@ void modifyFornLine(char *line, FILE *dataFile) {
     if(position == -1)
         return;
     node = readNode(dataFile, position);
-    //readField() ////////////////////////////////////// <- volta aqui
+    char strCode[20];
+    char strNumber[20];
+    char strValue[40];
+    char strLocal[MAX_LOCAL];
+    sscanf(line, "%*c;[^;];[^;];[^;];[^\n]", strCode, strNumber, strValue, strLocal);
+    printf("%s\n%s\n%s\n%s\n%s\n", line, strCode, strNumber, strValue, strLocal);
     writeNode(dataFile, node, position);
     free(node);
 }
