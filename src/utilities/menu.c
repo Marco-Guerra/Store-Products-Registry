@@ -29,7 +29,7 @@ EntryQueue* createEntryQueue() {
 }
 
 /**
- * @brief 
+ * @brief Aloca a estrutura EntryNode
  * 
  * @return EntryNode* 
  * @pre Nenhuma
@@ -40,9 +40,9 @@ EntryNode* allocEntryNode() {
 }
 
 /**
- * @brief 
+ * @brief Informa se a lista passada como argumento é vazia
  * 
- * @param queue 
+ * @param queue Uma fila
  * @return int 
  * @pre Nenhuma
  * @post Nenhuma
@@ -52,12 +52,12 @@ int emptyEntryQueue(EntryQueue *queue) {
 }
 
 /**
- * @brief 
+ * @brief Devolve o tamanho da fila
  * 
- * @param queue 
+ * @param queue ponteiro para uma estrutura que contém as informações de uma fila
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Retorna o valor do tamanho da fila
  */
 int sizeEntryQueue(EntryQueue *queue) {
     return queue->size;
@@ -66,10 +66,10 @@ int sizeEntryQueue(EntryQueue *queue) {
 /**
  * @brief 
  * 
- * @param queue 
+ * @param queue ponteiro para uma estrutura que contém as informações de uma fila
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Retorna o valor do tamanho da fila reduzido
  */
 int removeEntryQueue(EntryQueue *queue) {
     EntryNode *head = queue->head;
@@ -84,11 +84,12 @@ int removeEntryQueue(EntryQueue *queue) {
 }
 
 /**
- * @brief 
+ * @brief Insere um novo elemento na fila
  * 
- * @param queue 
- * @param message 
- * @param funct 
+ * @param queue ponteiro para uma estrutura que contém as 
+ * informações de uma fila
+ * @param message informação impressa no menu, resume o que a função faz
+ * @param funct função a ser executada ao selecionar o item
  * @pre Nenhuma
  * @post Nenhuma
  */
@@ -113,7 +114,7 @@ void insertEntryQueue(EntryQueue *queue, char *message, TypeFunct *funct) {
  * 
  * @return Menu* 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Menu criado
  */
 Menu *createMenu() {
     Menu* menu = (Menu *)malloc(sizeof(Menu));
@@ -139,14 +140,15 @@ void addEntryToMenu(Menu *menu, char *message, TypeFunct *funct) {
 }
 
 /**
- * @brief 
+ * @brief Executa a opção selecionada
  * 
- * @param queue 
- * @param option 
- * @param dataFile 
+ * @param queue ponteiro para uma estrutura que contém as 
+ * informações de uma fila
+ * @param option inteiro com a opcao escolhida
+ * @param dataFile ponteiro para um arquivo binário com os dados da arvore
  * @return int 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post retorna funct da opção
  */
 int executeEntry(EntryQueue *queue, int option, FILE *dataFile) {
     int i, ret;
@@ -200,9 +202,9 @@ int controlMenu(Menu *menu, FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief printa o menu principal
  * 
- * @param menu 
+ * @param menu ponteiro para uma estrutura que contém as informações de um menu
  * @pre Nenhuma
  * @post Nenhuma
  */
@@ -219,10 +221,10 @@ void printMenu(Menu *menu) {
 }
 
 /**
- * @brief 
+ * @brief Selecionar a opção desejada
  * 
- * @param message 
- * @param selected 
+ * @param message informação impressa no menu, resume o que a função faz
+ * @param selected inteiro que define a opção selecionada ou nao
  * @pre Nenhuma
  * @post Nenhuma
  */
@@ -240,11 +242,11 @@ void printOption(const char* message, int selected) {
 }
 
 /**
- * @brief 
+ * @brief Printa todas as opçoes 
  * 
- * @param start 
- * @param end 
- * @param i 
+ * @param start ponteiro para uma estrutura que contém as informações do nó de entrada 
+ * @param end ponteiro para uma estrutura que contém as informações do nó de entrada 
+ * @param i inteiro utilizado para passar pela fila
  * @pre Nenhuma
  * @post Nenhuma
  */
@@ -256,7 +258,7 @@ void printEntryQueueTail(EntryNode *start, EntryNode *end, int i) {
 }
 
 /**
- * @brief 
+ * @brief Imprime um menu para pausar o programa
  * 
  * @pre Nenhuma
  * @post Nenhuma
@@ -274,7 +276,7 @@ void printWaitMenu() {
 }
 
 /**
- * @brief 
+ * @brief Imprime a mensagem que indica o encerramento do programa
  * 
  * @pre Nenhuma
  * @post Nenhuma

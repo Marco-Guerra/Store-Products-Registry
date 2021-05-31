@@ -80,6 +80,14 @@
  */
 char getChar();
 
+/**
+ * @brief Reseta a string
+ * 
+ * @param str ponteiro para char
+ * @param size tamanho da string
+ * @pre Nenhuma
+ * @post string vazia
+ */
 void reset(char *str, int size);
 
 /**
@@ -102,9 +110,9 @@ int confirm();
 void printHead(const char *message);
 
 /**
- * @brief 
+ * @brief Imprime mensagem
  * 
- * @param message 
+ * @param message ponteiro para char, informação impressa no menu
  * @pre Nenhuma
  * @post Nenhuma
  */

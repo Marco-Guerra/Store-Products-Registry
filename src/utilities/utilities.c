@@ -54,12 +54,12 @@ char getChar() {
 #endif
 
 /**
- * @brief 
+ * @brief Reseta a string
  * 
- * @param str 
- * @param size 
+ * @param str ponteiro para char
+ * @param size tamanho da string
  * @pre Nenhuma
- * @post Nenhuma
+ * @post string vazia
  */
 void reset(char *str, int size) {
     int i;
@@ -68,10 +68,11 @@ void reset(char *str, int size) {
 }
 
 /**
- * @brief 
- * 
- * @return int 
- * @pre Nenhuma
+ * @brief Lê uma confirmação do usuário
+ *
+ * @return int boolenano, 1 quando o usuário confirmou
+ * 0 quando negou a operação
+ * @pre stdin limpo
  * @post Nenhuma
  */
 int confirm() {
@@ -80,11 +81,11 @@ int confirm() {
 }
 
 /**
- * @brief 
- * 
- * @param message 
+ * @brief Imprime o cabeçalho do menu
+ *
+ * @param message Título do cabeçalho
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Cabeçalho do menu impresso
  */
 void printHead(const char *message) {
     system(CLEAR);
@@ -93,6 +94,13 @@ void printHead(const char *message) {
     printLine();
 }
 
+/**
+ * @brief Imprime mensagem
+ * 
+ * @param message ponteiro para char, informação impressa no menu
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printString(const char* message) {
     if(message == NULL || message[0] == '\0')
         printf("vazio");
@@ -101,11 +109,11 @@ void printString(const char* message) {
 }
 
 /**
- * @brief 
- * 
- * @param message 
+ * @brief Imprime uma linha com um mensagem alinhada à direita
+ *
+ * @param mensagem mensagem a ser impressa
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Linha impressa na tela
  */
 void printAlignedLeft(const char *message) {
     printf("|%s", message);
@@ -114,11 +122,11 @@ void printAlignedLeft(const char *message) {
 }
 
 /**
- * @brief 
+ * @brief Imprime uma linha com um mensagem alinhada ao meio
  * 
- * @param message 
+ * @param mensagem mensagem a ser impressa
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Linha impressa na tela
  */
 void printAlignedCenter(const char *message) {
     int sizeRead = (strlen(message) + 2);
@@ -134,11 +142,11 @@ void printAlignedCenter(const char *message) {
 }
 
 /**
- * @brief 
+ * @brief Imprime uma linha com um mensagem alinhada à direita
  * 
- * @param message 
+ * @param mensagem mensagem a ser impressa
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Linha impressa na tela
  */
 void printAlignedRight(const char *message) {
     printf("|");
@@ -147,10 +155,10 @@ void printAlignedRight(const char *message) {
 }
 
 /**
- * @brief 
+ * @brief Imprime uma linha separadora, preenchida com '-'
  * 
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Uma única linha separadora impressa no menu
  */
 void printLine() {
     printf("|");
@@ -159,12 +167,12 @@ void printLine() {
 }
 
 /**
- * @brief 
+ * @brief Imprime um caractere (qnt) vezes
  * 
- * @param c 
- * @param number 
+ * @param c caractere a ser impresso no Menu
+ * @param number quantidade de vezes que o caractere deve ser impresso
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Caractere impresso (qnt) vezes na tela
  */
 void printExtended(char c, int number) {
     for(int i = 0; i < number; i++)
