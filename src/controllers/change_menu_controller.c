@@ -1,5 +1,23 @@
+/**
+ * @file change_menu_controller.c
+ * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 31/05/2021
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 #include "change_menu_controller.h"
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int changeMenuController(FILE *dataFile) {
     Menu *changeMenu = createMenu();
     
@@ -12,6 +30,14 @@ int changeMenuController(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionChangeNumber(FILE *dataFile) {
     int code, position;
     printf("Indique o codigo do produto: ");
@@ -31,6 +57,14 @@ int actionChangeNumber(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionChangeValue(FILE *dataFile) {
     int code, position;
     printf("Indique o codigo do produto: ");
@@ -50,6 +84,14 @@ int actionChangeValue(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionChangeLocal(FILE *dataFile) {
     int code, position;
     printf("Indique o codigo do produto: ");
@@ -69,6 +111,14 @@ int actionChangeLocal(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionChangeReturn(FILE *dataFile) {
     return 0;
 }

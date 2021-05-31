@@ -1,5 +1,24 @@
+/**
+ * @file search_menu_controller.c
+ * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 31/05/2021
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "search_menu_controller.h"
 
+/**
+ * @brief
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int searchMenuController(FILE *dataFile) {
     Menu *searchMenu = createMenu();
     
@@ -14,15 +33,31 @@ int searchMenuController(FILE *dataFile) {
     return 1;
 }
 
-/*int actionSearchProductByName(FILE *dataFile) {
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+int actionSearchProductByName(FILE *dataFile) {
     char name[MAX_NAME];
     printf("Insira o nome do produto: ");
     scanf("%[^\n]%*c", name);
     searchProductByName(dataFile, name);
     printWaitMenu();
     return 1;
-}*/
+}
+ */
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionSearchProductByCode(FILE *dataFile) {
     int code, position;
     printf("Insira o codigo do produto: ");
@@ -36,6 +71,14 @@ int actionSearchProductByCode(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionListProducts(FILE *dataFile) {
     printHead("Imprimindo a Arvore em ordem crescente");
     printInOrder(dataFile);
@@ -43,6 +86,14 @@ int actionListProducts(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionPrintTree(FILE *dataFile) {
     printHead("Imprimindo a Arvore em niveis");
     printByLevel(dataFile);
@@ -50,12 +101,28 @@ int actionPrintTree(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionPrintFreeSpaces(FILE *dataFile) {
     printHead("freee ererer");
     printWaitMenu();
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionSearchReturn(FILE *dataFile) {
     return 0;
 }
