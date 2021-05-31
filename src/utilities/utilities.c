@@ -2,6 +2,13 @@
 
 #ifdef __gnu_linux__
 
+/**
+ * @brief Lê um único caractere do teclado (stdin)
+ *
+ * @return char caractere lido
+ * @pre buffer de escrita ne tela (stdout) limpo
+ * @post stdin limpo
+ */
 char getChar() {
 
     char character = 0;
@@ -62,17 +69,39 @@ char getChar() {
 
 #endif
 
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @param size 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void reset(char *str, int size) {
     int i;
     for(i = 0; i < size; i++)
         str[i] = '\0';
 }
 
+/**
+ * @brief 
+ * 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int confirm() {
     printf("Opa chefia quer fazer isso msm? [S/n]\n");
     return getChar() != 'n';
 }
 
+/**
+ * @brief 
+ * 
+ * @param message 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printHead(const char *message) {
     system(CLEAR);
     printLine();
@@ -80,6 +109,13 @@ void printHead(const char *message) {
     printLine();
 }
 
+/**
+ * @brief 
+ * 
+ * @param message 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printAlignedLeft(const char *message) {
     printf("|%s", message);
     // -2 por causa dos |
@@ -87,6 +123,13 @@ void printAlignedLeft(const char *message) {
     printf("|\n");
 }
 
+/**
+ * @brief 
+ * 
+ * @param message 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printAlignedCenter(const char *message) {
     int sizeRead = (strlen(message) + 2);
     int space = (SIZE_LINE - sizeRead) / 2;
@@ -100,18 +143,39 @@ void printAlignedCenter(const char *message) {
     printf("|\n");
 }
 
+/**
+ * @brief 
+ * 
+ * @param message 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printAlignedRight(const char *message) {
     printf("|");
     printExtended(' ', (SIZE_LINE - (strlen(message) + 2)));
     printf("%s|\n", message);
 }
 
+/**
+ * @brief 
+ * 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printLine() {
     printf("|");
     printExtended('-', SIZE_LINE - 2);
     printf("|\n");
 }
 
+/**
+ * @brief 
+ * 
+ * @param c 
+ * @param number 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printExtended(char c, int number) {
     for(int i = 0; i < number; i++) {
         printf("%c", c);

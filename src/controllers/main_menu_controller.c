@@ -8,6 +8,14 @@
 
 #include "main_menu_controller.h"
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int mainMenuController(FILE *dataFile) {
     Menu *mainMenu = createMenu();
     
@@ -22,6 +30,14 @@ int mainMenuController(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionInsert(FILE *dataFile) {
     Product *product = scanProduct();
     insertProduct(dataFile, product);
@@ -30,16 +46,40 @@ int actionInsert(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionSearch(FILE *dataFile) {
     searchMenuController(dataFile);
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionChange(FILE *dataFile) {
     changeMenuController(dataFile);
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionLoad(FILE *dataFile) {
     char inputPath[FILE_PATH_NAME];
     printf("Nome de arquivo de entrada: ");
@@ -49,6 +89,14 @@ int actionLoad(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionRemove(FILE *dataFile) {
     int code;
     printf("Codigo do produto: ");
@@ -62,6 +110,14 @@ int actionRemove(FILE *dataFile) {
     return 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int actionClose(FILE *dataFile) {
     printEndMessage();
     return 0;

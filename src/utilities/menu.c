@@ -1,5 +1,23 @@
+/**
+ * @file menu.c
+ * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 31/05/2021
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "menu.h"
 
+/**
+ * @brief Create a Entry Queue object
+ * 
+ * @return EntryQueue* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 EntryQueue* createEntryQueue() {
     EntryQueue *newQueue = (EntryQueue *)malloc(sizeof(EntryQueue));
 
@@ -10,18 +28,49 @@ EntryQueue* createEntryQueue() {
     return newQueue;
 }
 
+/**
+ * @brief 
+ * 
+ * @return EntryNode* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 EntryNode* allocEntryNode() {
     return (EntryNode *)malloc(sizeof(EntryNode));
 }
 
+/**
+ * @brief 
+ * 
+ * @param queue 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int emptyEntryQueue(EntryQueue *queue) {
     return (queue->head == NULL);
 }
 
+/**
+ * @brief 
+ * 
+ * @param queue 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int sizeEntryQueue(EntryQueue *queue) {
     return queue->size;
 }
 
+/**
+ * @brief 
+ * 
+ * @param queue 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int removeEntryQueue(EntryQueue *queue) {
     EntryNode *head = queue->head;
     if (head == queue->tail) {
@@ -34,6 +83,15 @@ int removeEntryQueue(EntryQueue *queue) {
     return queue->size;
 }
 
+/**
+ * @brief 
+ * 
+ * @param queue 
+ * @param message 
+ * @param funct 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void insertEntryQueue(EntryQueue *queue, char *message, TypeFunct *funct) {
     EntryNode *newTail = allocEntryNode();
     newTail->funct = funct;
@@ -50,6 +108,13 @@ void insertEntryQueue(EntryQueue *queue, char *message, TypeFunct *funct) {
     queue->tail = newTail;
 }
 
+/**
+ * @brief Create a Menu object
+ * 
+ * @return Menu* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 Menu *createMenu() {
     Menu* menu = (Menu *)malloc(sizeof(Menu));
     menu->options = 0;
@@ -73,6 +138,16 @@ void addEntryToMenu(Menu *menu, char *message, TypeFunct *funct) {
     insertEntryQueue(menu->queue, message, funct);
 }
 
+/**
+ * @brief 
+ * 
+ * @param queue 
+ * @param option 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int executeEntry(EntryQueue *queue, int option, FILE *dataFile) {
     int i, ret;
     EntryNode *node = queue->head;
@@ -124,6 +199,13 @@ int controlMenu(Menu *menu, FILE *dataFile) {
     }
 }
 
+/**
+ * @brief 
+ * 
+ * @param menu 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printMenu(Menu *menu) {
     printLine();
     printAlignedCenter(" Menu Principal");
@@ -136,6 +218,14 @@ void printMenu(Menu *menu) {
     printLine();
 }
 
+/**
+ * @brief 
+ * 
+ * @param message 
+ * @param selected 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printOption(const char* message, int selected) {
     printf("| [");
     if(selected) {
@@ -149,6 +239,15 @@ void printOption(const char* message, int selected) {
     printf("|\n");
 }
 
+/**
+ * @brief 
+ * 
+ * @param start 
+ * @param end 
+ * @param i 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printEntryQueueTail(EntryNode *start, EntryNode *end, int i) {
     printOption(start->entryMessage, 0 == i);
     if (start != end) {
@@ -156,6 +255,12 @@ void printEntryQueueTail(EntryNode *start, EntryNode *end, int i) {
     }
 }
 
+/**
+ * @brief 
+ * 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printWaitMenu() {
     printLine();
     // imprime uma linha em branco
@@ -168,6 +273,12 @@ void printWaitMenu() {
     getchar();
 }
 
+/**
+ * @brief 
+ * 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printEndMessage() {
     system(CLEAR);
     printLine();

@@ -12,6 +12,14 @@
 #include "input_file.h"
 #include "../utilities/utilities.h"
 
+/**
+ * @brief 
+ * 
+ * @param inputPath 
+ * @param dataFile 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void loadInputFile(char *inputPath, FILE *dataFile) {
     FILE *inputFile = fopen(inputPath, "r");
     if (inputFile == NULL) {
@@ -33,6 +41,14 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
     fclose(inputFile);
 }
 
+/**
+ * @brief 
+ * 
+ * @param line 
+ * @param dataFile 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void insertFornLine(char *line, FILE *dataFile) { //////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ <- volta aqui, e faz certo 
     Product *product = (Product*)malloc(sizeof(Product));
     printf("%s\n", line);
@@ -50,6 +66,14 @@ void insertFornLine(char *line, FILE *dataFile) { //////////////\\\\\\\\\\\\\\\\
     free(product);
 }
 
+/**
+ * @brief 
+ * 
+ * @param line 
+ * @param dataFile 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void modifyFornLine(char *line, FILE *dataFile) {
     Node *node;
     int code, position;
@@ -63,12 +87,28 @@ void modifyFornLine(char *line, FILE *dataFile) {
     free(node);
 }
 
+/**
+ * @brief 
+ * 
+ * @param line 
+ * @param dataFile 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void removeFromLine(char *line, FILE *dataFile) {
     int code;
     sscanf(line, "%*c;%d", &code);
     removeProduct(dataFile, code);
 }
 
+/**
+ * @brief 
+ * 
+ * @param line 
+ * @return char* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 char *trim(char *line) {
     char *newLine = (char*)malloc(sizeof(char)*MAX_ENTRY_LINE);
     int i_new;

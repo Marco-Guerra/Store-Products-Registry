@@ -1,5 +1,23 @@
+/**
+ * @file tree.c
+ * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 31/05/2021
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "tree.h"
 
+/**
+ * @brief 
+ * 
+ * @return Node* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 Node *allocNode() {
     Node *node = (Node *)malloc(sizeof(Node));
     node->product.code = 0;
@@ -12,15 +30,39 @@ Node *allocNode() {
     return node;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int isEmpty(FILE *dataFile) {
     return readHeadField(OFFSET_REG_ROOT, dataFile) == -1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param head 
+ * @param dataFile 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void writeHead(Head *head, FILE *dataFile) {
     fseek(dataFile, 0, SEEK_SET);
     fwrite(head, sizeof(Head), 1, dataFile);
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @return Head* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 Head *readHead(FILE *dataFile) {
     Head *head = (Head*) malloc(sizeof(Head));
     fseek(dataFile, 0, SEEK_SET);
@@ -28,11 +70,29 @@ Head *readHead(FILE *dataFile) {
     return head;
 }
 
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @param headData 
+ * @param dataFile 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void writeHeadField(int value, int headData, FILE *dataFile) {
     fseek(dataFile, sizeof(int) * headData, SEEK_SET);
     fwrite(&value, sizeof(int), 1, dataFile);
 }
 
+/**
+ * @brief 
+ * 
+ * @param headData 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int readHeadField(int headData, FILE *dataFile) {
     int value;
     fseek(dataFile, sizeof(int) * headData, SEEK_SET);
@@ -40,11 +100,31 @@ int readHeadField(int headData, FILE *dataFile) {
     return value;
 }
 
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @param nodeData 
+ * @param position 
+ * @param dataFile 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void writeNodeField(int value, int nodeData, int position, FILE *dataFile) {
     fseek(dataFile, sizeof(Head) + position * sizeof(Node) + nodeData, SEEK_SET);
     fwrite(&value, sizeof(int), 1, dataFile);
 }
 
+/**
+ * @brief 
+ * 
+ * @param nodeData 
+ * @param position 
+ * @param dataFile 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int readNodeField(int nodeData, int position, FILE *dataFile) {
     int value;
     fseek(dataFile, sizeof(Head) + position * sizeof(Node) + nodeData, SEEK_SET);
@@ -52,6 +132,15 @@ int readNodeField(int nodeData, int position, FILE *dataFile) {
     return value;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @param position 
+ * @return Product* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 Product* readNodeProduct(FILE *dataFile, int position) {
     Product *product = (Product *)malloc(sizeof(Product));
     fseek(dataFile, sizeof(Head) + position * sizeof(Node), SEEK_SET);
@@ -59,6 +148,14 @@ Product* readNodeProduct(FILE *dataFile, int position) {
     return product;
 }
 
+/**
+ * @brief 
+ * 
+ * @param filePath 
+ * @return FILE* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 FILE *makeDataFile(char *filePath) {
     FILE *dataFile = fopen(filePath, "w+b");
     setbuf(dataFile, NULL);
@@ -70,12 +167,32 @@ FILE *makeDataFile(char *filePath) {
     return dataFile;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @param node 
+ * @param position 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int writeNode(FILE *dataFile, Node *node, int position) {
     fseek(dataFile, sizeof(Head) + position * sizeof(Node), SEEK_SET);
     fwrite(node, sizeof(Node), 1, dataFile);
     return position;
 }
 
+/**
+ * @brief 
+ * 
+ * @param product 
+ * @param rChild 
+ * @param lChild 
+ * @return Node* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 Node *makeNode(Product *product, int rChild, int lChild) {
     Node *node = (Node*)malloc(sizeof(Node));
     node->product = (*product);
@@ -84,6 +201,15 @@ Node *makeNode(Product *product, int rChild, int lChild) {
     return node;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @param position 
+ * @return Node* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 Node *readNode(FILE *dataFile, int position) {
     Node *node = (Node*)malloc(sizeof(Node));
     fseek(dataFile, sizeof(Head) + position * sizeof(Node), SEEK_SET);
@@ -91,6 +217,15 @@ Node *readNode(FILE *dataFile, int position) {
     return node;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @param node 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int insertNode(FILE *dataFile, Node *node) {
     int position = readHeadField(OFFSET_REG_FREE, dataFile);
     if(position == -1) {
@@ -109,6 +244,15 @@ int insertNode(FILE *dataFile, Node *node) {
     return writeNode(dataFile, node, position);
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @param position 
+ * @return int 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 int removeNode(FILE *dataFile, int position) {
     Node *node = allocNode();
     node->rChild = readHeadField(OFFSET_REG_FREE, dataFile);
@@ -118,6 +262,13 @@ int removeNode(FILE *dataFile, int position) {
     return 0;
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printInOrder(FILE *dataFile) {
     if (isEmpty(dataFile))
         printf("Arvore vazia.\n");
@@ -125,6 +276,14 @@ void printInOrder(FILE *dataFile) {
         printInOrderRec(dataFile, readHeadField(OFFSET_REG_ROOT, dataFile));
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @param this 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printInOrderRec(FILE *dataFile, int this) {
     if (this == -1)
         return;
@@ -135,6 +294,13 @@ void printInOrderRec(FILE *dataFile, int this) {
     printInOrderRec(dataFile, readNodeField(OFFSET_NODE_RIGHT, this, dataFile));
 }
 
+/**
+ * @brief 
+ * 
+ * @param dataFile 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printByLevel(FILE *dataFile) {
     if(isEmpty(dataFile)) {
         printf("Arvore vazia.\n");

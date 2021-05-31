@@ -8,6 +8,13 @@
  
 #include "product.h"
 
+/**
+ * @brief 
+ * 
+ * @return Product* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 Product *allocProduct() {
     Product *product = (Product *)malloc(sizeof(Product));
     product->code = 0;
@@ -18,6 +25,13 @@ Product *allocProduct() {
     return product;
 }
 
+/**
+ * @brief 
+ * 
+ * @param product 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printProduct(Product *product) {
     printf("\nNome: %s.\n", product->name);
     printf("Code: %d.\n", product->code);
@@ -26,6 +40,13 @@ void printProduct(Product *product) {
     printf("Local: %s.\n\n", product->local);
 }
 
+/**
+ * @brief 
+ * 
+ * @param product 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printBasicProduct(Product *product) {
     // 10 digitos maximos de um int, 19 caracteres a mais da string
     char buffer[19 + 10 + MAX_NAME + 1];
@@ -33,6 +54,13 @@ void printBasicProduct(Product *product) {
     printAlignedLeft(buffer);
 }
 
+/**
+ * @brief 
+ * 
+ * @return Product* 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 Product* scanProduct() {
     Product* product = (Product *)malloc(sizeof(Product));
     printf("\nNome: ");
