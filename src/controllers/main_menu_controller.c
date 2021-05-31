@@ -52,7 +52,7 @@ int actionLoad(FILE *dataFile) {
 int actionRemove(FILE *dataFile) {
     int code;
     printf("Codigo do produto: ");
-    scanf("%d", code);
+    scanf("%d", &code);
     if(removeProduct(dataFile, code) != -1) {
         printf("Produto removido com sucesso.");
     }else{

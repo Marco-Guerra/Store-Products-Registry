@@ -3,7 +3,7 @@
 int searchMenuController(FILE *dataFile) {
     Menu *searchMenu = createMenu();
     
-    addEntryToMenu(searchMenu, "Buscar produto por nome.", actionSearchProductByName);
+    //addEntryToMenu(searchMenu, "Buscar produto por nome.", actionSearchProductByName);
     addEntryToMenu(searchMenu, "Buscar produto por codigo.", actionSearchProductByCode);
     addEntryToMenu(searchMenu, "Listar produtos.", actionListProducts);
     addEntryToMenu(searchMenu, "Mostrar arvore.", actionPrintTree);
@@ -14,20 +14,24 @@ int searchMenuController(FILE *dataFile) {
     return 1;
 }
 
-int actionSearchProductByName(FILE *dataFile) {
+/*int actionSearchProductByName(FILE *dataFile) {
     char name[MAX_NAME];
     printf("Insira o nome do produto: ");
     scanf("%[^\n]%*c", name);
     searchProductByName(dataFile, name);
     printWaitMenu();
     return 1;
-}
+}*/
 
 int actionSearchProductByCode(FILE *dataFile) {
-    int code;
+    int code, position;
     printf("Insira o codigo do produto: ");
-    scanf("%d", code);
-    searchProductByCode(dataFile, code);
+    scanf("%d%*c", &code);
+    if((position = searchProductByCode(dataFile, code)) != -1) {
+        Product *product = readNodeProduct(dataFile, position);
+        printProduct(product);
+        free(product);
+    }
     printWaitMenu();
     return 1;
 }
@@ -40,13 +44,14 @@ int actionListProducts(FILE *dataFile) {
 }
 
 int actionPrintTree(FILE *dataFile) {
+    printHead("Imprimindo a Arvore em niveis");
+    printByLevel(dataFile);
     printWaitMenu();
     return 1;
 }
 
 int actionPrintFreeSpaces(FILE *dataFile) {
-    printHead("Imprimindo a Arvore em niveis");
-    printByLevel(dataFile);
+    printHead("freee ererer");
     printWaitMenu();
     return 1;
 }

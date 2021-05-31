@@ -75,9 +75,6 @@ int removeProductRec(FILE *dataFile, int this, int code) {
     int thisCode = readNodeField(OFFSET_NODE_CODE, this, dataFile);
     int leftChild = readNodeField(OFFSET_NODE_LEFT, this, dataFile);
     int rightChild = readNodeField(OFFSET_NODE_RIGHT, this, dataFile);
-    printf("%d\n", thisCode);
-    printf("%d\n", leftChild);
-    printf("%d\n", rightChild);
     if (code < thisCode) {
         leftChild = removeProductRec(dataFile, leftChild, code);
     } else if (code > thisCode) {
@@ -102,21 +99,14 @@ int removeProductRec(FILE *dataFile, int this, int code) {
 }
 
 int searchProductByCode(FILE *dataFile, int code) {
-    Head *head = readHead(dataFile);
-    int regRoot = head->regRoot;
-    free(head);
-    return searchProductByCodeRec(dataFile, regRoot, code);
+    return searchProductByCodeRec(dataFile, readHeadField(OFFSET_REG_ROOT, dataFile), code);
 }
 
 int searchProductByCodeRec(FILE *dataFile, int this, int code) {
     if (this == -1) return -1;
-    Node *node = readNode(dataFile, this);
-    int thisCode = node->product.code;
-    int rChild = node->rChild;
-    int lChild = node->lChild;
-    free(node);
-    if (thisCode > code) return searchProductByCodeRec(dataFile, lChild, code);
-    if (thisCode < code) return searchProductByCodeRec(dataFile, rChild, code);
+    int thisCode = readNodeField(OFFSET_NODE_CODE, this, dataFile);
+    if (thisCode > code) return searchProductByCodeRec(dataFile, readNodeField(OFFSET_NODE_LEFT, this, dataFile), code);
+    if (thisCode < code) return searchProductByCodeRec(dataFile, readNodeField(OFFSET_NODE_RIGHT, this, dataFile), code);
     return this;
 }
 

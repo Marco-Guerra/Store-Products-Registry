@@ -11,6 +11,7 @@
 #ifndef INPUT_FILE
 #define INPUT_FILE
 
+#include "../utilities/menu.h"
 #include "product_tree.h"
 #include <ctype.h>
 

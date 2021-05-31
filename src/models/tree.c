@@ -136,11 +136,30 @@ void printInOrderRec(FILE *dataFile, int this) {
 }
 
 void printByLevel(FILE *dataFile) {
-    if (isEmpty(dataFile))
+    if(isEmpty(dataFile)) {
         printf("Arvore vazia.\n");
-    else
-        printByLevelRec(dataFile, readHeadField(OFFSET_REG_ROOT, dataFile));
-}
-
-void printByLevelRec(FILE *dataFile, int this) {
+        return;
+    }
+    int next = readHeadField(OFFSET_REG_ROOT, dataFile);
+    Queue *queue = createQueue();
+    insertQueue(queue, next, 1);
+    int previous_height = 0;
+    int current_height;
+    Product *product;
+    int read;
+    while(!emptyQueue(queue)) {
+        current_height = queue->head->tabs;
+        next = removeQueue(queue);
+        if(previous_height < current_height) {
+            previous_height = current_height;
+            printf("\n");
+        }
+        product = readNodeProduct(dataFile, next);
+        printBasicProduct(product);
+        free(product);
+        if((read = readNodeField(OFFSET_NODE_LEFT, next, dataFile)) != -1)
+            insertQueue(queue, read, ++current_height);
+        if((read = readNodeField(OFFSET_NODE_RIGHT, next, dataFile)) != -1)
+            insertQueue(queue, read, ++current_height);
+    }
 }

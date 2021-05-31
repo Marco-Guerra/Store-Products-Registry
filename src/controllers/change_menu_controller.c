@@ -13,11 +13,17 @@ int changeMenuController(FILE *dataFile) {
 }
 
 int actionChangeNumber(FILE *dataFile) {
-    int code, number;
+    int code, position;
     printf("Indique o codigo do produto: ");
-    scanf("%d", number);
-    if(searchProductByCode(dataFile, code) != -1) {
-        
+    scanf("%d", &code);
+    if((position = searchProductByCode(dataFile, code)) != -1) {
+        Product *product = readNodeProduct(dataFile, position);
+        printf("Indique o numero de produtos em estoque: ");
+        scanf("%d%*c", &(product->number));
+        if(confirm()) {
+            updateProduct(dataFile, position, product);
+        }
+        free(product);
     }else{
         printf("Produto nao encontrado.");
     }
@@ -26,11 +32,17 @@ int actionChangeNumber(FILE *dataFile) {
 }
 
 int actionChangeValue(FILE *dataFile) {
-    int code, value;
+    int code, position;
     printf("Indique o codigo do produto: ");
-    scanf("%d", value);
-    if(searchProductByCode(dataFile, code) != -1) {
-        
+    scanf("%d", &code);
+    if((position = searchProductByCode(dataFile, code)) != -1) {
+        Product *product = readNodeProduct(dataFile, position);
+        printf("Indique o novo valor do produto: ");
+        scanf("%f%*c", &(product->value));
+        if(confirm()) {
+            updateProduct(dataFile, position, product);
+        }
+        free(product);
     }else{
         printf("Produto nao encontrado.");
     }
@@ -39,12 +51,17 @@ int actionChangeValue(FILE *dataFile) {
 }
 
 int actionChangeLocal(FILE *dataFile) {
-    int code;
-    char local[MAX_LOCAL];
+    int code, position;
     printf("Indique o codigo do produto: ");
-    scanf("%s", local);
-    if(searchProductByCode(dataFile, code) != -1) {
-        
+    scanf("%d", &code);
+    if((position = searchProductByCode(dataFile, code)) != -1) {
+        Product *product = readNodeProduct(dataFile, position);
+        printf("Indique o novo local do produto: ");
+        scanf("%[^\n]%*c", product->local);
+        if(confirm()) {
+            updateProduct(dataFile, position, product);
+        }
+        free(product);
     }else{
         printf("Produto nao encontrado.");
     }

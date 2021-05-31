@@ -2,6 +2,7 @@
 #define TREE
 
 #include "../utilities/utilities.h"
+#include "queue.h"
 #include "product.h"
 
 typedef struct {
@@ -54,14 +55,10 @@ int insertNode(FILE *dataFile, Node *node);
 
 int removeNode(FILE *dataFile, int position);
 
-
 void printInOrder(FILE *dataFile);
 
 void printInOrderRec(FILE *dataFile, int this);
 
 void printByLevel(FILE *dataFile);
-
-void printByLevelRec(FILE *dataFile, int this);
-
 
 #endif

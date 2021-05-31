@@ -18,9 +18,9 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
         printf("Arquivo nao encontrado.\n");
         return;
     }
-    char line[MAX_ENTRY_LINE];
+    char *line = (char*)malloc(sizeof(char)*MAX_ENTRY_LINE);
     while(fgets(line, MAX_ENTRY_LINE, inputFile) != NULL) {
-        //line = trim(line);
+        line = trim(line);
         switch(line[0]) {
             case INPUT_FILE_INSERT: insertFornLine(line, dataFile);
                 break;
@@ -33,9 +33,18 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
     fclose(inputFile);
 }
 
-void insertFornLine(char *line, FILE *dataFile) {
+void insertFornLine(char *line, FILE *dataFile) { //////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ <- volta aqui, e faz certo 
     Product *product = (Product*)malloc(sizeof(Product));
-    sscanf(line, "%*c;%d;%[^;];%d;%f;%[^\n]", &(product->code), product->name, &(product->number), &(product->value), product->local);
+    printf("%s\n", line);
+    sscanf(line, "%*c;%d;%[^;];%d;%f;%s",
+        &(product->code),
+        product->name,
+        &(product->number),
+        &(product->value),
+        product->local
+    );
+    printProduct(product);
+    printWaitMenu();
     if(searchProductByCode(dataFile, product->code) == -1)
         insertProduct(dataFile, product);
     free(product);
@@ -61,7 +70,7 @@ void removeFromLine(char *line, FILE *dataFile) {
 }
 
 char *trim(char *line) {
-    char *newLine = (char*)malloc((strlen(line) + 1) * sizeof(char));
+    char *newLine = (char*)malloc(sizeof(char)*MAX_ENTRY_LINE);
     int i_new;
     int i_old = 0;
     while(isspace(line[i_old])) {
@@ -77,5 +86,6 @@ char *trim(char *line) {
         }
     }
     newLine[i_new] = 0;
+    free(line);
     return newLine;
 }
