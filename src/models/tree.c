@@ -24,16 +24,16 @@ Head *readHead(FILE *dataFile) {
     return head;
 }
 
-void writeHeadField(int regRoot, int headData, FILE *dataFile) {
+void writeHeadField(int value, int headData, FILE *dataFile) {
     fseek(dataFile, sizeof(int) * headData, SEEK_SET);
-    fwrite(&regRoot, sizeof(int), 1, dataFile);
+    fwrite(&value, sizeof(int), 1, dataFile);
 }
 
 int readHeadField(int headData, FILE *dataFile) {
-    int regRoot;
+    int value;
     fseek(dataFile, sizeof(int) * headData, SEEK_SET);
-    fread(&regRoot, sizeof(int), 1, dataFile);
-    return regRoot;
+    fread(&value, sizeof(int), 1, dataFile);
+    return value;
 }
 
 void writeNodeField(int value, int nodeData, int position, FILE *dataFile) {
@@ -100,12 +100,9 @@ int insertNode(FILE *dataFile, Node *node) {
 
 int removeNode(FILE *dataFile, int position) {
     Node *node = allocNode();
-    Head *head = readHead(dataFile);
-    node->rChild = head->regFree;
-    head->regFree = position;
-    writeHead(head, dataFile);
+    node->rChild = readHeadField(OFFSET_REG_FREE, dataFile);
+    writeHeadField(position, OFFSET_REG_FREE, dataFile);
     writeNode(dataFile, node, position);
     free(node);
-    free(head);
     return 0;
 }

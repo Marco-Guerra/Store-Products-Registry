@@ -23,6 +23,7 @@
 
 #include "../utilities/menu.h"
 #include "../utilities/utilities.h"
+#include "../models/input_file.h"
 #include "../models/product_tree.h"
 #include "search_menu_controller.h"
 #include "change_menu_controller.h"

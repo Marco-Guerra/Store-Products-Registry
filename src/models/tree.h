@@ -30,7 +30,7 @@ void writeHead(Head *head, FILE *dataFile);
 
 Head *readHead(FILE *dataFile);
 
-void writeHeadField(int regRoot, int headData, FILE *dataFile);
+void writeHeadField(int value, int headData, FILE *dataFile);
 
 int readHeadField(int headData, FILE *dataFile);
 

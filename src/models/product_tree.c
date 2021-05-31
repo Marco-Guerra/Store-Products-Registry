@@ -15,17 +15,12 @@ int maximum(FILE *dataFile){
     return position;
 }
 
-int minimum(FILE *dataFile){
-    Head *head = readHead(dataFile);
-    int position = head->regRoot;
-    free(head);
+int minimum(FILE *dataFile){ ////////////////////////////// <- volta aqui
+    int position = readHeadField(OFFSET_REG_ROOT, dataFile);
     if(position == -1)
         return -1;
-    Node *node;
     while(position != -1) {
-        node = readNode(dataFile, position);
-        position = node->lChild;
-        free(node);
+        position = readNodeField(OFFSET_NODE_LEFT, position, dataFile);
     }
     return position;
 }
@@ -68,6 +63,12 @@ int insertProductRec(FILE *dataFile, int this, Product *product) {
     }
     free(node);
     return insertProductRec(dataFile, this, product);
+}
+
+int updateProduct(FILE *dataFile, int position, Product *product) {
+    fseek(dataFile, sizeof(Head) + position * sizeof(Node), SEEK_SET);
+    fwrite(product, sizeof(Product), 1, dataFile);
+    return position;
 }
 
 int removeProduct(FILE *dataFile, int code) {

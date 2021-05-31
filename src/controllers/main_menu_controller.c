@@ -41,11 +41,23 @@ int actionChange(FILE *dataFile) {
 }
 
 int actionLoad(FILE *dataFile) {
+    char inputPath[FILE_PATH_NAME];
+    printf("Nome de arquivo de entrada: ");
+    scanf("%s", inputPath);
+    loadInputFile(inputPath, dataFile);
     printWaitMenu();
     return 1;
 }
 
 int actionRemove(FILE *dataFile) {
+    int code;
+    printf("Codigo do produto: ");
+    scanf("%d", code);
+    if(removeProduct(dataFile, code) != -1) {
+        printf("Produto removido com sucesso.");
+    }else{
+        printf("Produto nao encontrado.");
+    }
     printWaitMenu();
     return 1;
 }

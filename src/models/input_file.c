@@ -10,61 +10,72 @@
  */
 
 #include "input_file.h"
-
-Product * readProductDataFromInputFile(FILE *input) {
-    Product *p = (Product *)malloc(sizeof(Product));
-    fscanf(input, "%d%*c", &p->code);
-    printf("%d\n", p->code);
-    fscanf(input, "%[^;]%*c", p->name);
-    fscanf(input, "%d%*c", &p->number);
-    fscanf(input, "%f%*c", &p->value);
-    fscanf(input, "%[^;]%*[^\n]%*r", p->local);
-    printf("Dados do produto\n\n");
-    printProduct(p);
-    return p;
-}
+#include "../utilities/utilities.h"
 
 void loadInputFile(char *inputPath, FILE *dataFile) {
     FILE *inputFile = fopen(inputPath, "r");
     if (inputFile == NULL) {
-        printf("Falha na abertura do arquivo\n");
-        return ;
+        printf("Arquivo nao encontrado.\n");
+        return;
     }
-    
-    //char *line[MAX_ENTRY_LINE];
-    char c;
-    Product read;
-    while(fscanf(inputFile, "%c%*c", &c) != EOF) {
-        printf("Estou no caractere %c\n", c);
-
-        switch(c) {
-            case INPUT_FILE_INSERT: //insertFornFile(line);
-                printf("Entrei no insert\n");
-                insertProduct(dataFile, readProductDataFromInputFile(dataFile));
+    char line[MAX_ENTRY_LINE];
+    while(fgets(line, MAX_ENTRY_LINE, inputFile) != NULL) {
+        //line = trim(line);
+        switch(line[0]) {
+            case INPUT_FILE_INSERT: insertFornLine(line, dataFile);
                 break;
-            case INPUT_FILE_MODIFY: //modifyFornFile(line);
-                printf("Entrei no modify\n");
-
-                fscanf(inputFile, "%*[^\n]%*r");
+            case INPUT_FILE_MODIFY: modifyFornLine(line, dataFile);
                 break;
-            case INPUT_FILE_REMOVE: //removeFromFile(line);
-                printf("Entrei no remove\n");
-                int code;
-                fscanf(inputFile, "%d%*r", &code);
-                removeProduct(dataFile, code);
-                break;
-            case WHITE_SPACE:
-                printf("Estou excluindo espaco\n");
-                while (fscanf(inputFile, "%c", &c) == WHITE_SPACE) {
-                    ;
-                }
-                break;
-            default:
-                printf("Entrei no default\n");
-                // a linha será ignorada
-                fscanf(inputFile, "%*[^\n]%*r");
+            case INPUT_FILE_REMOVE: removeFromLine(line, dataFile);
                 break;
         }
     }
     fclose(inputFile);
+}
+
+void insertFornLine(char *line, FILE *dataFile) {
+    Product *product = (Product*)malloc(sizeof(Product));
+    sscanf(line, "%*c;%d;%[^;];%d;%f;%[^\n]", &(product->code), product->name, &(product->number), &(product->value), product->local);
+    if(searchProductByCode(dataFile, product->code) == -1)
+        insertProduct(dataFile, product);
+    free(product);
+}
+
+void modifyFornLine(char *line, FILE *dataFile) {
+    Node *node;
+    int code, position;
+    sscanf(line, "%*c;%d", &code);
+    position = searchProductByCode(dataFile, code);
+    if(position == -1)
+        return;
+    node = readNode(dataFile, position);
+    //readField() ////////////////////////////////////// <- volta aqui
+    writeNode(dataFile, node, position);
+    free(node);
+}
+
+void removeFromLine(char *line, FILE *dataFile) {
+    int code;
+    sscanf(line, "%*c;%d", &code);
+    removeProduct(dataFile, code);
+}
+
+char *trim(char *line) {
+    char *newLine = (char*)malloc((strlen(line) + 1) * sizeof(char));
+    int i_new;
+    int i_old = 0;
+    while(isspace(line[i_old])) {
+        i_old++;
+    }
+    for(i_new = 0; line[i_old]; i_old++) {
+        if (!((isspace(line[i_old]) && isspace(line[i_old - 1])) ||
+              (isspace(line[i_old]) && isspace(line[i_old + 1])) ||
+              (line[i_old + 1] == ';' && isspace(line[i_old])) ||
+              (line[i_old - 1] == ';' && isspace(line[i_old]))
+        )) {
+            newLine[i_new++] = line[i_old];
+        }
+    }
+    newLine[i_new] = 0;
+    return newLine;
 }

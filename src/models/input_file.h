@@ -14,6 +14,7 @@
 #include "product_tree.h"
 
 #define WHITE_SPACE ' '
+#define FILE_PATH_NAME 100
 
 enum inputFileOperations {
     INPUT_FILE_INSERT = 'I',
@@ -21,8 +22,14 @@ enum inputFileOperations {
     INPUT_FILE_REMOVE = 'R',
 };
 
-Product * readProductDataFromInputFile(FILE *input);
-
 void loadInputFile(char *inputPath, FILE *dataFile);
+
+void insertFornLine(char *line, FILE *dataFile);
+
+void modifyFornLine(char *line, FILE *dataFile);
+
+void removeFromLine(char *line, FILE *dataFile);
+
+char *trim(char *line);
 
 #endif

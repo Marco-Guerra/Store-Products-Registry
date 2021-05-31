@@ -11,6 +11,8 @@ int insertProduct(FILE *dataFile, Product *product);
 
 int insertProductRec(FILE *dataFile, int this, Product *product);
 
+int updateProduct(FILE *dataFile, int position, Product *product);
+
 int removeProduct(FILE *dataFile, int code);
 
 int removeProductRec(FILE *dataFile, int this, int code);
