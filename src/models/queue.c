@@ -1,7 +1,8 @@
 /**
  * @file queue.c
  * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
- * @brief 
+ * @brief Biblioteca responsável por definir uma fila de inteiros
+ * genérica, bem como suas funções.
  * @version 0.1
  * @date 03/05/2021
  * 
@@ -12,10 +13,10 @@
 #include "queue.h"
 
 /**
- * @brief Verifica se a fila é vazia
- * 
- * @param queue ponteiro para uma estrutura com os dados da fila
- * @return int 
+ * @brief Informa se a lista passada como argumento é vazia
+ *
+ * @param queue Uma fila
+ * @return int retorno booleano 1 se a fila é vazia ou 0 caso contrário
  * @pre Nenhuma
  * @post Nenhuma
  */
@@ -24,11 +25,11 @@ int emptyQueue(Queue *queue) {
 }
 
 /**
- * @brief Create a Queue object
- * 
- * @return Queue* 
+ * @brief Inicializa uma nova fila
+ *
+ * @return Fila* Uma fila inicializada
  * @pre Nenhuma
- * @post Nenhuma
+ * @post Uma nova Fila foi inicializada
  */
 Queue* createQueue() {
     Queue *newQueue = (Queue *)malloc(sizeof(Queue));
@@ -39,36 +40,34 @@ Queue* createQueue() {
 }
 
 /**
- * @brief Aloca nó da fila
- * 
- * @return QueueNode* 
+ * @brief Aloca um novo elemento para a fila
+ *
+ * @return No* Um nó alocado na memória
  * @pre Nenhuma
- * @post espaço alocado
+ * @post Novo Nó criado
  */
 QueueNode* allocQueueNode() {
     return (QueueNode *)malloc(sizeof(QueueNode));
 }
 
 /**
- * @brief Tamanho da fila
- * 
- * @param queue ponteiro para uma estrutura com os dados da fila
- * @return int 
+ * @brief Retorna o tamanho da fila
+ *
+ * @param f Uma fila
+ * @return int o tamanho da fila
  * @pre Nenhuma
- * @post Retorna o tamanho da fila
+ * @post Nenhuma
  */
 int sizeQueue(Queue *queue) {
     return queue->size;
 }
 
 /**
- * @brief Insere um novo elemento na fila
- * 
- * @param queue ponteiro para uma estrutura com os dados da fila
- * @param position inteiro com a nova posição
- * @param tabs 
- * @pre Nenhuma
- * @post Elemento inserido
+ * @brief Insere como último elemento da fila
+ *
+ * Mantendo o padrão primeiro a entrar, primeiro a sair (FIFO)
+ * @param queue Uma fila
+ * @param data o valor a ser inserido
  */
 void insertQueue(Queue *queue, int position, int tabs) {
     QueueNode *newTail = allocQueueNode();
@@ -85,12 +84,11 @@ void insertQueue(Queue *queue, int position, int tabs) {
 }
 
 /**
- * @brief Remove elemento da fila
- * 
- * @param queue ponteiro para uma estrutura com os dados da fila
- * @return int 
- * @pre Nenhuma
- * @post Elemento removido
+ * @brief Desaloca o primeiro elemento da fila
+ *
+ * Mantendo o padrão primeiro a entrar, primeiro a sair (FIFO)
+ * @param queue Uma fila
+ * @return int valor do elemento retirado
  */
 int removeQueue(Queue * queue) {
     QueueNode *head = queue->head;
@@ -105,11 +103,14 @@ int removeQueue(Queue * queue) {
 }
 
 /**
- * @brief Imprime fila
- * 
- * @param queue ponteiro para uma estrutura com os dados da fila
+ * @brief Imprime recursivamente todos os elementos da fila
+ *
+ * @param start Primeiro elemento da fila, ou
+ * em chamadas posteriores o elemento atual da impressão
+ * @param end Ultimo elemento da fila
+ *
  * @pre Nenhuma
- * @post Fila imprimida no console
+ * @post Nenhuma
  */
 void printQueue(Queue *queue) {
     printLine();

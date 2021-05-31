@@ -46,9 +46,9 @@ void printProduct(Product *product) {
 }
 
 /**
- * @brief 
+ * @brief Imprime algumas informações do prodduto
  * 
- * @param product 
+ * @param product ponteiro para uma estrutura com os dados do produto
  * @pre Nenhuma
  * @post Nenhuma
  */
