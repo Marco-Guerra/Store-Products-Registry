@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Controle de Estoque: Código-Fonte de queue.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Controle de Estoque
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_bdeba5f06b852fec80257c0bf4c3c36e.html">models</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">queue.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef QUEUE</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define QUEUE</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../utilities/utilities.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structqueueNode.html">   20</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structqueueNode.html">queueNode</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> position;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> tabs;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">struct </span><a class="code" href="structqueueNode.html">queueNode</a> * prox;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}<a class="code" href="structqueueNode.html">QueueNode</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structQueue.html">   29</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> size;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">struct </span><a class="code" href="structqueueNode.html">queueNode</a> *head;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">struct </span><a class="code" href="structqueueNode.html">queueNode</a> *tail;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}<a class="code" href="structQueue.html">Queue</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">int</span> <a class="code" href="queue_8c.html#a1b233532dee522959e71377ab0b0cfb9">emptyQueue</a>(<a class="code" href="structQueue.html">Queue</a> *queue);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<a class="code" href="structQueue.html">Queue</a>* <a class="code" href="queue_8c.html#aa4fc1988b6de9949c88d1247b763b0d4">createQueue</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<a class="code" href="structqueueNode.html">QueueNode</a>* <a class="code" href="queue_8c.html#ae56d45918c3d4d4f762fd43350324970">allocQueueNode</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">int</span> <a class="code" href="queue_8c.html#ad465134862c84d916b404b223adf0c94">sizeQueue</a>(<a class="code" href="structQueue.html">Queue</a> *queue);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> <a class="code" href="queue_8c.html#a609e6fb533009e09f02eef9a57a79903">insertQueue</a>(<a class="code" href="structQueue.html">Queue</a> *queue, <span class="keywordtype">int</span> position, <span class="keywordtype">int</span> tabs);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">int</span> <a class="code" href="queue_8c.html#abe98c5d7dc2738ff21041dcbdd554d95">removeQueue</a>(<a class="code" href="structQueue.html">Queue</a> *queue);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">void</span> <a class="code" href="queue_8c.html#aa3e18bd8ba406c1ef7d07eb21f003091">printQueue</a>(<a class="code" href="structQueue.html">Queue</a> *queue);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keywordtype">void</span> <a class="code" href="queue_8c.html#ab7c96199cd8ebaf00960ef11b43cedd0">printQueueTail</a>(<a class="code" href="structqueueNode.html">QueueNode</a> *start, <a class="code" href="structqueueNode.html">QueueNode</a> *end);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aqueue_8c_html_a1b233532dee522959e71377ab0b0cfb9"><div class="ttname"><a href="queue_8c.html#a1b233532dee522959e71377ab0b0cfb9">emptyQueue</a></div><div class="ttdeci">int emptyQueue(Queue *queue)</div><div class="ttdoc">Informa se a lista passada como argumento é vazia.</div><div class="ttdef"><b>Definition:</b> queue.c:23</div></div>
+<div class="ttc" id="aqueue_8c_html_a609e6fb533009e09f02eef9a57a79903"><div class="ttname"><a href="queue_8c.html#a609e6fb533009e09f02eef9a57a79903">insertQueue</a></div><div class="ttdeci">void insertQueue(Queue *queue, int position, int tabs)</div><div class="ttdoc">Insere como último elemento da fila.</div><div class="ttdef"><b>Definition:</b> queue.c:72</div></div>
+<div class="ttc" id="aqueue_8c_html_aa3e18bd8ba406c1ef7d07eb21f003091"><div class="ttname"><a href="queue_8c.html#aa3e18bd8ba406c1ef7d07eb21f003091">printQueue</a></div><div class="ttdeci">void printQueue(Queue *queue)</div><div class="ttdoc">Imprime recursivamente todos os elementos da fila.</div><div class="ttdef"><b>Definition:</b> queue.c:115</div></div>
+<div class="ttc" id="aqueue_8c_html_aa4fc1988b6de9949c88d1247b763b0d4"><div class="ttname"><a href="queue_8c.html#aa4fc1988b6de9949c88d1247b763b0d4">createQueue</a></div><div class="ttdeci">Queue * createQueue()</div><div class="ttdoc">Inicializa uma nova fila.</div><div class="ttdef"><b>Definition:</b> queue.c:34</div></div>
+<div class="ttc" id="aqueue_8c_html_ab7c96199cd8ebaf00960ef11b43cedd0"><div class="ttname"><a href="queue_8c.html#ab7c96199cd8ebaf00960ef11b43cedd0">printQueueTail</a></div><div class="ttdeci">void printQueueTail(QueueNode *start, QueueNode *end)</div><div class="ttdoc">Imprime toda a fila de dados.</div><div class="ttdef"><b>Definition:</b> queue.c:137</div></div>
+<div class="ttc" id="aqueue_8c_html_abe98c5d7dc2738ff21041dcbdd554d95"><div class="ttname"><a href="queue_8c.html#abe98c5d7dc2738ff21041dcbdd554d95">removeQueue</a></div><div class="ttdeci">int removeQueue(Queue *queue)</div><div class="ttdoc">Desaloca o primeiro elemento da fila.</div><div class="ttdef"><b>Definition:</b> queue.c:93</div></div>
+<div class="ttc" id="aqueue_8c_html_ad465134862c84d916b404b223adf0c94"><div class="ttname"><a href="queue_8c.html#ad465134862c84d916b404b223adf0c94">sizeQueue</a></div><div class="ttdeci">int sizeQueue(Queue *queue)</div><div class="ttdoc">Retorna o tamanho da fila.</div><div class="ttdef"><b>Definition:</b> queue.c:61</div></div>
+<div class="ttc" id="aqueue_8c_html_ae56d45918c3d4d4f762fd43350324970"><div class="ttname"><a href="queue_8c.html#ae56d45918c3d4d4f762fd43350324970">allocQueueNode</a></div><div class="ttdeci">QueueNode * allocQueueNode()</div><div class="ttdoc">Aloca um novo elemento para a fila.</div><div class="ttdef"><b>Definition:</b> queue.c:49</div></div>
+<div class="ttc" id="astructQueue_html"><div class="ttname"><a href="structQueue.html">Queue</a></div><div class="ttdoc">Estrutura que representa uma Fila.</div><div class="ttdef"><b>Definition:</b> queue.h:29</div></div>
+<div class="ttc" id="astructqueueNode_html"><div class="ttname"><a href="structqueueNode.html">queueNode</a></div><div class="ttdoc">Estrutura que representa um único elemento da fila.</div><div class="ttdef"><b>Definition:</b> queue.h:20</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Controle de Estoque: Referência do Arquivo queue.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Controle de Estoque
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_bdeba5f06b852fec80257c0bf4c3c36e.html">models</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo queue.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Biblioteca responsável por definir uma fila de inteiros genérica, bem como suas funções.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &quot;queue.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a1b233532dee522959e71377ab0b0cfb9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a1b233532dee522959e71377ab0b0cfb9">emptyQueue</a> (<a class="el" href="structQueue.html">Queue</a> *queue)</td></tr>
+<tr class="memdesc:a1b233532dee522959e71377ab0b0cfb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa se a lista passada como argumento é vazia.  <a href="queue_8c.html#a1b233532dee522959e71377ab0b0cfb9">Mais...</a><br /></td></tr>
+<tr class="separator:a1b233532dee522959e71377ab0b0cfb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4fc1988b6de9949c88d1247b763b0d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#aa4fc1988b6de9949c88d1247b763b0d4">createQueue</a> ()</td></tr>
+<tr class="memdesc:aa4fc1988b6de9949c88d1247b763b0d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa uma nova fila.  <a href="queue_8c.html#aa4fc1988b6de9949c88d1247b763b0d4">Mais...</a><br /></td></tr>
+<tr class="separator:aa4fc1988b6de9949c88d1247b763b0d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae56d45918c3d4d4f762fd43350324970"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structqueueNode.html">QueueNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#ae56d45918c3d4d4f762fd43350324970">allocQueueNode</a> ()</td></tr>
+<tr class="memdesc:ae56d45918c3d4d4f762fd43350324970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aloca um novo elemento para a fila.  <a href="queue_8c.html#ae56d45918c3d4d4f762fd43350324970">Mais...</a><br /></td></tr>
+<tr class="separator:ae56d45918c3d4d4f762fd43350324970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad465134862c84d916b404b223adf0c94"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#ad465134862c84d916b404b223adf0c94">sizeQueue</a> (<a class="el" href="structQueue.html">Queue</a> *queue)</td></tr>
+<tr class="memdesc:ad465134862c84d916b404b223adf0c94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o tamanho da fila.  <a href="queue_8c.html#ad465134862c84d916b404b223adf0c94">Mais...</a><br /></td></tr>
+<tr class="separator:ad465134862c84d916b404b223adf0c94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a609e6fb533009e09f02eef9a57a79903"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a609e6fb533009e09f02eef9a57a79903">insertQueue</a> (<a class="el" href="structQueue.html">Queue</a> *queue, int position, int tabs)</td></tr>
+<tr class="memdesc:a609e6fb533009e09f02eef9a57a79903"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere como último elemento da fila.  <a href="queue_8c.html#a609e6fb533009e09f02eef9a57a79903">Mais...</a><br /></td></tr>
+<tr class="separator:a609e6fb533009e09f02eef9a57a79903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe98c5d7dc2738ff21041dcbdd554d95"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#abe98c5d7dc2738ff21041dcbdd554d95">removeQueue</a> (<a class="el" href="structQueue.html">Queue</a> *queue)</td></tr>
+<tr class="memdesc:abe98c5d7dc2738ff21041dcbdd554d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desaloca o primeiro elemento da fila.  <a href="queue_8c.html#abe98c5d7dc2738ff21041dcbdd554d95">Mais...</a><br /></td></tr>
+<tr class="separator:abe98c5d7dc2738ff21041dcbdd554d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e18bd8ba406c1ef7d07eb21f003091"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#aa3e18bd8ba406c1ef7d07eb21f003091">printQueue</a> (<a class="el" href="structQueue.html">Queue</a> *queue)</td></tr>
+<tr class="memdesc:aa3e18bd8ba406c1ef7d07eb21f003091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime recursivamente todos os elementos da fila.  <a href="queue_8c.html#aa3e18bd8ba406c1ef7d07eb21f003091">Mais...</a><br /></td></tr>
+<tr class="separator:aa3e18bd8ba406c1ef7d07eb21f003091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7c96199cd8ebaf00960ef11b43cedd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#ab7c96199cd8ebaf00960ef11b43cedd0">printQueueTail</a> (<a class="el" href="structqueueNode.html">QueueNode</a> *start, <a class="el" href="structqueueNode.html">QueueNode</a> *end)</td></tr>
+<tr class="memdesc:ab7c96199cd8ebaf00960ef11b43cedd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime toda a fila de dados.  <a href="queue_8c.html#ab7c96199cd8ebaf00960ef11b43cedd0">Mais...</a><br /></td></tr>
+<tr class="separator:ab7c96199cd8ebaf00960ef11b43cedd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Biblioteca responsável por definir uma fila de inteiros genérica, bem como suas funções. </p>
+<dl class="section author"><dt>Autor</dt><dd>Victor Emanuel Almeida (<a href="#" onclick="location.href='mai'+'lto:'+'vic'+'to'+'ral'+'me'+'ida'+'20'+'01@'+'ho'+'tma'+'il'+'.co'+'m'; return false;">victo<span style="display: none;">.nosp@m.</span>ralm<span style="display: none;">.nosp@m.</span>eida2<span style="display: none;">.nosp@m.</span>001@<span style="display: none;">.nosp@m.</span>hotma<span style="display: none;">.nosp@m.</span>il.c<span style="display: none;">.nosp@m.</span>om</a>) </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>03/05/2021</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2021 </dd></dl>
+</div><h2 class="groupheader">Funções</h2>
+<a id="ae56d45918c3d4d4f762fd43350324970"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae56d45918c3d4d4f762fd43350324970">&#9670;&nbsp;</a></span>allocQueueNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structqueueNode.html">QueueNode</a>* allocQueueNode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aloca um novo elemento para a fila. </p>
+<dl class="section return"><dt>Retorna</dt><dd>No* Um nó alocado na memória </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Novo Nó criado </dd></dl>
+
+</div>
+</div>
+<a id="aa4fc1988b6de9949c88d1247b763b0d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4fc1988b6de9949c88d1247b763b0d4">&#9670;&nbsp;</a></span>createQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structQueue.html">Queue</a>* createQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa uma nova fila. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Fila* Uma fila inicializada </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Uma nova Fila foi inicializada </dd></dl>
+
+</div>
+</div>
+<a id="a1b233532dee522959e71377ab0b0cfb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b233532dee522959e71377ab0b0cfb9">&#9670;&nbsp;</a></span>emptyQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int emptyQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structQueue.html">Queue</a> *&#160;</td>
+          <td class="paramname"><em>queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Informa se a lista passada como argumento é vazia. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Uma fila </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int retorno booleano 1 se a fila é vazia ou 0 caso contrário </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a609e6fb533009e09f02eef9a57a79903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a609e6fb533009e09f02eef9a57a79903">&#9670;&nbsp;</a></span>insertQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void insertQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structQueue.html">Queue</a> *&#160;</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tabs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insere como último elemento da fila. </p>
+<p>Mantendo o padrão primeiro a entrar, primeiro a sair (FIFO) </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Uma fila </td></tr>
+    <tr><td class="paramname">data</td><td>o valor a ser inserido </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa3e18bd8ba406c1ef7d07eb21f003091"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3e18bd8ba406c1ef7d07eb21f003091">&#9670;&nbsp;</a></span>printQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structQueue.html">Queue</a> *&#160;</td>
+          <td class="paramname"><em>queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime recursivamente todos os elementos da fila. </p>
+<p>Interface para imprimir todos os elementos da fila.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>Primeiro elemento da fila, ou em chamadas posteriores o elemento atual da impressão </td></tr>
+    <tr><td class="paramname">end</td><td>Ultimo elemento da fila</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="ab7c96199cd8ebaf00960ef11b43cedd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7c96199cd8ebaf00960ef11b43cedd0">&#9670;&nbsp;</a></span>printQueueTail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printQueueTail </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structqueueNode.html">QueueNode</a> *&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structqueueNode.html">QueueNode</a> *&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime toda a fila de dados. </p>
+<p>Imprime recursivamente todos os elementos da fila.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>ponteiro para uma estrutura com os dados da fila </td></tr>
+    <tr><td class="paramname">end</td><td>ponteiro para uma estrutura com os dados da fila </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Fila no console </dd></dl>
+
+</div>
+</div>
+<a id="abe98c5d7dc2738ff21041dcbdd554d95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe98c5d7dc2738ff21041dcbdd554d95">&#9670;&nbsp;</a></span>removeQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int removeQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structQueue.html">Queue</a> *&#160;</td>
+          <td class="paramname"><em>queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desaloca o primeiro elemento da fila. </p>
+<p>Mantendo o padrão primeiro a entrar, primeiro a sair (FIFO) </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Uma fila </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int valor do elemento retirado </dd></dl>
+
+</div>
+</div>
+<a id="ad465134862c84d916b404b223adf0c94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad465134862c84d916b404b223adf0c94">&#9670;&nbsp;</a></span>sizeQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sizeQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structQueue.html">Queue</a> *&#160;</td>
+          <td class="paramname"><em>queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o tamanho da fila. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>Uma fila </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int o tamanho da fila </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

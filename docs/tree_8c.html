@@ -1,0 +1,808 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Controle de Estoque: Referência do Arquivo tree.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Controle de Estoque
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_bdeba5f06b852fec80257c0bf4c3c36e.html">models</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo tree.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;tree.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a0c107650ee4e068ae238fbb13fad4a76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structnode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a0c107650ee4e068ae238fbb13fad4a76">allocNode</a> ()</td></tr>
+<tr class="separator:a0c107650ee4e068ae238fbb13fad4a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74a2c830d646242a5baa0b6edf94bfb9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a74a2c830d646242a5baa0b6edf94bfb9">isEmpty</a> (FILE *dataFile)</td></tr>
+<tr class="separator:a74a2c830d646242a5baa0b6edf94bfb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2023e80ab44638c33b54ce3ce415b02f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a2023e80ab44638c33b54ce3ce415b02f">writeHead</a> (<a class="el" href="structHead.html">Head</a> *head, FILE *dataFile)</td></tr>
+<tr class="separator:a2023e80ab44638c33b54ce3ce415b02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9cd2b7f0ee1a6734ec6d5802428acab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHead.html">Head</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#ae9cd2b7f0ee1a6734ec6d5802428acab">readHead</a> (FILE *dataFile)</td></tr>
+<tr class="separator:ae9cd2b7f0ee1a6734ec6d5802428acab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2424a3930936aa9bf0b47c5f0f60e55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#ad2424a3930936aa9bf0b47c5f0f60e55">writeHeadField</a> (int value, int headData, FILE *dataFile)</td></tr>
+<tr class="separator:ad2424a3930936aa9bf0b47c5f0f60e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeffe84b108480678bd69e6142adec1a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#aeffe84b108480678bd69e6142adec1a6">readHeadField</a> (int headData, FILE *dataFile)</td></tr>
+<tr class="separator:aeffe84b108480678bd69e6142adec1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08992b4b61e421e587fd1ce330615cf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a08992b4b61e421e587fd1ce330615cf6">writeNodeField</a> (int value, int nodeData, int position, FILE *dataFile)</td></tr>
+<tr class="separator:a08992b4b61e421e587fd1ce330615cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab07df4844b181ce3ed2f4ed0eab20f12"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#ab07df4844b181ce3ed2f4ed0eab20f12">readNodeField</a> (int nodeData, int position, FILE *dataFile)</td></tr>
+<tr class="separator:ab07df4844b181ce3ed2f4ed0eab20f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3523c1668e99173ed22e1edc45dc52b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structProduct.html">Product</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#ad3523c1668e99173ed22e1edc45dc52b">readNodeProduct</a> (FILE *dataFile, int position)</td></tr>
+<tr class="separator:ad3523c1668e99173ed22e1edc45dc52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32492327be73e22abbb47219b52c2cf2"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a32492327be73e22abbb47219b52c2cf2">makeDataFile</a> (char *filePath)</td></tr>
+<tr class="separator:a32492327be73e22abbb47219b52c2cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a063a8d7abf1621d0bb4332b952080d9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a063a8d7abf1621d0bb4332b952080d9a">writeNode</a> (FILE *dataFile, <a class="el" href="structnode.html">Node</a> *<a class="el" href="structnode.html">node</a>, int position)</td></tr>
+<tr class="separator:a063a8d7abf1621d0bb4332b952080d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab22282f00b50b1db086395f4e8742ef7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structnode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#ab22282f00b50b1db086395f4e8742ef7">makeNode</a> (<a class="el" href="structProduct.html">Product</a> *product, int rChild, int lChild)</td></tr>
+<tr class="separator:ab22282f00b50b1db086395f4e8742ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bbf6ff20667fb3108c8d03bd0a60f6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structnode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a1bbf6ff20667fb3108c8d03bd0a60f6a">readNode</a> (FILE *dataFile, int position)</td></tr>
+<tr class="separator:a1bbf6ff20667fb3108c8d03bd0a60f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53c1cb43e0c8bc24ddea6046107ea5e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a53c1cb43e0c8bc24ddea6046107ea5e6">insertNode</a> (FILE *dataFile, <a class="el" href="structnode.html">Node</a> *<a class="el" href="structnode.html">node</a>)</td></tr>
+<tr class="separator:a53c1cb43e0c8bc24ddea6046107ea5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5263404e1255da93e55ffa8a12632fdf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a5263404e1255da93e55ffa8a12632fdf">removeNode</a> (FILE *dataFile, int position)</td></tr>
+<tr class="separator:a5263404e1255da93e55ffa8a12632fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d71c804ad930e0a44ad011f188ef396"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a4d71c804ad930e0a44ad011f188ef396">printInOrder</a> (FILE *dataFile)</td></tr>
+<tr class="separator:a4d71c804ad930e0a44ad011f188ef396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb1f8860e0e833650580b1a3a680afb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#acb1f8860e0e833650580b1a3a680afb4">printInOrderRec</a> (FILE *dataFile, int this)</td></tr>
+<tr class="separator:acb1f8860e0e833650580b1a3a680afb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e7b580b2167fbf49c8c89a25cd8a247"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a7e7b580b2167fbf49c8c89a25cd8a247">printByLevel</a> (FILE *dataFile)</td></tr>
+<tr class="separator:a7e7b580b2167fbf49c8c89a25cd8a247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a84a91c2e4fce8515ebae2a40692cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_8c.html#a96a84a91c2e4fce8515ebae2a40692cf">printFree</a> (FILE *dataFile)</td></tr>
+<tr class="memdesc:a96a84a91c2e4fce8515ebae2a40692cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime no menu todas as posições livres.  <a href="tree_8c.html#a96a84a91c2e4fce8515ebae2a40692cf">Mais...</a><br /></td></tr>
+<tr class="separator:a96a84a91c2e4fce8515ebae2a40692cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55e01ea412a24dbc93ce1800c1a33388"><td class="memItemLeft" align="right" valign="top"><a id="a55e01ea412a24dbc93ce1800c1a33388"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printFreeRec</b> (FILE *dataFile, int this)</td></tr>
+<tr class="separator:a55e01ea412a24dbc93ce1800c1a33388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Victor Emanuel Almeida (<a href="#" onclick="location.href='mai'+'lto:'+'vic'+'to'+'ral'+'me'+'ida'+'20'+'01@'+'ho'+'tma'+'il'+'.co'+'m'; return false;">victo<span style="display: none;">.nosp@m.</span>ralm<span style="display: none;">.nosp@m.</span>eida2<span style="display: none;">.nosp@m.</span>001@<span style="display: none;">.nosp@m.</span>hotma<span style="display: none;">.nosp@m.</span>il.c<span style="display: none;">.nosp@m.</span>om</a>) </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>31/05/2021</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2021 </dd></dl>
+</div><h2 class="groupheader">Funções</h2>
+<a id="a0c107650ee4e068ae238fbb13fad4a76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c107650ee4e068ae238fbb13fad4a76">&#9670;&nbsp;</a></span>allocNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structnode.html">Node</a>* allocNode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Retorna</dt><dd>Node* </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a53c1cb43e0c8bc24ddea6046107ea5e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53c1cb43e0c8bc24ddea6046107ea5e6">&#9670;&nbsp;</a></span>insertNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int insertNode </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structnode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+    <tr><td class="paramname">node</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a74a2c830d646242a5baa0b6edf94bfb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a2c830d646242a5baa0b6edf94bfb9">&#9670;&nbsp;</a></span>isEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isEmpty </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a32492327be73e22abbb47219b52c2cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32492327be73e22abbb47219b52c2cf2">&#9670;&nbsp;</a></span>makeDataFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* makeDataFile </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filePath</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>FILE* </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="ab22282f00b50b1db086395f4e8742ef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab22282f00b50b1db086395f4e8742ef7">&#9670;&nbsp;</a></span>makeNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structnode.html">Node</a>* makeNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structProduct.html">Product</a> *&#160;</td>
+          <td class="paramname"><em>product</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rChild</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lChild</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">product</td><td></td></tr>
+    <tr><td class="paramname">rChild</td><td></td></tr>
+    <tr><td class="paramname">lChild</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Node* </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a7e7b580b2167fbf49c8c89a25cd8a247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e7b580b2167fbf49c8c89a25cd8a247">&#9670;&nbsp;</a></span>printByLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printByLevel </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a96a84a91c2e4fce8515ebae2a40692cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a84a91c2e4fce8515ebae2a40692cf">&#9670;&nbsp;</a></span>printFree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printFree </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime no menu todas as posições livres. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a4d71c804ad930e0a44ad011f188ef396"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d71c804ad930e0a44ad011f188ef396">&#9670;&nbsp;</a></span>printInOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printInOrder </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="acb1f8860e0e833650580b1a3a680afb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb1f8860e0e833650580b1a3a680afb4">&#9670;&nbsp;</a></span>printInOrderRec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printInOrderRec </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>this</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+    <tr><td class="paramname">this</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="ae9cd2b7f0ee1a6734ec6d5802428acab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9cd2b7f0ee1a6734ec6d5802428acab">&#9670;&nbsp;</a></span>readHead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structHead.html">Head</a>* readHead </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Head* </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="aeffe84b108480678bd69e6142adec1a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeffe84b108480678bd69e6142adec1a6">&#9670;&nbsp;</a></span>readHeadField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int readHeadField </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>headData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">headData</td><td></td></tr>
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a1bbf6ff20667fb3108c8d03bd0a60f6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bbf6ff20667fb3108c8d03bd0a60f6a">&#9670;&nbsp;</a></span>readNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structnode.html">Node</a>* readNode </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+    <tr><td class="paramname">position</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Node* </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="ab07df4844b181ce3ed2f4ed0eab20f12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab07df4844b181ce3ed2f4ed0eab20f12">&#9670;&nbsp;</a></span>readNodeField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int readNodeField </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nodeData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeData</td><td></td></tr>
+    <tr><td class="paramname">position</td><td></td></tr>
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="ad3523c1668e99173ed22e1edc45dc52b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3523c1668e99173ed22e1edc45dc52b">&#9670;&nbsp;</a></span>readNodeProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structProduct.html">Product</a>* readNodeProduct </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+    <tr><td class="paramname">position</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Product* </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a5263404e1255da93e55ffa8a12632fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5263404e1255da93e55ffa8a12632fdf">&#9670;&nbsp;</a></span>removeNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int removeNode </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+    <tr><td class="paramname">position</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a2023e80ab44638c33b54ce3ce415b02f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2023e80ab44638c33b54ce3ce415b02f">&#9670;&nbsp;</a></span>writeHead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeHead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structHead.html">Head</a> *&#160;</td>
+          <td class="paramname"><em>head</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td></td></tr>
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="ad2424a3930936aa9bf0b47c5f0f60e55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2424a3930936aa9bf0b47c5f0f60e55">&#9670;&nbsp;</a></span>writeHeadField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeHeadField </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>headData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">headData</td><td></td></tr>
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a063a8d7abf1621d0bb4332b952080d9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063a8d7abf1621d0bb4332b952080d9a">&#9670;&nbsp;</a></span>writeNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int writeNode </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structnode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">position</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int </dd></dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+<a id="a08992b4b61e421e587fd1ce330615cf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08992b4b61e421e587fd1ce330615cf6">&#9670;&nbsp;</a></span>writeNodeField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeNodeField </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nodeData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>dataFile</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">nodeData</td><td></td></tr>
+    <tr><td class="paramname">position</td><td></td></tr>
+    <tr><td class="paramname">dataFile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Pré-condição</dt><dd>Nenhuma </dd></dl>
+<dl class="section post"><dt>Pós-condição</dt><dd>Nenhuma </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

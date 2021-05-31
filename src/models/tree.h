@@ -5,20 +5,33 @@
 #include "queue.h"
 #include "product.h"
 
+/**
+ * @brief Estrutura de cabeçalho de um arquivo
+ */
 typedef struct {
     int regRoot;
     int regLast;
     int regFree;
 }Head;
 
+/**
+ * @brief Estrutura que representa um único nó
+ * da arvore binária implementada em arquivo
+ */
 typedef struct node {
     Product product;
     int rChild;
     int lChild;
 }Node;
 
+/**
+ * @brief Offsets para acessar determinados campos do cabeçaçho
+ */
 enum headData {OFFSET_REG_ROOT, OFFSET_REG_LAST, OFFSET_REG_FREE};
 
+/**
+ * @brief Offsets para acessar determinados campos do nó do Product
+ */
 enum nodeData {
     OFFSET_NODE_CODE = 0,
     OFFSET_NODE_RIGHT = sizeof(Product),

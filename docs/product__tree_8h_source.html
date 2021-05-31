@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Controle de Estoque: Código-Fonte de product_tree.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Controle de Estoque
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_bdeba5f06b852fec80257c0bf4c3c36e.html">models</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">product_tree.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PRODUCT_TREE</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PRODUCT_TREE</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;tree.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../utilities/menu.h&quot;</span> </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#a469699d09b6e386a2483d3257a6e293b">maximum</a>(FILE *dataFile, <span class="keywordtype">int</span> <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#aaf4ee6ebe7673667b664105750ebfffa">minimum</a>(FILE *dataFile, <span class="keywordtype">int</span> <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#af45a063fc7a3fd96147156ff355970a6">insertProduct</a>(FILE *dataFile, <a class="code" href="structProduct.html">Product</a> *product);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#aa02e162fef5165f637ff1bd335240e4c">insertProductRec</a>(FILE *dataFile, <span class="keywordtype">int</span> <span class="keyword">this</span>, <a class="code" href="structProduct.html">Product</a> *product);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#a072fd4200d391d1aad6a94df66a6dcec">updateProduct</a>(FILE *dataFile, <span class="keywordtype">int</span> position, <a class="code" href="structProduct.html">Product</a> *product);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#ae59cb286086f8a3d3353c3ae6caf5479">removeProduct</a>(FILE *dataFile, <span class="keywordtype">int</span> code);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#a40351e895e4d904f7b24f2798675d0bf">removeProductRec</a>(FILE *dataFile, <span class="keywordtype">int</span> <span class="keyword">this</span>, <span class="keywordtype">int</span> code);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#a7b2999d554ade0dfb6c0219cceeff03e">searchProductByCode</a>(FILE *dataFile, <span class="keywordtype">int</span> code);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#aba73936fea7b1c6d21effb7821a12ff2">searchProductByCodeRec</a>(FILE *dataFile, <span class="keywordtype">int</span> <span class="keyword">this</span>, <span class="keywordtype">int</span> code);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#ac6801d807b40da4a649f5372cfb274c6">searchProductByName</a>(FILE *dataFile, <span class="keywordtype">char</span> *name);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">int</span> <a class="code" href="product__tree_8c.html#a9ba361b54ea11a10c4845cf629dc284c">searchProductByNameRec</a>(FILE *dataFile, <span class="keywordtype">int</span> <span class="keyword">this</span>, <span class="keywordtype">char</span> *name);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aproduct__tree_8c_html_a072fd4200d391d1aad6a94df66a6dcec"><div class="ttname"><a href="product__tree_8c.html#a072fd4200d391d1aad6a94df66a6dcec">updateProduct</a></div><div class="ttdeci">int updateProduct(FILE *dataFile, int position, Product *product)</div><div class="ttdef"><b>Definition:</b> product_tree.c:112</div></div>
+<div class="ttc" id="aproduct__tree_8c_html_a40351e895e4d904f7b24f2798675d0bf"><div class="ttname"><a href="product__tree_8c.html#a40351e895e4d904f7b24f2798675d0bf">removeProductRec</a></div><div class="ttdeci">int removeProductRec(FILE *dataFile, int this, int code)</div><div class="ttdef"><b>Definition:</b> product_tree.c:145</div></div>
+<div class="ttc" id="aproduct__tree_8c_html_a469699d09b6e386a2483d3257a6e293b"><div class="ttname"><a href="product__tree_8c.html#a469699d09b6e386a2483d3257a6e293b">maximum</a></div><div class="ttdeci">int maximum(FILE *dataFile, int this)</div><div class="ttdef"><b>Definition:</b> product_tree.c:23</div></div>
+<div class="ttc" id="aproduct__tree_8c_html_a7b2999d554ade0dfb6c0219cceeff03e"><div class="ttname"><a href="product__tree_8c.html#a7b2999d554ade0dfb6c0219cceeff03e">searchProductByCode</a></div><div class="ttdeci">int searchProductByCode(FILE *dataFile, int code)</div><div class="ttdef"><b>Definition:</b> product_tree.c:224</div></div>
+<div class="ttc" id="aproduct__tree_8c_html_a9ba361b54ea11a10c4845cf629dc284c"><div class="ttname"><a href="product__tree_8c.html#a9ba361b54ea11a10c4845cf629dc284c">searchProductByNameRec</a></div><div class="ttdeci">int searchProductByNameRec(FILE *dataFile, int this, char *name)</div><div class="ttdef"><b>Definition:</b> product_tree.c:284</div></div>
+<div class="ttc" id="aproduct__tree_8c_html_aa02e162fef5165f637ff1bd335240e4c"><div class="ttname"><a href="product__tree_8c.html#aa02e162fef5165f637ff1bd335240e4c">insertProductRec</a></div><div class="ttdeci">int insertProductRec(FILE *dataFile, int this, Product *product)</div><div class="ttdef"><b>Definition:</b> product_tree.c:80</div></div>
+<div class="ttc" id="aproduct__tree_8c_html_aaf4ee6ebe7673667b664105750ebfffa"><div class="ttname"><a href="product__tree_8c.html#aaf4ee6ebe7673667b664105750ebfffa">minimum</a></div><div class="ttdeci">int minimum(FILE *dataFile, int this)</div><div class="ttdef"><b>Definition:</b> product_tree.c:40</div></div>
+<div class="ttc" id="aproduct__tree_8c_html_aba73936fea7b1c6d21effb7821a12ff2"><div class="ttname"><a href="product__tree_8c.html#aba73936fea7b1c6d21effb7821a12ff2">searchProductByCodeRec</a></div><div class="ttdeci">int searchProductByCodeRec(FILE *dataFile, int this, int code)</div><div class="ttdef"><b>Definition:</b> product_tree.c:240</div></div>
+<div class="ttc" id="aproduct__tree_8c_html_ac6801d807b40da4a649f5372cfb274c6"><div class="ttname"><a href="product__tree_8c.html#ac6801d807b40da4a649f5372cfb274c6">searchProductByName</a></div><div class="ttdeci">int searchProductByName(FILE *dataFile, char *name)</div><div class="ttdoc">deixamos esta funcao em espera ate o dia em que a gente aprenda uma forma eficiente de buscar uma str...</div><div class="ttdef"><b>Definition:</b> product_tree.c:268</div></div>
+<div class="ttc" id="aproduct__tree_8c_html_ae59cb286086f8a3d3353c3ae6caf5479"><div class="ttname"><a href="product__tree_8c.html#ae59cb286086f8a3d3353c3ae6caf5479">removeProduct</a></div><div class="ttdeci">int removeProduct(FILE *dataFile, int code)</div><div class="ttdef"><b>Definition:</b> product_tree.c:127</div></div>
+<div class="ttc" id="aproduct__tree_8c_html_af45a063fc7a3fd96147156ff355970a6"><div class="ttname"><a href="product__tree_8c.html#af45a063fc7a3fd96147156ff355970a6">insertProduct</a></div><div class="ttdeci">int insertProduct(FILE *dataFile, Product *product)</div><div class="ttdef"><b>Definition:</b> product_tree.c:57</div></div>
+<div class="ttc" id="astructProduct_html"><div class="ttname"><a href="structProduct.html">Product</a></div><div class="ttdoc">Estrutura que representa um único Produto em estoque.</div><div class="ttdef"><b>Definition:</b> product.h:32</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

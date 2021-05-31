@@ -26,6 +26,9 @@
  */
 #define MAX_ENTRY_LINE 251
 
+/**
+ * @brief Estrutura que representa um único Produto em estoque
+ */
 typedef struct {
     int code;               /// código do produto
     char name[MAX_NAME];    /// nome do produto

@@ -7,20 +7,33 @@
 
 #include "utilities.h"
 
+/**
+ * @brief Ponteiro para uma função chamada pelo menu
+ */
 typedef int TypeFunct(FILE *dataFile);
-// Estrutura nó para o Menu
+
+/**
+ * @brief Estrutura nó para os itens da fila entryQueue dentro do Menu
+ */
 typedef struct entryNode {
 	char entryMessage[MESSAGE_SIZE];
     TypeFunct *funct;
 	struct entryNode * prox;
 }EntryNode;
-// Estrutura para lista com cabeça e cauda
+
+/**
+ * @brief Estrutura para fila, implementada como uma
+ * lista encadeada com cabeça e cauda
+ */
 typedef struct entryQueue{
     int size;
     struct entryNode *head;
     struct entryNode *tail;
 }EntryQueue;
-// estrutura para fila
+
+/**
+ * @brief estrutura para fila de itens do menu
+ */
 typedef struct {
     int options;
     int thisOption;

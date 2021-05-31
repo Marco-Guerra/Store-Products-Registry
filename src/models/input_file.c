@@ -12,12 +12,12 @@
 #include "input_file.h"
 
 /**
- * @brief 
+ * @brief Carrega todo o arquivo de entrada
  * 
- * @param inputPath 
- * @param dataFile 
- * @pre Nenhuma
- * @post Nenhuma
+ * @param inputPath caminho para o arquivo de entrada
+ * @param dataFile ponteiro para o arquivo binário que contém o estoque
+ * @pre linha carregado
+ * @post arquivo de entrada lido
  */
 void loadInputFile(char *inputPath, FILE *dataFile) {
     FILE *inputFile = fopen(inputPath, "r");
@@ -42,11 +42,12 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief formata a linha para que seja possivel obter os dados
  * 
- * @param line 
- * @pre Nenhuma
- * @post Nenhuma
+ * Trocando o caractere , por um .
+ * @param line uma unica linha lida do arquivo
+ * @pre Linha carregado
+ * @post Linha formatado
  */
 void formatLine(char *line) {
     for(; *line; line++) {
@@ -57,12 +58,12 @@ void formatLine(char *line) {
 }
 
 /**
- * @brief 
+ * @brief Insere um novo produto a partir dos dados carregados de uma linha
  * 
- * @param line 
- * @param dataFile 
- * @pre Nenhuma
- * @post Nenhuma
+ * @param line uma unica linha lida do arquivo
+ * @param dataFile ponteiro para o arquivo binário que contém o estoque
+ * @pre linha carregado
+ * @post Elemento lido da linha inserido
  */
 void insertFornLine(char *line, FILE *dataFile) {
     Product *product = (Product*)malloc(sizeof(Product));
@@ -79,12 +80,12 @@ void insertFornLine(char *line, FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Modifica um elemento do estoque
  * 
- * @param line 
- * @param dataFile 
- * @pre Nenhuma
- * @post Nenhuma
+ * @param line uma unica linha lida do arquivo
+ * @param dataFile ponteiro para o arquivo binário que contém o estoque
+ * @pre linha carregado
+ * @post Elemento quando encontrado é modificado
  */
 void modifyFornLine(char *line, FILE *dataFile) {
     Node *node;
@@ -100,12 +101,12 @@ void modifyFornLine(char *line, FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Remove um elemento do estoque
  * 
- * @param line 
- * @param dataFile 
- * @pre Nenhuma
- * @post Nenhuma
+ * @param line uma unica linha lida do arquivo
+ * @param dataFile ponteiro para o arquivo binário que contém o estoque
+ * @pre linha carregado
+ * @post Elemento quando encontrado é removido
  */
 void removeFromLine(char *line, FILE *dataFile) {
     int code;
@@ -114,12 +115,12 @@ void removeFromLine(char *line, FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Remove espaços em branco da linha
  * 
- * @param line 
- * @return char* 
- * @pre Nenhuma
- * @post Nenhuma
+ * @param line uma unica linha lida do arquivo
+ * @return char* a linha sem espaços desnecessários
+ * @pre linha carregado
+ * @post linha sem espaços em branco
  */
 char *trim(char *line) {
     char *newLine = (char*)malloc(sizeof(char)*MAX_ENTRY_LINE);

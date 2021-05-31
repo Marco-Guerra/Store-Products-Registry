@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Controle de Estoque: Código-Fonte de main_menu_controller.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Controle de Estoque
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_bbd6674d859f4cefaacb708974cac240.html">controllers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">main_menu_controller.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MAIN_MENU_CONTROLLER</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MAIN_MENU_CONTROLLER</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../utilities/menu.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;../utilities/utilities.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../models/input_file.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;../models/product_tree.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;search_menu_controller.h&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;change_menu_controller.h&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main__menu__controller_8c.html#a1e6e4f99eb06c830cc7a27a4d8505c83">mainMenuController</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main__menu__controller_8c.html#ae04fc1177c3e554d6c9cf2aa6822db03">actionInsert</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main__menu__controller_8c.html#aa1c31bc32e09db391d321377f6534bc0">actionSearch</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main__menu__controller_8c.html#a5c9c51e94c782ec79af6f385ff5f69d8">actionChange</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main__menu__controller_8c.html#a2d55a8c280efa9114933c71af135d87a">actionLoad</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main__menu__controller_8c.html#a266ed43641950288b602564331dcf9ec">actionRemove</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main__menu__controller_8c.html#a0dff1e3be45d09f2109bef7b97768cf8">actionClose</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="amain__menu__controller_8c_html_a0dff1e3be45d09f2109bef7b97768cf8"><div class="ttname"><a href="main__menu__controller_8c.html#a0dff1e3be45d09f2109bef7b97768cf8">actionClose</a></div><div class="ttdeci">int actionClose(FILE *dataFile)</div><div class="ttdoc">chama função responsavel por imprimir a mensagem que indica o encerramento do programa</div><div class="ttdef"><b>Definition:</b> main_menu_controller.c:125</div></div>
+<div class="ttc" id="amain__menu__controller_8c_html_a1e6e4f99eb06c830cc7a27a4d8505c83"><div class="ttname"><a href="main__menu__controller_8c.html#a1e6e4f99eb06c830cc7a27a4d8505c83">mainMenuController</a></div><div class="ttdeci">int mainMenuController(FILE *dataFile)</div><div class="ttdoc">Insere no menu principal cada função necessaria.</div><div class="ttdef"><b>Definition:</b> main_menu_controller.c:21</div></div>
+<div class="ttc" id="amain__menu__controller_8c_html_a266ed43641950288b602564331dcf9ec"><div class="ttname"><a href="main__menu__controller_8c.html#a266ed43641950288b602564331dcf9ec">actionRemove</a></div><div class="ttdeci">int actionRemove(FILE *dataFile)</div><div class="ttdoc">Remove produto.</div><div class="ttdef"><b>Definition:</b> main_menu_controller.c:103</div></div>
+<div class="ttc" id="amain__menu__controller_8c_html_a2d55a8c280efa9114933c71af135d87a"><div class="ttname"><a href="main__menu__controller_8c.html#a2d55a8c280efa9114933c71af135d87a">actionLoad</a></div><div class="ttdeci">int actionLoad(FILE *dataFile)</div><div class="ttdoc">Roda arquivo.</div><div class="ttdef"><b>Definition:</b> main_menu_controller.c:86</div></div>
+<div class="ttc" id="amain__menu__controller_8c_html_a5c9c51e94c782ec79af6f385ff5f69d8"><div class="ttname"><a href="main__menu__controller_8c.html#a5c9c51e94c782ec79af6f385ff5f69d8">actionChange</a></div><div class="ttdeci">int actionChange(FILE *dataFile)</div><div class="ttdoc">chama funçao responsavel em realizar a atualizaçao dos componentes do produto</div><div class="ttdef"><b>Definition:</b> main_menu_controller.c:73</div></div>
+<div class="ttc" id="amain__menu__controller_8c_html_aa1c31bc32e09db391d321377f6534bc0"><div class="ttname"><a href="main__menu__controller_8c.html#aa1c31bc32e09db391d321377f6534bc0">actionSearch</a></div><div class="ttdeci">int actionSearch(FILE *dataFile)</div><div class="ttdoc">chama funçao responsavel em realizar a busca pelo produto</div><div class="ttdef"><b>Definition:</b> main_menu_controller.c:59</div></div>
+<div class="ttc" id="amain__menu__controller_8c_html_ae04fc1177c3e554d6c9cf2aa6822db03"><div class="ttname"><a href="main__menu__controller_8c.html#ae04fc1177c3e554d6c9cf2aa6822db03">actionInsert</a></div><div class="ttdeci">int actionInsert(FILE *dataFile)</div><div class="ttdoc">Insere produto no arquivo.</div><div class="ttdef"><b>Definition:</b> main_menu_controller.c:43</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

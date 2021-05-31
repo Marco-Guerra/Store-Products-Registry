@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Controle de Estoque: Código-Fonte de input_file.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Controle de Estoque
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_bdeba5f06b852fec80257c0bf4c3c36e.html">models</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">input_file.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="input__file_8h.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef INPUT_FILE</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define INPUT_FILE</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../utilities/menu.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../utilities/utilities.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;product_tree.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;ctype.h&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="input__file_8h.html#a8da2842f4e4a444a11f891adda2544b1">   22</a></span>&#160;<span class="preprocessor">#define FILE_PATH_NAME 100</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="input__file_8h.html#abf64c7782b8bb3bd2bd12bea976c3888">   27</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="input__file_8h.html#abf64c7782b8bb3bd2bd12bea976c3888">inputFileOperations</a> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    INPUT_FILE_INSERT = <span class="charliteral">&#39;I&#39;</span>,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    INPUT_FILE_MODIFY = <span class="charliteral">&#39;A&#39;</span>,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    INPUT_FILE_REMOVE = <span class="charliteral">&#39;R&#39;</span>,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input__file_8h.html#afa65655c815b3f84f2d64de8723615c2">loadInputFile</a>(<span class="keywordtype">char</span> *inputPath, FILE *dataFile);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input__file_8h.html#a8ba3e4e79865f28ac7ffd9da7caf2450">formatLine</a>(<span class="keywordtype">char</span> *line);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input__file_8h.html#a2c8dc843f0eb84e5799ad00891d62135">insertFornLine</a>(<span class="keywordtype">char</span> *line, FILE *dataFile);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input__file_8h.html#ab96321927078d8cf6741711b33be14ce">modifyFornLine</a>(<span class="keywordtype">char</span> *line, FILE *dataFile);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input__file_8h.html#a13df5998f5a50b7768b1c372c06cb7c7">removeFromLine</a>(<span class="keywordtype">char</span> *line, FILE *dataFile);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">char</span> *<a class="code" href="input__file_8h.html#a2029b048f081fd08533dc612e962fcdf">trim</a>(<span class="keywordtype">char</span> *line);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ainput__file_8h_html_a13df5998f5a50b7768b1c372c06cb7c7"><div class="ttname"><a href="input__file_8h.html#a13df5998f5a50b7768b1c372c06cb7c7">removeFromLine</a></div><div class="ttdeci">void removeFromLine(char *line, FILE *dataFile)</div><div class="ttdoc">Remove um elemento do estoque.</div><div class="ttdef"><b>Definition:</b> input_file.c:111</div></div>
+<div class="ttc" id="ainput__file_8h_html_a2029b048f081fd08533dc612e962fcdf"><div class="ttname"><a href="input__file_8h.html#a2029b048f081fd08533dc612e962fcdf">trim</a></div><div class="ttdeci">char * trim(char *line)</div><div class="ttdoc">Remove espaços em branco da linha.</div><div class="ttdef"><b>Definition:</b> input_file.c:125</div></div>
+<div class="ttc" id="ainput__file_8h_html_a2c8dc843f0eb84e5799ad00891d62135"><div class="ttname"><a href="input__file_8h.html#a2c8dc843f0eb84e5799ad00891d62135">insertFornLine</a></div><div class="ttdeci">void insertFornLine(char *line, FILE *dataFile)</div><div class="ttdoc">Insere um novo produto a partir dos dados carregados de uma linha.</div><div class="ttdef"><b>Definition:</b> input_file.c:68</div></div>
+<div class="ttc" id="ainput__file_8h_html_a8ba3e4e79865f28ac7ffd9da7caf2450"><div class="ttname"><a href="input__file_8h.html#a8ba3e4e79865f28ac7ffd9da7caf2450">formatLine</a></div><div class="ttdeci">void formatLine(char *line)</div><div class="ttdoc">formata a linha para que seja possivel obter os dados</div><div class="ttdef"><b>Definition:</b> input_file.c:52</div></div>
+<div class="ttc" id="ainput__file_8h_html_ab96321927078d8cf6741711b33be14ce"><div class="ttname"><a href="input__file_8h.html#ab96321927078d8cf6741711b33be14ce">modifyFornLine</a></div><div class="ttdeci">void modifyFornLine(char *line, FILE *dataFile)</div><div class="ttdoc">Modifica um elemento do estoque.</div><div class="ttdef"><b>Definition:</b> input_file.c:90</div></div>
+<div class="ttc" id="ainput__file_8h_html_abf64c7782b8bb3bd2bd12bea976c3888"><div class="ttname"><a href="input__file_8h.html#abf64c7782b8bb3bd2bd12bea976c3888">inputFileOperations</a></div><div class="ttdeci">inputFileOperations</div><div class="ttdoc">Operações possíveis de serem realizadas no arquivo.</div><div class="ttdef"><b>Definition:</b> input_file.h:27</div></div>
+<div class="ttc" id="ainput__file_8h_html_afa65655c815b3f84f2d64de8723615c2"><div class="ttname"><a href="input__file_8h.html#afa65655c815b3f84f2d64de8723615c2">loadInputFile</a></div><div class="ttdeci">void loadInputFile(char *inputPath, FILE *dataFile)</div><div class="ttdoc">Carrega todo o arquivo de entrada.</div><div class="ttdef"><b>Definition:</b> input_file.c:22</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

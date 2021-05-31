@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Controle de Estoque: Código-Fonte de search_menu_controller.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Controle de Estoque
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_bbd6674d859f4cefaacb708974cac240.html">controllers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">search_menu_controller.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SEARCH_MENU_CONTROLLER</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SEARCH_MENU_CONTROLLER</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../utilities/menu.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../utilities/utilities.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../models/product_tree.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">int</span> <a class="code" href="search__menu__controller_8c.html#aae7e4fd14af4c57be0799caba5dbac1f">searchMenuController</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">int</span> actionSearchProductByName(FILE *dataFile);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">int</span> <a class="code" href="search__menu__controller_8c.html#aab8ae03206dc68f83dece512857e420e">actionSearchProductByCode</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">int</span> <a class="code" href="search__menu__controller_8c.html#a41525a7badec2c0e33fb37535c046c4f">actionListProducts</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">int</span> <a class="code" href="search__menu__controller_8c.html#a1634bad0d88e929185b0018dd84a2c88">actionPrintTree</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">int</span> <a class="code" href="search__menu__controller_8c.html#a528841104e6a7f8a71119cd85e519561">actionPrintFreeSpaces</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">int</span> <a class="code" href="search__menu__controller_8c.html#a68cf8019e0f8cf4aef269b26b24fdc3c">actionSearchReturn</a>(FILE *dataFile);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="asearch__menu__controller_8c_html_a1634bad0d88e929185b0018dd84a2c88"><div class="ttname"><a href="search__menu__controller_8c.html#a1634bad0d88e929185b0018dd84a2c88">actionPrintTree</a></div><div class="ttdeci">int actionPrintTree(FILE *dataFile)</div><div class="ttdoc">Imprime arvore binaria em niveis.</div><div class="ttdef"><b>Definition:</b> search_menu_controller.c:97</div></div>
+<div class="ttc" id="asearch__menu__controller_8c_html_a41525a7badec2c0e33fb37535c046c4f"><div class="ttname"><a href="search__menu__controller_8c.html#a41525a7badec2c0e33fb37535c046c4f">actionListProducts</a></div><div class="ttdeci">int actionListProducts(FILE *dataFile)</div><div class="ttdoc">Imprime arvore binaria de produtos.</div><div class="ttdef"><b>Definition:</b> search_menu_controller.c:82</div></div>
+<div class="ttc" id="asearch__menu__controller_8c_html_a528841104e6a7f8a71119cd85e519561"><div class="ttname"><a href="search__menu__controller_8c.html#a528841104e6a7f8a71119cd85e519561">actionPrintFreeSpaces</a></div><div class="ttdeci">int actionPrintFreeSpaces(FILE *dataFile)</div><div class="ttdoc">Imprime espaços em branco.</div><div class="ttdef"><b>Definition:</b> search_menu_controller.c:112</div></div>
+<div class="ttc" id="asearch__menu__controller_8c_html_a68cf8019e0f8cf4aef269b26b24fdc3c"><div class="ttname"><a href="search__menu__controller_8c.html#a68cf8019e0f8cf4aef269b26b24fdc3c">actionSearchReturn</a></div><div class="ttdeci">int actionSearchReturn(FILE *dataFile)</div><div class="ttdef"><b>Definition:</b> search_menu_controller.c:127</div></div>
+<div class="ttc" id="asearch__menu__controller_8c_html_aab8ae03206dc68f83dece512857e420e"><div class="ttname"><a href="search__menu__controller_8c.html#aab8ae03206dc68f83dece512857e420e">actionSearchProductByCode</a></div><div class="ttdeci">int actionSearchProductByCode(FILE *dataFile)</div><div class="ttdoc">Busca produto pelo código.</div><div class="ttdef"><b>Definition:</b> search_menu_controller.c:61</div></div>
+<div class="ttc" id="asearch__menu__controller_8c_html_aae7e4fd14af4c57be0799caba5dbac1f"><div class="ttname"><a href="search__menu__controller_8c.html#aae7e4fd14af4c57be0799caba5dbac1f">searchMenuController</a></div><div class="ttdeci">int searchMenuController(FILE *dataFile)</div><div class="ttdoc">Insere operações de busca no menu.</div><div class="ttdef"><b>Definition:</b> search_menu_controller.c:22</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

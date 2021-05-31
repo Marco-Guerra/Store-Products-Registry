@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Controle de Estoque: Código-Fonte de menu.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Controle de Estoque
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_7b5d38f1875f1b693f62ca6a108a1129.html">utilities</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">menu.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MENU</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MENU</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;utilities.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">int</span> TypeFunct(FILE *dataFile);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structentryNode.html">   18</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structentryNode.html">entryNode</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">char</span> entryMessage[MESSAGE_SIZE];</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    TypeFunct *funct;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">struct </span><a class="code" href="structentryNode.html">entryNode</a> * prox;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}<a class="code" href="structentryNode.html">EntryNode</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structentryQueue.html">   28</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structentryQueue.html">entryQueue</a>{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> size;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">struct </span><a class="code" href="structentryNode.html">entryNode</a> *head;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">struct </span><a class="code" href="structentryNode.html">entryNode</a> *tail;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}<a class="code" href="structentryQueue.html">EntryQueue</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structMenu.html">   37</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> options;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> thisOption;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">struct </span><a class="code" href="structentryQueue.html">entryQueue</a> *queue;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}<a class="code" href="structMenu.html">Menu</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="structentryQueue.html">EntryQueue</a>* <a class="code" href="menu_8c.html#a7f24cb41bec97d9fef9ab4f91f4c8b44">createEntryQueue</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<a class="code" href="structentryNode.html">EntryNode</a>* <a class="code" href="menu_8c.html#a24cdaad110c275aa49ba329aea98ad53">allocEntryNode</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">int</span> <a class="code" href="menu_8c.html#a79cfbc8c3c2369b5c586b079361320d4">emptyEntryQueue</a>(<a class="code" href="structentryQueue.html">EntryQueue</a> *queue);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">int</span> <a class="code" href="menu_8c.html#a13f249c3402204bac44ff9cd2c1e1722">sizeEntryQueue</a>(<a class="code" href="structentryQueue.html">EntryQueue</a> *queue);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">int</span> <a class="code" href="menu_8c.html#ace07f448e760acdf79318809a08b23f8">removeEntryQueue</a>(<a class="code" href="structentryQueue.html">EntryQueue</a> *queue);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8c.html#a70e8c1e4f555472fec4e4c34c8cb115f">insertEntryQueue</a>(<a class="code" href="structentryQueue.html">EntryQueue</a> *queue, <span class="keywordtype">char</span> *message, TypeFunct *funct);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<a class="code" href="structMenu.html">Menu</a> *<a class="code" href="menu_8c.html#add0e4a71a293a443f7bc891be103b3bd">createMenu</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8c.html#a1ee24149f8602c4023b70ed455968e64">addEntryToMenu</a>(<a class="code" href="structMenu.html">Menu</a> *menu, <span class="keywordtype">char</span> *message, TypeFunct *funct);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keywordtype">int</span> <a class="code" href="menu_8c.html#a5861d4171f5c4b5f2d66a55c204f4e77">executeEntry</a>(<a class="code" href="structentryQueue.html">EntryQueue</a> *queue, <span class="keywordtype">int</span> option, FILE *dataFile);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordtype">int</span> <a class="code" href="menu_8c.html#a2227b7a24d8fa3ca208cb9ab1c0692fa">controlMenu</a>(<a class="code" href="structMenu.html">Menu</a> *menu, FILE *dataFile);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8c.html#ae7316e4d1534c83a3fb27c76e324598c">printMenu</a>(<a class="code" href="structMenu.html">Menu</a> *menu);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8c.html#a4c9ba589379c6787376159d151c312b1">printOption</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* message, <span class="keywordtype">int</span> selected);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8c.html#a14374f0ed9767cc066b7f27bd4a110fc">printEntryQueueTail</a>(<a class="code" href="structentryNode.html">EntryNode</a> *start, <a class="code" href="structentryNode.html">EntryNode</a> *end, <span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8c.html#a7fb57e128169e347e4f1793be5ac9852">printWaitMenu</a>();</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8c.html#a02f63d4da42872af423510d879d72b26">printEndMessage</a>();</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="amenu_8c_html_a02f63d4da42872af423510d879d72b26"><div class="ttname"><a href="menu_8c.html#a02f63d4da42872af423510d879d72b26">printEndMessage</a></div><div class="ttdeci">void printEndMessage()</div><div class="ttdoc">Imprime a mensagem que indica o encerramento do programa.</div><div class="ttdef"><b>Definition:</b> menu.c:284</div></div>
+<div class="ttc" id="amenu_8c_html_a13f249c3402204bac44ff9cd2c1e1722"><div class="ttname"><a href="menu_8c.html#a13f249c3402204bac44ff9cd2c1e1722">sizeEntryQueue</a></div><div class="ttdeci">int sizeEntryQueue(EntryQueue *queue)</div><div class="ttdoc">Devolve o tamanho da fila.</div><div class="ttdef"><b>Definition:</b> menu.c:62</div></div>
+<div class="ttc" id="amenu_8c_html_a14374f0ed9767cc066b7f27bd4a110fc"><div class="ttname"><a href="menu_8c.html#a14374f0ed9767cc066b7f27bd4a110fc">printEntryQueueTail</a></div><div class="ttdeci">void printEntryQueueTail(EntryNode *start, EntryNode *end, int i)</div><div class="ttdoc">Printa todas as opçoes.</div><div class="ttdef"><b>Definition:</b> menu.c:253</div></div>
+<div class="ttc" id="amenu_8c_html_a1ee24149f8602c4023b70ed455968e64"><div class="ttname"><a href="menu_8c.html#a1ee24149f8602c4023b70ed455968e64">addEntryToMenu</a></div><div class="ttdeci">void addEntryToMenu(Menu *menu, char *message, TypeFunct *funct)</div><div class="ttdoc">Adiciona mais uma opção ao menu passado por parâmetro.</div><div class="ttdef"><b>Definition:</b> menu.c:137</div></div>
+<div class="ttc" id="amenu_8c_html_a2227b7a24d8fa3ca208cb9ab1c0692fa"><div class="ttname"><a href="menu_8c.html#a2227b7a24d8fa3ca208cb9ab1c0692fa">controlMenu</a></div><div class="ttdeci">int controlMenu(Menu *menu, FILE *dataFile)</div><div class="ttdoc">Realiza o controle de um menu previamente criado.</div><div class="ttdef"><b>Definition:</b> menu.c:172</div></div>
+<div class="ttc" id="amenu_8c_html_a24cdaad110c275aa49ba329aea98ad53"><div class="ttname"><a href="menu_8c.html#a24cdaad110c275aa49ba329aea98ad53">allocEntryNode</a></div><div class="ttdeci">EntryNode * allocEntryNode()</div><div class="ttdoc">Aloca a estrutura EntryNode.</div><div class="ttdef"><b>Definition:</b> menu.c:38</div></div>
+<div class="ttc" id="amenu_8c_html_a4c9ba589379c6787376159d151c312b1"><div class="ttname"><a href="menu_8c.html#a4c9ba589379c6787376159d151c312b1">printOption</a></div><div class="ttdeci">void printOption(const char *message, int selected)</div><div class="ttdoc">Selecionar a opção desejada.</div><div class="ttdef"><b>Definition:</b> menu.c:231</div></div>
+<div class="ttc" id="amenu_8c_html_a5861d4171f5c4b5f2d66a55c204f4e77"><div class="ttname"><a href="menu_8c.html#a5861d4171f5c4b5f2d66a55c204f4e77">executeEntry</a></div><div class="ttdeci">int executeEntry(EntryQueue *queue, int option, FILE *dataFile)</div><div class="ttdoc">Executa a opção selecionada.</div><div class="ttdef"><b>Definition:</b> menu.c:153</div></div>
+<div class="ttc" id="amenu_8c_html_a70e8c1e4f555472fec4e4c34c8cb115f"><div class="ttname"><a href="menu_8c.html#a70e8c1e4f555472fec4e4c34c8cb115f">insertEntryQueue</a></div><div class="ttdeci">void insertEntryQueue(EntryQueue *queue, char *message, TypeFunct *funct)</div><div class="ttdoc">Insere um novo elemento na fila.</div><div class="ttdef"><b>Definition:</b> menu.c:96</div></div>
+<div class="ttc" id="amenu_8c_html_a79cfbc8c3c2369b5c586b079361320d4"><div class="ttname"><a href="menu_8c.html#a79cfbc8c3c2369b5c586b079361320d4">emptyEntryQueue</a></div><div class="ttdeci">int emptyEntryQueue(EntryQueue *queue)</div><div class="ttdoc">Informa se a lista passada como argumento é vazia.</div><div class="ttdef"><b>Definition:</b> menu.c:50</div></div>
+<div class="ttc" id="amenu_8c_html_a7f24cb41bec97d9fef9ab4f91f4c8b44"><div class="ttname"><a href="menu_8c.html#a7f24cb41bec97d9fef9ab4f91f4c8b44">createEntryQueue</a></div><div class="ttdeci">EntryQueue * createEntryQueue()</div><div class="ttdoc">Create a Entry Queue object.</div><div class="ttdef"><b>Definition:</b> menu.c:21</div></div>
+<div class="ttc" id="amenu_8c_html_a7fb57e128169e347e4f1793be5ac9852"><div class="ttname"><a href="menu_8c.html#a7fb57e128169e347e4f1793be5ac9852">printWaitMenu</a></div><div class="ttdeci">void printWaitMenu()</div><div class="ttdoc">Imprime um menu para pausar o programa.</div><div class="ttdef"><b>Definition:</b> menu.c:266</div></div>
+<div class="ttc" id="amenu_8c_html_ace07f448e760acdf79318809a08b23f8"><div class="ttname"><a href="menu_8c.html#ace07f448e760acdf79318809a08b23f8">removeEntryQueue</a></div><div class="ttdeci">int removeEntryQueue(EntryQueue *queue)</div><div class="ttdef"><b>Definition:</b> menu.c:74</div></div>
+<div class="ttc" id="amenu_8c_html_add0e4a71a293a443f7bc891be103b3bd"><div class="ttname"><a href="menu_8c.html#add0e4a71a293a443f7bc891be103b3bd">createMenu</a></div><div class="ttdeci">Menu * createMenu()</div><div class="ttdoc">Create a Menu object.</div><div class="ttdef"><b>Definition:</b> menu.c:119</div></div>
+<div class="ttc" id="amenu_8c_html_ae7316e4d1534c83a3fb27c76e324598c"><div class="ttname"><a href="menu_8c.html#ae7316e4d1534c83a3fb27c76e324598c">printMenu</a></div><div class="ttdeci">void printMenu(Menu *menu)</div><div class="ttdoc">printa o menu principal</div><div class="ttdef"><b>Definition:</b> menu.c:211</div></div>
+<div class="ttc" id="astructMenu_html"><div class="ttname"><a href="structMenu.html">Menu</a></div><div class="ttdoc">estrutura para fila de itens do menu</div><div class="ttdef"><b>Definition:</b> menu.h:37</div></div>
+<div class="ttc" id="astructentryNode_html"><div class="ttname"><a href="structentryNode.html">entryNode</a></div><div class="ttdoc">Estrutura nó para os itens da fila entryQueue dentro do Menu.</div><div class="ttdef"><b>Definition:</b> menu.h:18</div></div>
+<div class="ttc" id="astructentryQueue_html"><div class="ttname"><a href="structentryQueue.html">entryQueue</a></div><div class="ttdoc">Estrutura para fila, implementada como uma lista encadeada com cabeça e cauda.</div><div class="ttdef"><b>Definition:</b> menu.h:28</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
