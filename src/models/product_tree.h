@@ -3,9 +3,9 @@
 
 #include "tree.h"
 
-int maximum(FILE *dataFile);
+int maximum(FILE *dataFile, int this);
 
-int minimum(FILE *dataFile);
+int minimum(FILE *dataFile, int this);
 
 int insertProduct(FILE *dataFile, Product *product);
 

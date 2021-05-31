@@ -33,7 +33,8 @@ int actionSearchProductByCode(FILE *dataFile) {
 }
 
 int actionListProducts(FILE *dataFile) {
-    
+    printHead("Imprimindo a Arvore em ordem crescente");
+    printInOrder(dataFile);
     printWaitMenu();
     return 1;
 }
@@ -44,6 +45,8 @@ int actionPrintTree(FILE *dataFile) {
 }
 
 int actionPrintFreeSpaces(FILE *dataFile) {
+    printHead("Imprimindo a Arvore em niveis");
+    printByLevel(dataFile);
     printWaitMenu();
     return 1;
 }

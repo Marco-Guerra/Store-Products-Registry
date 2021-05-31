@@ -12,8 +12,8 @@
 #define INPUT_FILE
 
 #include "product_tree.h"
+#include <ctype.h>
 
-#define WHITE_SPACE ' '
 #define FILE_PATH_NAME 100
 
 enum inputFileOperations {

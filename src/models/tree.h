@@ -26,6 +26,8 @@ enum nodeData {
 
 Node *allocNode();
 
+int isEmpty(FILE *dataFile);
+
 void writeHead(Head *head, FILE *dataFile);
 
 Head *readHead(FILE *dataFile);
@@ -38,6 +40,8 @@ void writeNodeField(int value, int nodeData, int position, FILE *dataFile);
 
 int readNodeField(int nodeData, int position, FILE *dataFile);
 
+Product* readNodeProduct(FILE *dataFile, int position);
+
 FILE *makeDataFile(char *filePath);
 
 int writeNode(FILE *dataFile, Node *node, int position);
@@ -49,5 +53,15 @@ Node* readNode(FILE *dataFile, int position);
 int insertNode(FILE *dataFile, Node *node);
 
 int removeNode(FILE *dataFile, int position);
+
+
+void printInOrder(FILE *dataFile);
+
+void printInOrderRec(FILE *dataFile, int this);
+
+void printByLevel(FILE *dataFile);
+
+void printByLevelRec(FILE *dataFile, int this);
+
 
 #endif

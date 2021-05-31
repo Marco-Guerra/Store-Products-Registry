@@ -45,6 +45,8 @@ Product* allocProduct();
 
 void printProduct(Product *product);
 
+void printBasicProduct(Product *product);
+
 Product* scanProduct();
 
 #endif

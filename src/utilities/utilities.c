@@ -80,7 +80,7 @@ void printHead(const char *message) {
     printLine();
 }
 
-void printAlignedRight(const char *message) {
+void printAlignedLeft(const char *message) {
     printf("|%s", message);
     // -2 por causa dos |
     printExtended(' ', SIZE_LINE - strlen(message) - 2);
@@ -100,7 +100,7 @@ void printAlignedCenter(const char *message) {
     printf("|\n");
 }
 
-void printAlignedLeft(const char *message) {
+void printAlignedRight(const char *message) {
     printf("|");
     printExtended(' ', (SIZE_LINE - (strlen(message) + 2)));
     printf("%s|\n", message);

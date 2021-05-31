@@ -26,6 +26,13 @@ void printProduct(Product *product) {
     printf("Local: %s.\n\n", product->local);
 }
 
+void printBasicProduct(Product *product) {
+    // 10 digitos maximos de um int, 19 caracteres a mais da string
+    char buffer[19 + 10 + MAX_NAME + 1];
+    sprintf(buffer, "    Nome: %s Code: %d", product->name, product->code);
+    printAlignedLeft(buffer);
+}
+
 Product* scanProduct() {
     Product* product = (Product *)malloc(sizeof(Product));
     printf("\nNome: ");

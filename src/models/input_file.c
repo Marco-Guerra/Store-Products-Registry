@@ -1,7 +1,7 @@
 /**
  * @file input_file.c
  * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
- * @brief 
+ * @brief Arquivo responsável por ler o arquivo de entrada
  * @version 0.1
  * @date 30/05/2021
  * 
@@ -24,7 +24,7 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
         switch(line[0]) {
             case INPUT_FILE_INSERT: insertFornLine(line, dataFile);
                 break;
-            case INPUT_FILE_MODIFY: modifyFornLine(line, dataFile);
+            case INPUT_FILE_MODIFY: //modifyFornLine(line, dataFile);
                 break;
             case INPUT_FILE_REMOVE: removeFromLine(line, dataFile);
                 break;

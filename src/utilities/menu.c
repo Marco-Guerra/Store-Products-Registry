@@ -126,7 +126,7 @@ int controlMenu(Menu *menu, FILE *dataFile) {
 
 void printMenu(Menu *menu) {
     printLine();
-    printAlignedRight(" Menu Principal");
+    printAlignedCenter(" Menu Principal");
     printLine();
     if (emptyEntryQueue(menu->queue)) {
         printAlignedRight("[vazia]");

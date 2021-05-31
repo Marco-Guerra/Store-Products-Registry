@@ -12,6 +12,10 @@ Node *allocNode() {
     return node;
 }
 
+int isEmpty(FILE *dataFile) {
+    return readHeadField(OFFSET_REG_ROOT, dataFile) == -1;
+}
+
 void writeHead(Head *head, FILE *dataFile) {
     fseek(dataFile, 0, SEEK_SET);
     fwrite(head, sizeof(Head), 1, dataFile);
@@ -46,6 +50,13 @@ int readNodeField(int nodeData, int position, FILE *dataFile) {
     fseek(dataFile, sizeof(Head) + position * sizeof(Node) + nodeData, SEEK_SET);
     fread(&value, sizeof(int), 1, dataFile);
     return value;
+}
+
+Product* readNodeProduct(FILE *dataFile, int position) {
+    Product *product = (Product *)malloc(sizeof(Product));
+    fseek(dataFile, sizeof(Head) + position * sizeof(Node), SEEK_SET);
+    fread(product, sizeof(Product), 1, dataFile);
+    return product;
 }
 
 FILE *makeDataFile(char *filePath) {
@@ -105,4 +116,31 @@ int removeNode(FILE *dataFile, int position) {
     writeNode(dataFile, node, position);
     free(node);
     return 0;
+}
+
+void printInOrder(FILE *dataFile) {
+    if (isEmpty(dataFile))
+        printf("Arvore vazia.\n");
+    else
+        printInOrderRec(dataFile, readHeadField(OFFSET_REG_ROOT, dataFile));
+}
+
+void printInOrderRec(FILE *dataFile, int this) {
+    if (this == -1)
+        return;
+    printInOrderRec(dataFile, readNodeField(OFFSET_NODE_LEFT, this, dataFile));
+    Product *product = readNodeProduct(dataFile, this);
+    printBasicProduct(product);
+    free(product);
+    printInOrderRec(dataFile, readNodeField(OFFSET_NODE_RIGHT, this, dataFile));
+}
+
+void printByLevel(FILE *dataFile) {
+    if (isEmpty(dataFile))
+        printf("Arvore vazia.\n");
+    else
+        printByLevelRec(dataFile, readHeadField(OFFSET_REG_ROOT, dataFile));
+}
+
+void printByLevelRec(FILE *dataFile, int this) {
 }

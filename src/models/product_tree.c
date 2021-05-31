@@ -1,28 +1,19 @@
 #include "product_tree.h"
 
-int maximum(FILE *dataFile){
-    Head *head = readHead(dataFile);
-    int position = head->regRoot;
-    free(head);
-    if(position == -1)
-        return -1;
-    Node *node;
-    while(position != -1) {
-        node = readNode(dataFile, position);
-        position = node->rChild;
-        free(node);
-    }
-    return position;
+int maximum(FILE *dataFile, int this){
+    if (this == -1) return -1;
+    int position;
+    while ((position = readNodeField(OFFSET_NODE_RIGHT, this, dataFile)) != -1)
+        this = position;
+    return this;
 }
 
-int minimum(FILE *dataFile){ ////////////////////////////// <- volta aqui
-    int position = readHeadField(OFFSET_REG_ROOT, dataFile);
-    if(position == -1)
-        return -1;
-    while(position != -1) {
-        position = readNodeField(OFFSET_NODE_LEFT, position, dataFile);
-    }
-    return position;
+int minimum(FILE *dataFile, int this){
+    if (this == -1) return -1;
+    int position;
+    while ((position = readNodeField(OFFSET_NODE_LEFT, this, dataFile)) != -1)
+        this = position;
+    return this;
 }
 
 int insertProduct(FILE *dataFile, Product *product) {
@@ -72,17 +63,42 @@ int updateProduct(FILE *dataFile, int position, Product *product) {
 }
 
 int removeProduct(FILE *dataFile, int code) {
-    Head *head = readHead(dataFile);
-    int regRoot = 0;
-    if(head->regRoot == -1) {
+    if (isEmpty(dataFile))
         return -1;
-    }else{
-        return 0;//removeProductRec(dataFile, this, code);
-    }
+    return removeProductRec(dataFile,
+                            readHeadField(OFFSET_REG_ROOT, dataFile),
+                            code);
 }
 
 int removeProductRec(FILE *dataFile, int this, int code) {
-
+    if (this == -1) return -1;
+    int thisCode = readNodeField(OFFSET_NODE_CODE, this, dataFile);
+    int leftChild = readNodeField(OFFSET_NODE_LEFT, this, dataFile);
+    int rightChild = readNodeField(OFFSET_NODE_RIGHT, this, dataFile);
+    printf("%d\n", thisCode);
+    printf("%d\n", leftChild);
+    printf("%d\n", rightChild);
+    if (code < thisCode) {
+        leftChild = removeProductRec(dataFile, leftChild, code);
+    } else if (code > thisCode) {
+        rightChild = removeProductRec(dataFile, rightChild,  code);
+    } else {
+        if (leftChild == -1 && rightChild == -1) {
+            removeNode(dataFile, this);
+            this = leftChild = rightChild = -1;
+        } else if (leftChild == -1) {
+            thisCode = minimum(dataFile, rightChild);
+            rightChild = removeProductRec(dataFile, rightChild, thisCode);
+        } else {
+            thisCode = maximum(dataFile, leftChild);
+            leftChild = removeProductRec(dataFile, leftChild, thisCode);
+        }
+    }
+    if (this != -1) {
+        writeNodeField(rightChild, OFFSET_NODE_RIGHT, this, dataFile);
+        writeNodeField(leftChild, OFFSET_NODE_LEFT, this, dataFile);
+    }
+    return this;
 }
 
 int searchProductByCode(FILE *dataFile, int code) {
@@ -93,17 +109,14 @@ int searchProductByCode(FILE *dataFile, int code) {
 }
 
 int searchProductByCodeRec(FILE *dataFile, int this, int code) {
-    if(this == -1)
-        return -1;
+    if (this == -1) return -1;
     Node *node = readNode(dataFile, this);
     int thisCode = node->product.code;
     int rChild = node->rChild;
     int lChild = node->lChild;
     free(node);
-    if(thisCode > code)
-        return searchProductByCodeRec(dataFile, lChild, code);
-    if(thisCode < code)
-        return searchProductByCodeRec(dataFile, rChild, code);
+    if (thisCode > code) return searchProductByCodeRec(dataFile, lChild, code);
+    if (thisCode < code) return searchProductByCodeRec(dataFile, rChild, code);
     return this;
 }
 
@@ -115,13 +128,12 @@ int searchProductByName(FILE *dataFile, char *name) {
 }
 
 int searchProductByNameRec(FILE *dataFile, int this, char *name) {
-    if(this == -1)
-        return -1;
+    if (this == -1) return -1;
     Node *node = readNode(dataFile, this);
     int rChild = node->rChild;
     int lChild = node->lChild;
     free(node);
-    if(strcmp(name, node->product.name) == 0)
-        return this;
-    return searchProductByNameRec(dataFile, lChild, name) + searchProductByNameRec(dataFile, rChild, name) + 1;
+    if (strcmp(name, node->product.name) == 0) return this;
+    return searchProductByNameRec(dataFile, lChild, name) +
+           searchProductByNameRec(dataFile, rChild, name) + 1;
 }
