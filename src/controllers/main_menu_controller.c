@@ -1,9 +1,12 @@
 /**
- * @file controle_principal.c
+ * @file main_menu_controller.c
  * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
- * @brief Arquivo responsável por implementar as funções que controlam o menu principal, bem como a chamada de todas as funções a partir do mesmo
+ * @brief 
  * @version 0.1
  * @date 04/05/2021
+ * 
+ * @copyright Copyright (c) 2021
+ * 
  */
 
 #include "main_menu_controller.h"

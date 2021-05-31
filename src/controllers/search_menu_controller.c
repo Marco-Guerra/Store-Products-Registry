@@ -110,7 +110,7 @@ int actionPrintTree(FILE *dataFile) {
  * @post Nenhuma
  */
 int actionPrintFreeSpaces(FILE *dataFile) {
-    printHead("freee ererer");
+    printHead("Espacos livres");
     printWaitMenu();
     return 1;
 }

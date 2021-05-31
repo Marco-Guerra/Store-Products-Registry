@@ -12,6 +12,7 @@
 #define INPUT_FILE
 
 #include "../utilities/menu.h"
+#include "../utilities/utilities.h"
 #include "product_tree.h"
 #include <ctype.h>
 
@@ -32,5 +33,7 @@ void modifyFornLine(char *line, FILE *dataFile);
 void removeFromLine(char *line, FILE *dataFile);
 
 char *trim(char *line);
+
+void formatLine(char *line);
 
 #endif

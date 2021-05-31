@@ -61,6 +61,9 @@
  */
 #define DOWN 's'
 
+/**
+ * @brief 
+ */
 #define MESSAGE_SIZE 101
 
 /**
@@ -68,6 +71,13 @@
  */
 #define SIZE_LINE 101
 
+/**
+ * @brief Lê um único caractere do teclado (stdin)
+ *
+ * @return char caractere lido
+ * @pre buffer de escrita ne tela (stdout) limpo
+ * @post stdin limpo
+ */
 char getChar();
 
 void reset(char *str, int size);

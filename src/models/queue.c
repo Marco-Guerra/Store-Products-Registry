@@ -1,9 +1,12 @@
 /**
- * @file fila.c
+ * @file queue.c
  * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
- * @brief Biblioteca responsável por implementar uma fila de inteiros genérica, bem como suas funções
+ * @brief 
  * @version 0.1
  * @date 03/05/2021
+ * 
+ * @copyright Copyright (c) 2021
+ * 
  */
 
 #include "queue.h"

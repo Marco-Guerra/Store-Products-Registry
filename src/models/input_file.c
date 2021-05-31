@@ -10,7 +10,6 @@
  */
 
 #include "input_file.h"
-#include "../utilities/utilities.h"
 
 /**
  * @brief 
@@ -29,6 +28,7 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
     char *line = (char*)malloc(sizeof(char)*MAX_ENTRY_LINE);
     while(fgets(line, MAX_ENTRY_LINE, inputFile) != NULL) {
         line = trim(line);
+        formatLine(line);
         switch(line[0]) {
             case INPUT_FILE_INSERT: insertFornLine(line, dataFile);
                 break;
@@ -39,6 +39,14 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
         }
     }
     fclose(inputFile);
+}
+
+void formatLine(char *line) {
+    for(; *line; line++) {
+        if(*line == ',') {
+            *line = '.';
+        }
+    }
 }
 
 /**
@@ -52,7 +60,7 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
 void insertFornLine(char *line, FILE *dataFile) { //////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ <- volta aqui, e faz certo 
     Product *product = (Product*)malloc(sizeof(Product));
     printf("%s\n", line);
-    sscanf(line, "%*c;%d;%[^;];%d;%f;%s",
+    sscanf(line, "%*c;%d;%[^;];%d;%f;%[^\n]",
         &(product->code),
         product->name,
         &(product->number),
