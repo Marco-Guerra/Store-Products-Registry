@@ -271,7 +271,7 @@ int removeNode(FILE *dataFile, int position) {
  */
 void printInOrder(FILE *dataFile) {
     if (isEmpty(dataFile))
-        printf("Arvore vazia.\n");
+        printAlignedCenter("Arvore vazia.\n");
     else
         printInOrderRec(dataFile, readHeadField(OFFSET_REG_ROOT, dataFile));
 }
@@ -303,7 +303,7 @@ void printInOrderRec(FILE *dataFile, int this) {
  */
 void printByLevel(FILE *dataFile) {
     if(isEmpty(dataFile)) {
-        printf("Arvore vazia.\n");
+        printAlignedCenter("Arvore vazia.\n");
         return;
     }
     int next = readHeadField(OFFSET_REG_ROOT, dataFile);
@@ -328,4 +328,34 @@ void printByLevel(FILE *dataFile) {
         if((read = readNodeField(OFFSET_NODE_RIGHT, next, dataFile)) != -1)
             insertQueue(queue, read, ++current_height);
     }
+}
+
+/**
+ * @brief Imprime no menu todas as posições livres
+ * 
+ * @param dataFile 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
+void printFreeSpaces(FILE *dataFile) {
+    int firstFreeNode;
+    if (isEmpty(dataFile)) {
+        printAlignedCenter("Arvore vazia.\n");
+        return;
+    }
+    if((firstFreeNode = readHeadField(OFFSET_REG_FREE, dataFile)) == -1) {
+        printAlignedCenter("Nao existe posicoes livres no arquivo");
+        return;
+    }
+    printFreeSpacesRec(dataFile, firstFreeNode);
+}
+
+void printFreeSpacesRec(FILE *dataFile, int this) {
+    if (this == -1)
+        return ;
+    char buffer[21];
+    sprintf(buffer, "%d", this);
+    printAlignedLeft(buffer);
+    printFreeSpacesRec(dataFile,
+                       readNodeField(OFFSET_NODE_RIGHT, this, dataFile));
 }

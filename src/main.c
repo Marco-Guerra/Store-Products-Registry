@@ -17,6 +17,7 @@
  * 
  * ola mundo
  */
+
 int main(int argc, char *argv[]) {
     char filePath[] = "./data.bin";
     FILE *dataFile = fopen(filePath, "r+b");

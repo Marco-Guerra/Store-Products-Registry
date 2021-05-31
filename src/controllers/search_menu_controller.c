@@ -111,6 +111,7 @@ int actionPrintTree(FILE *dataFile) {
  */
 int actionPrintFreeSpaces(FILE *dataFile) {
     printHead("Espacos livres");
+    printFreeSpaces(dataFile);
     printWaitMenu();
     return 1;
 }
