@@ -143,8 +143,6 @@ int removeProduct(FILE *dataFile, int code) {
  * @post Nenhuma
  */
 int removeProductRec(FILE *dataFile, int this, int code) {
-    printf("%d\t%d\n", this, code);
-    printWaitMenu();
     if(this == -1) return -1;
     int thisCode = readNodeField(OFFSET_NODE_CODE, this, dataFile);
     int leftChild = readNodeField(OFFSET_NODE_LEFT, this, dataFile);
@@ -179,7 +177,11 @@ int removeProductRec(FILE *dataFile, int this, int code) {
             );
             free(product);
             writeNodeField(
-                removeProductRec(dataFile, rightChild, thisCode),
+                removeProductRec(
+                    dataFile,
+                    rightChild,
+                    readNodeField(OFFSET_NODE_CODE, this, dataFile)
+                ),
                 OFFSET_NODE_RIGHT,
                 this,
                 dataFile
@@ -196,7 +198,11 @@ int removeProductRec(FILE *dataFile, int this, int code) {
             );
             free(product);
             writeNodeField(
-                removeProductRec(dataFile, leftChild, thisCode),
+                removeProductRec(
+                    dataFile,
+                    leftChild,
+                    readNodeField(OFFSET_NODE_CODE, this, dataFile)
+                ),
                 OFFSET_NODE_LEFT,
                 this,
                 dataFile

@@ -98,7 +98,7 @@ int removeQueue(Queue * queue) {
     if (head == queue->tail) {
         queue->tail = NULL;
     }
-    queue->tail = queue->tail->prox;
+    queue->head = queue->head->prox;
     free(head);
     queue->size--;
     return position;

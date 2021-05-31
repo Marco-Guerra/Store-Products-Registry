@@ -61,8 +61,8 @@ void printInOrderRec(FILE *dataFile, int this);
 
 void printByLevel(FILE *dataFile);
 
-void printFreeSpaces(FILE *dataFile);
+void printFree(FILE *dataFile);
 
-void printFreeSpacesRec(FILE *dataFile, int this);
+void printFreeRec(FILE *dataFile, int this);
 
 #endif
