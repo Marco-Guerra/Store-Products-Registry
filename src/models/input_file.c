@@ -32,7 +32,7 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
         switch(line[0]) {
             case INPUT_FILE_INSERT: insertFornLine(line, dataFile);
                 break;
-            case INPUT_FILE_MODIFY: //modifyFornLine(line, dataFile);
+            case INPUT_FILE_MODIFY: modifyFornLine(line, dataFile);
                 break;
             case INPUT_FILE_REMOVE: removeFromLine(line, dataFile);
                 break;
@@ -97,10 +97,53 @@ void modifyFornLine(char *line, FILE *dataFile) {
     char strNumber[20];
     char strValue[40];
     char strLocal[MAX_LOCAL];
-    sscanf(line, "%*c;[^;];[^;];[^;];[^\n]", strCode, strNumber, strValue, strLocal);
-    printf("%s\n%s\n%s\n%s\n%s\n", line, strCode, strNumber, strValue, strLocal);
+    //sscanf(line, "%*c;%[^;];%[^;];%[^;];%[^\n]", strCode, strNumber, strValue, strLocal);
+    //printf("%s|\n%s|\n%s|\n%s|\n%s|\n", line, strCode, strNumber, strValue, strLocal);
+    //sscanf(line, "%*c;%[^;];%[^;]", strCode, strNumber);
+    //printf("linha :|%s|\ncode : |%s|\nnumber: |%s|\nv: |%s|\n",
+            //line, strCode, strNumber, strValue);
+    splitLine(line, &node->product.code, &node->product.number,
+            &node->product.value, node->product.local);
+    printProduct(&node->product);
     writeNode(dataFile, node, position);
     free(node);
+}
+
+void splitLine(char *line, int * code, int *number, float *value, char *local) {
+    int i = 0;
+    char *buffer = getInside(line);
+    if (buffer[0] != '\0')
+        sscanf(buffer, "%d", code);
+    line += strlen(buffer);
+    free(buffer);
+
+    buffer = getInside(line);
+    if (buffer[0] != '\0')
+        sscanf(buffer, "%d", number);
+    line += strlen(buffer);
+    free(buffer);
+
+    buffer = getInside(line);
+    if (buffer[0] != '\0')
+        sscanf(buffer, "%f", value);
+    line += strlen(buffer);
+    free(buffer);
+
+    buffer = getInside(line);
+    if (buffer[0] != '\0')
+        sscanf(buffer, "%s", local);
+    line += strlen(buffer);
+    free(buffer);
+}
+
+char *getInside(char *line) {
+    char *buffer = (char *)malloc(sizeof(char) * MAX_LOCAL);
+    int i = 0;
+    for(; line[i] != ';' && line[i] != '\n'; i++) {
+        buffer[i] = line[i];
+    }
+    buffer[i] = '\0';
+    return buffer;
 }
 
 /**

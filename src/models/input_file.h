@@ -90,4 +90,8 @@ void removeFromLine(char *line, FILE *dataFile);
  */
 char *trim(char *line);
 
+void splitLine(char *line, int * code, int *number, float *value, char *local);
+
+char *getInside(char *line);
+
 #endif
