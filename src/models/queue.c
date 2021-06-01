@@ -3,7 +3,7 @@
  * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
  * @brief Biblioteca responsável por definir uma fila de inteiros
  * genérica, bem como suas funções.
- * @version 0.1
+ * @version 1.0
  * @date 03/05/2021
  * 
  * @copyright Copyright (c) 2021
