@@ -44,6 +44,9 @@
  * Tais definições estão no arquivo utilities.h, podendo ser alteradas caso seja mais conveniente.
  *
  * @section estruturas Principais estruturas de Dados
+ * - Menu
+ * - Head
+ * - Node
  * - Product
  */
 
