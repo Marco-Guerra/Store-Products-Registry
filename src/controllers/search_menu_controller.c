@@ -58,7 +58,7 @@ int actionSearchProductByName(FILE *dataFile) {
  */
 int actionSearchProductByCode(FILE *dataFile) {
     int code, position;
-    printf("Insira o codigo do produto: ");
+    printf("\tInsira o codigo do produto: ");
     scanf("%d%*c", &code);
     if((position = searchProductByCode(dataFile, code)) != -1) {
         Product *product = readNodeProduct(dataFile, position);

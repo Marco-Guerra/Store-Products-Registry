@@ -270,7 +270,7 @@ int removeNode(FILE *dataFile, int position) {
  */
 void printInOrder(FILE *dataFile) {
     if (isEmpty(dataFile))
-        printAlignedCenter("Arvore vazia.\n");
+        printAlignedCenter("Arvore vazia.");
     else
         printInOrderRec(dataFile, readHeadField(OFFSET_REG_ROOT, dataFile));
 }
@@ -308,7 +308,7 @@ void printInOrderRec(FILE *dataFile, int this) {
  */
 void printByLevel(FILE *dataFile) {
     if(isEmpty(dataFile)) {
-        printAlignedCenter("Arvore vazia.\n");
+        printAlignedCenter("Arvore vazia.");
         return;
     }
     int next = readHeadField(OFFSET_REG_ROOT, dataFile);
@@ -324,7 +324,7 @@ void printByLevel(FILE *dataFile) {
             previous_height = current_height;
             printf("\n\tNivel %d: ", current_height);
         }
-        printf("  %d", readNodeField(OFFSET_NODE_CODE, next, dataFile));
+        printf("/t%d", readNodeField(OFFSET_NODE_CODE, next, dataFile));
         if((read = readNodeField(OFFSET_NODE_LEFT, next, dataFile)) != -1)
             insertQueue(queue, read, current_height + 1);
         if((read = readNodeField(OFFSET_NODE_RIGHT, next, dataFile)) != -1)

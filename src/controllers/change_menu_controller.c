@@ -38,17 +38,17 @@ int changeMenuController(FILE *dataFile) {
  */
 int actionChangeNumber(FILE *dataFile) {
     int code, position;
-    printf("Indique o codigo do produto: ");
+    printf("\tIndique o codigo do produto: ");
     scanf("%d", &code);
     if((position = searchProductByCode(dataFile, code)) != -1) {
         Product *product = readNodeProduct(dataFile, position);
-        printf("Indique o numero de produtos em estoque: ");
+        printf("\tIndique o numero de produtos em estoque: ");
         scanf("%d%*c", &(product->number));
         if(confirm())
             updateProduct(dataFile, position, product);
         free(product);
     }else{
-        printf("Produto nao encontrado.");
+        printf("Produto nao encontrado.\n");
     }
     printWaitMenu();
     return 1;
@@ -64,7 +64,7 @@ int actionChangeNumber(FILE *dataFile) {
  */
 int actionChangeValue(FILE *dataFile) {
     int code, position;
-    printf("Indique o codigo do produto: ");
+    printf("\tIndique o codigo do produto: ");
     scanf("%d", &code);
     if((position = searchProductByCode(dataFile, code)) != -1) {
         Product *product = readNodeProduct(dataFile, position);
@@ -74,7 +74,7 @@ int actionChangeValue(FILE *dataFile) {
             updateProduct(dataFile, position, product);
         free(product);
     }else{
-        printf("Produto nao encontrado.");
+        printf("Produto nao encontrado.\n");
     }
     printWaitMenu();
     return 1;
@@ -90,7 +90,7 @@ int actionChangeValue(FILE *dataFile) {
  */
 int actionChangeLocal(FILE *dataFile) {
     int code, position;
-    printf("Indique o codigo do produto: ");
+    printf("\tIndique o codigo do produto: ");
     scanf("%d%*c", &code);
     if((position = searchProductByCode(dataFile, code)) != -1) {
         Product *product = readNodeProduct(dataFile, position);
@@ -100,7 +100,7 @@ int actionChangeLocal(FILE *dataFile) {
             updateProduct(dataFile, position, product);
         free(product);
     }else{
-        printf("Produto nao encontrado.");
+        printf("Produto nao encontrado.\n");
     }
     printWaitMenu();
     return 1;

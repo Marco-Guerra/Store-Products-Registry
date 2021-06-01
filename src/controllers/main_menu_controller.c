@@ -83,7 +83,7 @@ int actionChange(FILE *dataFile) {
  */
 int actionLoad(FILE *dataFile) {
     char inputPath[FILE_PATH_NAME];
-    printf("Nome de arquivo de entrada: ");
+    printf("\tNome de arquivo de entrada: ");
     scanf("%s", inputPath);
     loadInputFile(inputPath, dataFile);
     printWaitMenu();
@@ -100,12 +100,12 @@ int actionLoad(FILE *dataFile) {
  */
 int actionRemove(FILE *dataFile) {
     int code;
-    printf("Codigo do produto: ");
-    scanf("%d", &code);
+    printf("\tCodigo do produto: ");
+    scanf("%d%*c", &code);
     if(removeProduct(dataFile, code) != -1)
-        printf("Produto removido com sucesso.");
+        printf("Produto removido com sucesso.\n");
     else
-        printf("Produto nao encontrado.");
+        printf("Produto nao encontrado.\n");
     printWaitMenu();
     return 1;
 }

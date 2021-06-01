@@ -136,11 +136,17 @@ int updateProduct(FILE *dataFile, int position, Product *product) {
  * @post Nenhuma
  */
 int removeProduct(FILE *dataFile, int code) {
-    return removeProductRec(
+    int ret = removeProductRec(
         dataFile,
         readHeadField(OFFSET_REG_ROOT, dataFile),
         code
     );
+    writeHeadField(
+        ret,
+        OFFSET_REG_ROOT,
+        dataFile
+    );
+    return ret;
 }
 
 /**

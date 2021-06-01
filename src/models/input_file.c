@@ -88,59 +88,44 @@ void insertFornLine(char *line, FILE *dataFile) {
 void modifyFornLine(char *line, FILE *dataFile) {
     Node *node;
     int code, position;
-    sscanf(line, "%*c;%d", &code);
-    position = searchProductByCode(dataFile, code);
-    if(position == -1)
+    char *buffer = (char*)malloc(sizeof(char)*MAX_ENTRY_LINE);
+    sscanf(line, "%*c;%d;%[^\n]", &code, line);
+    if((position = searchProductByCode(dataFile, code)) == -1)
         return;
     node = readNode(dataFile, position);
-    char strCode[20];
-    char strNumber[20];
-    char strValue[40];
-    char strLocal[MAX_LOCAL];
-    //sscanf(line, "%*c;%[^;];%[^;];%[^;];%[^\n]", strCode, strNumber, strValue, strLocal);
-    //printf("%s|\n%s|\n%s|\n%s|\n%s|\n", line, strCode, strNumber, strValue, strLocal);
-    //sscanf(line, "%*c;%[^;];%[^;]", strCode, strNumber);
-    //printf("linha :|%s|\ncode : |%s|\nnumber: |%s|\nv: |%s|\n",
-            //line, strCode, strNumber, strValue);
-    splitLine(line, &node->product.code, &node->product.number,
-            &node->product.value, node->product.local);
-    printProduct(&node->product);
+    getFromLine(
+        line,
+        &node->product.number,
+        &node->product.value,
+        node->product.local
+    );
     writeNode(dataFile, node, position);
     free(node);
 }
 
-void splitLine(char *line, int * code, int *number, float *value, char *local) {
-    int i = 0;
+void getFromLine(char *line, int *number, float *value, char *local) {
     char *buffer = getInside(line);
     if (buffer[0] != '\0')
-        sscanf(buffer, "%d", code);
-    line += strlen(buffer);
-    free(buffer);
-
-    buffer = getInside(line);
-    if (buffer[0] != '\0')
         sscanf(buffer, "%d", number);
-    line += strlen(buffer);
+    line += (strlen(buffer) + 1);
     free(buffer);
 
     buffer = getInside(line);
     if (buffer[0] != '\0')
         sscanf(buffer, "%f", value);
-    line += strlen(buffer);
+    line += (strlen(buffer) + 1);
     free(buffer);
 
-    buffer = getInside(line);
-    if (buffer[0] != '\0')
-        sscanf(buffer, "%s", local);
-    line += strlen(buffer);
-    free(buffer);
+    if (line[0] != '\0')
+        strcpy(local, line);
 }
 
 char *getInside(char *line) {
-    char *buffer = (char *)malloc(sizeof(char) * MAX_LOCAL);
+    char *buffer = (char *)malloc(sizeof(char) * MAX_ENTRY_LINE);
     int i = 0;
-    for(; line[i] != ';' && line[i] != '\n'; i++) {
+    while(line[i] != ';' && line[i] != '\n' && line[i] != '\0') {
         buffer[i] = line[i];
+        i++;
     }
     buffer[i] = '\0';
     return buffer;
