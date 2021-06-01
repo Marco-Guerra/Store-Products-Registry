@@ -1,7 +1,7 @@
 /**
  * @file tree.c
  * @author Victor Emanuel Almeida (victoralmeida2001@hotmail.com)
- * @brief 
+ * @brief Arquivo responsável por implementar a arvore no arquivo
  * @version 0.1
  * @date 31/05/2021
  * 
@@ -12,7 +12,7 @@
 #include "tree.h"
 
 /**
- * @brief 
+ * @brief aloca um nó da arvore zerado
  * 
  * @return Node* 
  * @pre Nenhuma
@@ -31,7 +31,7 @@ Node *allocNode() {
 }
 
 /**
- * @brief 
+ * @brief Verifica se a arvore está vazia
  * 
  * @param dataFile 
  * @return int 
@@ -43,7 +43,7 @@ int isEmpty(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Escreve o cabeçalho do arquivo
  * 
  * @param head 
  * @param dataFile 
@@ -56,7 +56,7 @@ void writeHead(Head *head, FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Lê o cabeçalho do arquivo
  * 
  * @param dataFile 
  * @return Head* 
@@ -71,7 +71,7 @@ Head *readHead(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Escreve o um campo do cabeçalho do arquivo
  * 
  * @param value 
  * @param headData 
@@ -85,7 +85,7 @@ void writeHeadField(int value, int headData, FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Lê o um campo do cabeçalho do arquivo
  * 
  * @param headData 
  * @param dataFile 
@@ -101,7 +101,7 @@ int readHeadField(int headData, FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Escreve o um campo do nó da arvore no arquivo
  * 
  * @param value 
  * @param nodeData 
@@ -116,7 +116,7 @@ void writeNodeField(int value, int nodeData, int position, FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Lê o um campo do nó da arvore no arquivo
  * 
  * @param nodeData 
  * @param position 
@@ -134,6 +134,7 @@ int readNodeField(int nodeData, int position, FILE *dataFile) {
 
 /**
  * @brief 
+ * @brief Lê o produto de um nó da arvore no arquivo
  * 
  * @param dataFile 
  * @param position 
@@ -149,7 +150,7 @@ Product* readNodeProduct(FILE *dataFile, int position) {
 }
 
 /**
- * @brief 
+ * @brief Cria o Arquivo binário se ele não existe
  * 
  * @param filePath 
  * @return FILE* 
@@ -167,7 +168,7 @@ FILE *makeDataFile(char *filePath) {
 }
 
 /**
- * @brief 
+ * @brief Escreve um nó
  * 
  * @param dataFile 
  * @param node 
@@ -183,7 +184,7 @@ int writeNode(FILE *dataFile, Node *node, int position) {
 }
 
 /**
- * @brief 
+ * @brief Cria um nó da arvore a partir de um produto
  * 
  * @param product 
  * @param rChild 
@@ -201,7 +202,7 @@ Node *makeNode(Product *product, int rChild, int lChild) {
 }
 
 /**
- * @brief 
+ * @brief Lê um nó do arquivo
  * 
  * @param dataFile 
  * @param position 
@@ -217,7 +218,7 @@ Node *readNode(FILE *dataFile, int position) {
 }
 
 /**
- * @brief 
+ * @brief Insere um nó do arquivo
  * 
  * @param dataFile 
  * @param node 
@@ -244,7 +245,7 @@ int insertNode(FILE *dataFile, Node *node) {
 }
 
 /**
- * @brief 
+ * @brief Remove um nó do arquivo
  * 
  * @param dataFile 
  * @param position 
@@ -262,7 +263,7 @@ int removeNode(FILE *dataFile, int position) {
 }
 
 /**
- * @brief 
+ * @brief Chama a função que imprime a arvore caso ela não seja vazia
  * 
  * @param dataFile 
  * @pre Nenhuma
@@ -276,7 +277,7 @@ void printInOrder(FILE *dataFile) {
 }
 
 /**
- * @brief 
+ * @brief Imprime em ordem crescende de código a arvore
  * 
  * @param dataFile 
  * @param this 
@@ -300,7 +301,7 @@ void printInOrderRec(FILE *dataFile, int this) {
 }
 
 /**
- * @brief 
+ * @brief Imprime a arvore em níveis
  * 
  * @param dataFile 
  * @pre Nenhuma
@@ -334,7 +335,7 @@ void printByLevel(FILE *dataFile) {
 }
 
 /**
- * @brief Imprime no menu todas as posições livres
+ * @brief Tenta imprimir no menu todas as posições livres
  * 
  * @param dataFile 
  * @pre Nenhuma
@@ -347,6 +348,14 @@ void printFree(FILE *dataFile) {
     );
 }
 
+/**
+ * @brief Imprime no menu todas as posições livres
+ * 
+ * @param dataFile 
+ * @param this 
+ * @pre Nenhuma
+ * @post Nenhuma
+ */
 void printFreeRec(FILE *dataFile, int this) {
     if (this == -1)
         return ;
