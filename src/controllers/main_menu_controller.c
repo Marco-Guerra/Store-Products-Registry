@@ -20,14 +20,12 @@
  */
 int mainMenuController(FILE *dataFile) {
     Menu *mainMenu = createMenu();
-    
     addEntryToMenu(mainMenu, "Inserir produto.", actionInsert);
     addEntryToMenu(mainMenu, "Buscar produto.", actionSearch);
     addEntryToMenu(mainMenu, "Cambiar informacao de produto.", actionChange);
     addEntryToMenu(mainMenu, "Carregar lista de produtos.", actionLoad);
     addEntryToMenu(mainMenu, "Remover produto.", actionRemove);
     addEntryToMenu(mainMenu, "Fechar programa.", actionClose);
-    
     controlMenu(mainMenu, dataFile);
     return 1;
 }
@@ -104,11 +102,10 @@ int actionRemove(FILE *dataFile) {
     int code;
     printf("Codigo do produto: ");
     scanf("%d", &code);
-    if(removeProduct(dataFile, code) != -1) {
+    if(removeProduct(dataFile, code) != -1)
         printf("Produto removido com sucesso.");
-    }else{
+    else
         printf("Produto nao encontrado.");
-    }
     printWaitMenu();
     return 1;
 }

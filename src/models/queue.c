@@ -34,8 +34,7 @@ int emptyQueue(Queue *queue) {
 Queue* createQueue() {
     Queue *newQueue = (Queue *)malloc(sizeof(Queue));
     newQueue->size = 0;
-    newQueue->head = NULL;
-    newQueue->tail = NULL;
+    newQueue->head = newQueue->tail = NULL;
     return newQueue;
 }
 
@@ -74,11 +73,10 @@ void insertQueue(Queue *queue, int position, int tabs) {
     newTail->position = position;
     newTail->tabs = tabs;
     newTail->prox = NULL;
-    if (emptyQueue(queue)) {
+    if (emptyQueue(queue))
         queue->head = newTail;
-    }else {
+    else
         queue->tail->prox = newTail;
-    }
     queue->size++;
     queue->tail = newTail;
 }
@@ -93,9 +91,8 @@ void insertQueue(Queue *queue, int position, int tabs) {
 int removeQueue(Queue * queue) {
     QueueNode *head = queue->head;
     int position = head->position;
-    if (head == queue->tail) {
+    if (head == queue->tail)
         queue->tail = NULL;
-    }
     queue->head = queue->head->prox;
     free(head);
     queue->size--;
@@ -116,9 +113,9 @@ void printQueue(Queue *queue) {
     printLine();
     printAlignedRight("Conteudo da Fila");
     printLine();
-    if (emptyQueue(queue)) {
+    if(emptyQueue(queue)) {
         printAlignedRight("[vazia]");
-    }else {
+    }else{
         printf("|");
         printQueueTail(queue->head, queue->tail);
         printf("|\n");
@@ -135,9 +132,9 @@ void printQueue(Queue *queue) {
  * @post Fila no console
  */
 void printQueueTail(QueueNode *start, QueueNode *end) {
-    if (start == end) {
+    if(start == end) {
         printf("|%d", start->position);
-    }else {
+    }else{
         printf("|%d ", start->position);
         printQueueTail(start->prox, end);
     }

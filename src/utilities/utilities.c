@@ -135,9 +135,8 @@ void printAlignedCenter(const char *message) {
     printExtended(' ', space);
     printf("%s", message);
     printExtended(' ', space);
-    if (!(sizeRead % 2)) {
+    if (!(sizeRead % 2))
         printf(" ");
-    }
     printf("|\n");
 }
 

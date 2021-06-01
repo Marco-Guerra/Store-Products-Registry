@@ -21,14 +21,12 @@
  */
 int searchMenuController(FILE *dataFile) {
     Menu *searchMenu = createMenu();
-    
     //addEntryToMenu(searchMenu, "Buscar produto por nome.", actionSearchProductByName);
     addEntryToMenu(searchMenu, "Buscar produto por codigo.", actionSearchProductByCode);
     addEntryToMenu(searchMenu, "Listar produtos.", actionListProducts);
     addEntryToMenu(searchMenu, "Mostrar arvore.", actionPrintTree);
     addEntryToMenu(searchMenu, "Mostrar espacos livres.", actionPrintFreeSpaces);
     addEntryToMenu(searchMenu, "Voltar.", actionSearchReturn);
-    
     controlMenu(searchMenu, dataFile);
     return 1;
 }

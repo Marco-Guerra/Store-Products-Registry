@@ -50,11 +50,9 @@ void loadInputFile(char *inputPath, FILE *dataFile) {
  * @post Linha formatado
  */
 void formatLine(char *line) {
-    for(; *line; line++) {
-        if(*line == ',') {
+    for(; *line; line++)
+        if(*line == ',')
             *line = '.';
-        }
-    }
 }
 
 /**

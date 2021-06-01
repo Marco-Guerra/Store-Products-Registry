@@ -160,9 +160,8 @@ FILE *makeDataFile(char *filePath) {
     FILE *dataFile = fopen(filePath, "w+b");
     setbuf(dataFile, NULL);
     Head head;
-    head.regRoot = -1;
+    head.regRoot = head.regFree = -1;
     head.regLast = 0;
-    head.regFree = -1;
     writeHead(&head, dataFile);
     return dataFile;
 }
@@ -287,11 +286,17 @@ void printInOrder(FILE *dataFile) {
 void printInOrderRec(FILE *dataFile, int this) {
     if (this == -1)
         return;
-    printInOrderRec(dataFile, readNodeField(OFFSET_NODE_LEFT, this, dataFile));
-    Product *product = readNodeProduct(dataFile, this);
-    printBasicProduct(product);
+    printInOrderRec(
+        dataFile,
+        readNodeField(OFFSET_NODE_LEFT, this, dataFile)
+    );
+    Product *product;
+    printBasicProduct(product = readNodeProduct(dataFile, this));
     free(product);
-    printInOrderRec(dataFile, readNodeField(OFFSET_NODE_RIGHT, this, dataFile));
+    printInOrderRec(
+        dataFile,
+        readNodeField(OFFSET_NODE_RIGHT, this, dataFile)
+    );
 }
 
 /**
@@ -320,12 +325,10 @@ void printByLevel(FILE *dataFile) {
             printf("\n\tNivel %d: ", current_height);
         }
         printf("  %d", readNodeField(OFFSET_NODE_CODE, next, dataFile));
-        if((read = readNodeField(OFFSET_NODE_LEFT, next, dataFile)) != -1) {
+        if((read = readNodeField(OFFSET_NODE_LEFT, next, dataFile)) != -1)
             insertQueue(queue, read, current_height + 1);
-        }
-        if((read = readNodeField(OFFSET_NODE_RIGHT, next, dataFile)) != -1) {
+        if((read = readNodeField(OFFSET_NODE_RIGHT, next, dataFile)) != -1)
             insertQueue(queue, read, current_height + 1);
-        }
     }
     printf("\n\n");
 }
@@ -338,7 +341,10 @@ void printByLevel(FILE *dataFile) {
  * @post Nenhuma
  */
 void printFree(FILE *dataFile) {
-    printFreeRec(dataFile, readHeadField(OFFSET_REG_FREE, dataFile));
+    printFreeRec(
+        dataFile,
+        readHeadField(OFFSET_REG_FREE, dataFile)
+    );
 }
 
 void printFreeRec(FILE *dataFile, int this) {
@@ -348,5 +354,8 @@ void printFreeRec(FILE *dataFile, int this) {
     sprintf(buffer, "%d", this);
     printAlignedLeft(buffer);
     free(buffer);
-    printFreeRec(dataFile, readNodeField(OFFSET_NODE_RIGHT, this, dataFile));
+    printFreeRec(
+        dataFile,
+        readNodeField(OFFSET_NODE_RIGHT, this, dataFile)
+    );
 }

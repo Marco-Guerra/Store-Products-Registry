@@ -20,11 +20,8 @@
  */
 EntryQueue* createEntryQueue() {
     EntryQueue *newQueue = (EntryQueue *)malloc(sizeof(EntryQueue));
-
+    newQueue->head = newQueue->tail = NULL;
     newQueue->size = 0;
-    newQueue->head = NULL;
-    newQueue->tail = NULL;
-
     return newQueue;
 }
 
@@ -73,14 +70,11 @@ int sizeEntryQueue(EntryQueue *queue) {
  */
 int removeEntryQueue(EntryQueue *queue) {
     EntryNode *head = queue->head;
-    if (head == queue->tail) {
+    if (head == queue->tail)
         queue->tail = NULL;
-    }
     queue->tail = queue->tail->prox;
     free(head);
-    queue->size--;
-
-    return queue->size;
+    return --queue->size;
 }
 
 /**
@@ -98,13 +92,10 @@ void insertEntryQueue(EntryQueue *queue, char *message, TypeFunct *funct) {
     newTail->funct = funct;
     strcpy(newTail->entryMessage, message);
     newTail->prox = NULL;
-
-    if (emptyEntryQueue(queue)) {
+    if (emptyEntryQueue(queue))
         queue->head = newTail;
-    }else {
+    else
         queue->tail->prox = newTail;
-    }
-
     queue->size++;
     queue->tail = newTail;
 }
@@ -118,8 +109,7 @@ void insertEntryQueue(EntryQueue *queue, char *message, TypeFunct *funct) {
  */
 Menu *createMenu() {
     Menu* menu = (Menu *)malloc(sizeof(Menu));
-    menu->options = 0;
-    menu->thisOption = 0;
+    menu->options = menu->thisOption = 0;
     menu->queue = createEntryQueue();
     return menu;
 }
@@ -171,14 +161,10 @@ int executeEntry(EntryQueue *queue, int option, FILE *dataFile) {
  */
 int controlMenu(Menu *menu, FILE *dataFile) {
     char c;
-
     while(1) {
         system(CLEAR);
-
         printMenu(menu);
-
         c = getChar();
-        
         if (c == UP) {
             if(menu->thisOption > 0)
                 menu->thisOption--;    
@@ -212,11 +198,10 @@ void printMenu(Menu *menu) {
     printLine();
     printAlignedCenter(" Menu Principal");
     printLine();
-    if (emptyEntryQueue(menu->queue)) {
+    if(emptyEntryQueue(menu->queue))
         printAlignedRight("[vazia]");
-    }else {
+    else
         printEntryQueueTail(menu->queue->head, menu->queue->tail, menu->thisOption);
-    }
     printLine();
 }
 
@@ -230,14 +215,12 @@ void printMenu(Menu *menu) {
  */
 void printOption(const char* message, int selected) {
     printf("| [");
-    if(selected) {
+    if(selected)
         printf("x");
-    }else {
+    else
         printf(" ");
-    }
     printf("] %s", message);
-    // 6 caracteres antes da mensagem e 1 depois
-    printExtended(' ', SIZE_LINE - (strlen(message) + 7));
+    printExtended(' ', SIZE_LINE - (strlen(message) + 7)); // 6 caracteres antes da mensagem e 1 depois
     printf("|\n");
 }
 
@@ -252,9 +235,8 @@ void printOption(const char* message, int selected) {
  */
 void printEntryQueueTail(EntryNode *start, EntryNode *end, int i) {
     printOption(start->entryMessage, 0 == i);
-    if (start != end) {
+    if (start != end)
         printEntryQueueTail(start->prox, end, --i);
-    }
 }
 
 /**
@@ -265,7 +247,6 @@ void printEntryQueueTail(EntryNode *start, EntryNode *end, int i) {
  */
 void printWaitMenu() {
     printLine();
-    // imprime uma linha em branco
     printf("|%*s|\n", SIZE_LINE - 2, "");
     printf("|%*s|\n", SIZE_LINE - 2, "");
     printAlignedCenter("Pressione [Enter] para continuar");
