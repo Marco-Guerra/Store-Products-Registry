@@ -79,7 +79,7 @@ int emptyEntryQueue(EntryQueue *queue);
 int sizeEntryQueue(EntryQueue *queue);
 
 /**
- * @brief 
+ * @brief Remove um dos itens do menu
  * 
  * @param queue ponteiro para uma estrutura que contém as informações de uma fila
  * @return int 
