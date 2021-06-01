@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Controle de Estoque: Referência do Arquivo main_menu_controller.c</title>
+<title>Controle de Estoque: Referência do Arquivo main_menu_controller.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,39 +68,46 @@ $(function() {
   <div class="summary">
 <a href="#func-members">Funções</a>  </div>
   <div class="headertitle">
-<div class="title">Referência do Arquivo main_menu_controller.c</div>  </div>
+<div class="title">Referência do Arquivo main_menu_controller.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="main__menu__controller_8h_source.html">main_menu_controller.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+<div class="textblock"><code>#include &quot;../utilities/menu.h&quot;</code><br />
+<code>#include &quot;../utilities/utilities.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="input__file_8h_source.html">../models/input_file.h</a>&quot;</code><br />
+<code>#include &quot;../models/product_tree.h&quot;</code><br />
+<code>#include &quot;search_menu_controller.h&quot;</code><br />
+<code>#include &quot;change_menu_controller.h&quot;</code><br />
+</div>
+<p><a href="main__menu__controller_8h_source.html">Vá para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:a1e6e4f99eb06c830cc7a27a4d8505c83"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8c.html#a1e6e4f99eb06c830cc7a27a4d8505c83">mainMenuController</a> (FILE *dataFile)</td></tr>
-<tr class="memdesc:a1e6e4f99eb06c830cc7a27a4d8505c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere no menu principal cada função necessaria.  <a href="main__menu__controller_8c.html#a1e6e4f99eb06c830cc7a27a4d8505c83">Mais...</a><br /></td></tr>
+<tr class="memitem:a1e6e4f99eb06c830cc7a27a4d8505c83"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8h.html#a1e6e4f99eb06c830cc7a27a4d8505c83">mainMenuController</a> (FILE *dataFile)</td></tr>
+<tr class="memdesc:a1e6e4f99eb06c830cc7a27a4d8505c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere no menu principal cada função necessaria.  <a href="main__menu__controller_8h.html#a1e6e4f99eb06c830cc7a27a4d8505c83">Mais...</a><br /></td></tr>
 <tr class="separator:a1e6e4f99eb06c830cc7a27a4d8505c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae04fc1177c3e554d6c9cf2aa6822db03"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8c.html#ae04fc1177c3e554d6c9cf2aa6822db03">actionInsert</a> (FILE *dataFile)</td></tr>
-<tr class="memdesc:ae04fc1177c3e554d6c9cf2aa6822db03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere produto no arquivo.  <a href="main__menu__controller_8c.html#ae04fc1177c3e554d6c9cf2aa6822db03">Mais...</a><br /></td></tr>
+<tr class="memitem:ae04fc1177c3e554d6c9cf2aa6822db03"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8h.html#ae04fc1177c3e554d6c9cf2aa6822db03">actionInsert</a> (FILE *dataFile)</td></tr>
+<tr class="memdesc:ae04fc1177c3e554d6c9cf2aa6822db03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere produto no arquivo.  <a href="main__menu__controller_8h.html#ae04fc1177c3e554d6c9cf2aa6822db03">Mais...</a><br /></td></tr>
 <tr class="separator:ae04fc1177c3e554d6c9cf2aa6822db03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1c31bc32e09db391d321377f6534bc0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8c.html#aa1c31bc32e09db391d321377f6534bc0">actionSearch</a> (FILE *dataFile)</td></tr>
-<tr class="memdesc:aa1c31bc32e09db391d321377f6534bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">chama funçao responsavel em realizar a busca pelo produto  <a href="main__menu__controller_8c.html#aa1c31bc32e09db391d321377f6534bc0">Mais...</a><br /></td></tr>
+<tr class="memitem:aa1c31bc32e09db391d321377f6534bc0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8h.html#aa1c31bc32e09db391d321377f6534bc0">actionSearch</a> (FILE *dataFile)</td></tr>
+<tr class="memdesc:aa1c31bc32e09db391d321377f6534bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">chama funçao responsavel em realizar a busca pelo produto  <a href="main__menu__controller_8h.html#aa1c31bc32e09db391d321377f6534bc0">Mais...</a><br /></td></tr>
 <tr class="separator:aa1c31bc32e09db391d321377f6534bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c9c51e94c782ec79af6f385ff5f69d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8c.html#a5c9c51e94c782ec79af6f385ff5f69d8">actionChange</a> (FILE *dataFile)</td></tr>
-<tr class="memdesc:a5c9c51e94c782ec79af6f385ff5f69d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">chama funçao responsavel em realizar a atualizaçao dos componentes do produto  <a href="main__menu__controller_8c.html#a5c9c51e94c782ec79af6f385ff5f69d8">Mais...</a><br /></td></tr>
+<tr class="memitem:a5c9c51e94c782ec79af6f385ff5f69d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8h.html#a5c9c51e94c782ec79af6f385ff5f69d8">actionChange</a> (FILE *dataFile)</td></tr>
+<tr class="memdesc:a5c9c51e94c782ec79af6f385ff5f69d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">chama funçao responsavel em realizar a atualizaçao dos componentes do produto  <a href="main__menu__controller_8h.html#a5c9c51e94c782ec79af6f385ff5f69d8">Mais...</a><br /></td></tr>
 <tr class="separator:a5c9c51e94c782ec79af6f385ff5f69d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d55a8c280efa9114933c71af135d87a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8c.html#a2d55a8c280efa9114933c71af135d87a">actionLoad</a> (FILE *dataFile)</td></tr>
-<tr class="memdesc:a2d55a8c280efa9114933c71af135d87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Roda arquivo.  <a href="main__menu__controller_8c.html#a2d55a8c280efa9114933c71af135d87a">Mais...</a><br /></td></tr>
+<tr class="memitem:a2d55a8c280efa9114933c71af135d87a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8h.html#a2d55a8c280efa9114933c71af135d87a">actionLoad</a> (FILE *dataFile)</td></tr>
+<tr class="memdesc:a2d55a8c280efa9114933c71af135d87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Roda arquivo.  <a href="main__menu__controller_8h.html#a2d55a8c280efa9114933c71af135d87a">Mais...</a><br /></td></tr>
 <tr class="separator:a2d55a8c280efa9114933c71af135d87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a266ed43641950288b602564331dcf9ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8c.html#a266ed43641950288b602564331dcf9ec">actionRemove</a> (FILE *dataFile)</td></tr>
-<tr class="memdesc:a266ed43641950288b602564331dcf9ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove produto.  <a href="main__menu__controller_8c.html#a266ed43641950288b602564331dcf9ec">Mais...</a><br /></td></tr>
+<tr class="memitem:a266ed43641950288b602564331dcf9ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8h.html#a266ed43641950288b602564331dcf9ec">actionRemove</a> (FILE *dataFile)</td></tr>
+<tr class="memdesc:a266ed43641950288b602564331dcf9ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove produto.  <a href="main__menu__controller_8h.html#a266ed43641950288b602564331dcf9ec">Mais...</a><br /></td></tr>
 <tr class="separator:a266ed43641950288b602564331dcf9ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dff1e3be45d09f2109bef7b97768cf8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8c.html#a0dff1e3be45d09f2109bef7b97768cf8">actionClose</a> (FILE *dataFile)</td></tr>
-<tr class="memdesc:a0dff1e3be45d09f2109bef7b97768cf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">chama função responsavel por imprimir a mensagem que indica o encerramento do programa  <a href="main__menu__controller_8c.html#a0dff1e3be45d09f2109bef7b97768cf8">Mais...</a><br /></td></tr>
+<tr class="memitem:a0dff1e3be45d09f2109bef7b97768cf8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__menu__controller_8h.html#a0dff1e3be45d09f2109bef7b97768cf8">actionClose</a> (FILE *dataFile)</td></tr>
+<tr class="memdesc:a0dff1e3be45d09f2109bef7b97768cf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">chama função responsavel por imprimir a mensagem que indica o encerramento do programa  <a href="main__menu__controller_8h.html#a0dff1e3be45d09f2109bef7b97768cf8">Mais...</a><br /></td></tr>
 <tr class="separator:a0dff1e3be45d09f2109bef7b97768cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Victor Emanuel Almeida (<a href="#" onclick="location.href='mai'+'lto:'+'vic'+'to'+'ral'+'me'+'ida'+'20'+'01@'+'ho'+'tma'+'il'+'.co'+'m'; return false;">victo<span style="display: none;">.nosp@m.</span>ralm<span style="display: none;">.nosp@m.</span>eida2<span style="display: none;">.nosp@m.</span>001@<span style="display: none;">.nosp@m.</span>hotma<span style="display: none;">.nosp@m.</span>il.c<span style="display: none;">.nosp@m.</span>om</a>) </dd></dl>
-<dl class="section version"><dt>Versão</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Data</dt><dd>04/05/2021</dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>28/05/2021</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2021 </dd></dl>
 </div><h2 class="groupheader">Funções</h2>
 <a id="a5c9c51e94c782ec79af6f385ff5f69d8"></a>
