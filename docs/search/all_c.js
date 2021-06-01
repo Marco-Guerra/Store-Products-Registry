@@ -7,6 +7,5 @@ var searchData=
   ['searchproductbyname_91',['searchProductByName',['../product__tree_8c.html#ac6801d807b40da4a649f5372cfb274c6',1,'product_tree.c']]],
   ['searchproductbynamerec_92',['searchProductByNameRec',['../product__tree_8c.html#a9ba361b54ea11a10c4845cf629dc284c',1,'product_tree.c']]],
   ['sizeentryqueue_93',['sizeEntryQueue',['../menu_8c.html#a13f249c3402204bac44ff9cd2c1e1722',1,'menu.c']]],
-  ['sizequeue_94',['sizeQueue',['../queue_8c.html#ad465134862c84d916b404b223adf0c94',1,'queue.c']]],
-  ['store_20products_20registry_95',['Store Products Registry',['../index.html',1,'']]]
+  ['sizequeue_94',['sizeQueue',['../queue_8c.html#ad465134862c84d916b404b223adf0c94',1,'queue.c']]]
 ];

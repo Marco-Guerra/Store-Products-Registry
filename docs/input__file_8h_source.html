@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Controle de Estoque: Código-Fonte de input_file.h</title>
+<title>Store Products Registry: Código-Fonte de input_file.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Controle de Estoque
+   <div id="projectname">Store Products Registry
    </div>
   </td>
  </tr>
@@ -98,13 +98,13 @@ $(function() {
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">char</span> *<a class="code" href="input__file_8h.html#a2029b048f081fd08533dc612e962fcdf">trim</a>(<span class="keywordtype">char</span> *line);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordtype">void</span> splitLine(<span class="keywordtype">char</span> *line, <span class="keywordtype">int</span> * code, <span class="keywordtype">int</span> *number, <span class="keywordtype">float</span> *value, <span class="keywordtype">char</span> *local);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordtype">void</span> getFromLine(<span class="keywordtype">char</span> *line, <span class="keywordtype">int</span> *number, <span class="keywordtype">float</span> *value, <span class="keywordtype">char</span> *local);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordtype">char</span> *getInside(<span class="keywordtype">char</span> *line);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ainput__file_8h_html_a13df5998f5a50b7768b1c372c06cb7c7"><div class="ttname"><a href="input__file_8h.html#a13df5998f5a50b7768b1c372c06cb7c7">removeFromLine</a></div><div class="ttdeci">void removeFromLine(char *line, FILE *dataFile)</div><div class="ttdoc">Remove um elemento do estoque.</div><div class="ttdef"><b>Definition:</b> input_file.c:157</div></div>
-<div class="ttc" id="ainput__file_8h_html_a2029b048f081fd08533dc612e962fcdf"><div class="ttname"><a href="input__file_8h.html#a2029b048f081fd08533dc612e962fcdf">trim</a></div><div class="ttdeci">char * trim(char *line)</div><div class="ttdoc">Remove espaços em branco da linha.</div><div class="ttdef"><b>Definition:</b> input_file.c:171</div></div>
+<div class="ttc" id="ainput__file_8h_html_a13df5998f5a50b7768b1c372c06cb7c7"><div class="ttname"><a href="input__file_8h.html#a13df5998f5a50b7768b1c372c06cb7c7">removeFromLine</a></div><div class="ttdeci">void removeFromLine(char *line, FILE *dataFile)</div><div class="ttdoc">Remove um elemento do estoque.</div><div class="ttdef"><b>Definition:</b> input_file.c:142</div></div>
+<div class="ttc" id="ainput__file_8h_html_a2029b048f081fd08533dc612e962fcdf"><div class="ttname"><a href="input__file_8h.html#a2029b048f081fd08533dc612e962fcdf">trim</a></div><div class="ttdeci">char * trim(char *line)</div><div class="ttdoc">Remove espaços em branco da linha.</div><div class="ttdef"><b>Definition:</b> input_file.c:156</div></div>
 <div class="ttc" id="ainput__file_8h_html_a2c8dc843f0eb84e5799ad00891d62135"><div class="ttname"><a href="input__file_8h.html#a2c8dc843f0eb84e5799ad00891d62135">insertFornLine</a></div><div class="ttdeci">void insertFornLine(char *line, FILE *dataFile)</div><div class="ttdoc">Insere um novo produto a partir dos dados carregados de uma linha.</div><div class="ttdef"><b>Definition:</b> input_file.c:66</div></div>
 <div class="ttc" id="ainput__file_8h_html_a8ba3e4e79865f28ac7ffd9da7caf2450"><div class="ttname"><a href="input__file_8h.html#a8ba3e4e79865f28ac7ffd9da7caf2450">formatLine</a></div><div class="ttdeci">void formatLine(char *line)</div><div class="ttdoc">formata a linha para que seja possivel obter os dados</div><div class="ttdef"><b>Definition:</b> input_file.c:52</div></div>
 <div class="ttc" id="ainput__file_8h_html_ab96321927078d8cf6741711b33be14ce"><div class="ttname"><a href="input__file_8h.html#ab96321927078d8cf6741711b33be14ce">modifyFornLine</a></div><div class="ttdeci">void modifyFornLine(char *line, FILE *dataFile)</div><div class="ttdoc">Modifica um elemento do estoque.</div><div class="ttdef"><b>Definition:</b> input_file.c:88</div></div>

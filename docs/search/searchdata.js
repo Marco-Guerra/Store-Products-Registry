@@ -6,8 +6,7 @@ var indexSectionsWithContent =
   3: "acefilmprstuw",
   4: "lnv",
   5: "i",
-  6: "f",
-  7: "s"
+  6: "f"
 };
 
 var indexSectionNames =
@@ -18,8 +17,7 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "enums",
-  6: "defines",
-  7: "pages"
+  6: "defines"
 };
 
 var indexSectionLabels =
@@ -30,7 +28,6 @@ var indexSectionLabels =
   3: "Funções",
   4: "Variáveis",
   5: "Enumerações",
-  6: "Definições e Macros",
-  7: "Páginas"
+  6: "Definições e Macros"
 };
 

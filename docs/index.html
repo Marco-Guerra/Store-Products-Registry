@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Controle de Estoque: Store Products Registry</title>
+<title>Store Products Registry: Página Principal</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Controle de Estoque
+   <div id="projectname">Store Products Registry
    </div>
   </td>
  </tr>
@@ -62,10 +62,37 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Store Products Registry </div>  </div>
+<div class="title">Store Products Registry Documentação</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>ola mundo </p>
+<div class="textblock"><p>Software desenvolvido como segundo trabalho da disciplina de Algorítimos e Estruturas de Dados do curso de Ciência da Computação da UNIOESTE, Universidade Estadual do Oeste do Paraná, Campus de Foz do Iguaçu ministrada no ano de 2021, pelo professor Rômulo César Silva, pelos alunos Marco A. G. Pedroso, Milena L. dos Santos, Victor E. Almeida</p>
+<h1><a class="anchor" id="Objetivo"></a>
+Objetivo</h1>
+<p>Desenvolver um software em C que mantém o cadastro de uma loja de materiais utilizando:</p><ul>
+<li>Árvore binária;</li>
+<li>Leitura e escrita em arquivo binário;</li>
+<li>Leitura em arquivo texto;</li>
+</ul>
+<h1><a class="anchor" id="uso"></a>
+Instruções para uso</h1>
+<p>Para utilizar o programa o mesmo deve ser compilado, após isso deve-se executá-lo.</p>
+<h2><a class="anchor" id="compila"></a>
+Instruções para compilação</h2>
+<p>Caso esteja em um sistema operacional Linux, basta executar o shell script /src/compile.sh.</p>
+<p>Caso contrário é necessário o um sistema com o compilador GCC executando a seguinte linha, dentro da pasta src: gcc <a class="el" href="main_8c.html">main.c</a> <a class="el" href="change__menu__controller_8c.html">controllers/change_menu_controller.c</a> <a class="el" href="main__menu__controller_8c.html">controllers/main_menu_controller.c</a> <a class="el" href="search__menu__controller_8c.html">controllers/search_menu_controller.c</a> <a class="el" href="input__file_8c.html" title="Arquivo responsável por ler o arquivo de entrada.">models/input_file.c</a> models/product.c <a class="el" href="product__tree_8c.html">models/product_tree.c</a> <a class="el" href="queue_8c.html" title="Biblioteca responsável por definir uma fila de inteiros genérica, bem como suas funções.">models/queue.c</a> <a class="el" href="tree_8c.html" title="Arquivo responsável por implementar a arvore no arquivo.">models/tree.c</a> <a class="el" href="menu_8c.html">utilities/menu.c</a> utilities/utilities.c -o ../build/main.exe -lm</p>
+<h2><a class="anchor" id="roda"></a>
+Instruções para Execução</h2>
+<p>Uma vez executado, será aberto um menu que espera a entrada de um único caractere de entrada do usuário, podendo ser:</p><ul>
+<li>w: o item selecionado será o imediatamente acima do atual.</li>
+<li>s: o item selecionado será o imediatamente abaixo do atual.</li>
+<li>outro: Entrada inválida será descartada</li>
+</ul>
+<p>Tais definições estão no arquivo <a class="el" href="utilities_8h_source.html">utilities.h</a>, podendo ser alteradas caso seja mais conveniente.</p>
+<h1><a class="anchor" id="estruturas"></a>
+Principais estruturas de Dados</h1>
+<ul>
+<li><a class="el" href="structProduct.html" title="Estrutura que representa um único Produto em estoque.">Product</a> </li>
+</ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
